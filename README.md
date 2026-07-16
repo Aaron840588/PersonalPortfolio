@@ -114,4 +114,4 @@ Never add production credentials, private customer records, or unreviewed histor
 
 ## Deployment status
 
-This project is local only. The redesign has not been pushed, published, or deployed, and no external account or production environment has been modified.
+This project is deployed on Vercel and available at [personal-portfolio-alpha-silk-12.vercel.app](https://personal-portfolio-alpha-silk-12.vercel.app/).
