@@ -4,6 +4,10 @@ A minimalist editorial portfolio for Aaron Tagapan, a BS Information Systems gra
 
 The interface is intentionally quiet: a soft dark-neutral palette, restrained type scale, generous whitespace, thin rules, concise content, and large verified project screenshots. It avoids decorative diagrams, gradients, glass effects, card-heavy layouts, and continuous motion.
 
+## Deployment Status
+
+This project is deployed on Vercel and available at [personal-portfolio-alpha-silk-12.vercel.app](https://personal-portfolio-alpha-silk-12.vercel.app/).
+
 ## Routes
 
 | Route | Purpose |
@@ -28,46 +32,6 @@ The interface is intentionally quiet: a soft dark-neutral palette, restrained ty
 Tailwind CSS and `@tailwindcss/postcss` are not direct dependencies. The redesign uses authored CSS rather than a utility framework or project-specific PostCSS plugin.
 
 The portfolio has no database, CMS, analytics SDK, form backend, or dependency on either featured project's backend.
-
-## Run locally
-
-Requirements: Node.js 20.9 or newer and npm.
-
-```bash
-npm ci
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-On Windows PowerShell, use the command shims if script execution blocks `npm` or `npx`:
-
-```powershell
-npm.cmd ci
-npm.cmd run dev
-```
-
-## Validate and build
-
-```bash
-npm run lint
-npx tsc --noEmit
-npm audit --omit=dev
-npm run build
-npm run start
-```
-
-PowerShell equivalents:
-
-```powershell
-npm.cmd run lint
-npx.cmd tsc --noEmit
-npm.cmd audit --omit=dev
-npm.cmd run build
-npm.cmd run start
-```
-
-`NEXT_PUBLIC_SITE_URL` is optional locally and defaults to `http://localhost:3000`. Set it to the final HTTPS origin before any future deployment so canonical URLs, social metadata, structured data, the sitemap, and robots output use the correct domain.
 
 ## Source integrity
 
@@ -111,7 +75,3 @@ The case study uses freshly reviewed screenshots from a sanitized local demo. On
 The public synthetic demo was verified to launch. Core demo records are in memory and reset on refresh; custom service configuration can remain in local storage until the demo's Reset Demo action is used. Not every workflow was exhaustively retested.
 
 Never add production credentials, private customer records, or unreviewed historical screenshots to this portfolio.
-
-## Deployment status
-
-This project is deployed on Vercel and available at [personal-portfolio-alpha-silk-12.vercel.app](https://personal-portfolio-alpha-silk-12.vercel.app/).
