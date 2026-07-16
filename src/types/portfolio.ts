@@ -114,6 +114,8 @@ export interface ProjectMedia {
   readonly src: string
   readonly alt: string
   readonly caption: string
+  readonly width: number
+  readonly height: number
   readonly kind: "interface-screenshot" | "system-diagram"
   readonly evidence: readonly EvidenceKind[]
 }
@@ -186,7 +188,7 @@ export interface FeaturedProject extends ProjectBase {
   readonly repository: RepositoryInfo
   readonly demoStatus: DemoStatus
   readonly liveDemo: LiveDemo | undefined
-  readonly media: readonly ProjectMedia[]
+  readonly media: readonly [ProjectMedia, ...ProjectMedia[]]
   readonly caseStudy: ProjectCaseStudy
 }
 

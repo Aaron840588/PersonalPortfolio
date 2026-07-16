@@ -18,11 +18,11 @@ export function SectionHeader({
 
   return (
     <header className="section-heading">
-      <p className="eyebrow mono">{label ?? eyebrow}</p>
-      <div>
-        <h2 id={titleId}>{title}</h2>
-        {supportingText ? <p>{supportingText}</p> : null}
-      </div>
+      {label ?? eyebrow ? (
+        <p className="section-heading__label">{label ?? eyebrow}</p>
+      ) : null}
+      <h2 id={titleId}>{title}</h2>
+      {supportingText ? <p>{supportingText}</p> : null}
     </header>
   );
 }

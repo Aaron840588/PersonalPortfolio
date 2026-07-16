@@ -6,28 +6,43 @@ type ProjectMediaProps = {
   priority?: boolean;
   sizes?: string;
   className?: string;
+  linkToSource?: boolean;
 };
 
 export function ProjectMedia({
   media,
   priority = false,
-  sizes = "(max-width: 767px) 100vw, 60vw",
+  sizes = "(max-width: 47.99rem) calc(100vw - 2rem), 60vw",
   className,
+  linkToSource = false,
 }: ProjectMediaProps) {
-  const portrait = media.src.endsWith("/invoice-builder.png");
+  const image = (
+    <Image
+      src={media.src}
+      alt={media.alt}
+      width={media.width}
+      height={media.height}
+      sizes={sizes}
+      quality={90}
+      preload={priority}
+    />
+  );
 
   return (
     <figure className={`project-media${className ? ` ${className}` : ""}`}>
       <div className="project-media__image">
-        <Image
-          src={media.src}
-          alt={media.alt}
-          width={portrait ? 639 : 1280}
-          height={portrait ? 642 : 720}
-          sizes={sizes}
-          quality={90}
-          preload={priority}
-        />
+        {linkToSource ? (
+          <a
+            href={media.src}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open this screenshot at full size in a new tab"
+          >
+            {image}
+          </a>
+        ) : (
+          image
+        )}
       </div>
       <figcaption>{media.caption}</figcaption>
     </figure>

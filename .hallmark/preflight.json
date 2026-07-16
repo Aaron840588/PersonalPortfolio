@@ -1,0 +1,24 @@
+{
+  "scannedAt": "2026-07-16",
+  "framework": "Next.js 16.2.10 App Router",
+  "fontStack": {
+    "found": "Geist and Geist Mono through next/font",
+    "source": "src/app/layout.tsx",
+    "decision": "Overridden by explicit redesign approval: Newsreader, IBM Plex Sans, IBM Plex Mono"
+  },
+  "palette": {
+    "found": "Dark graphite with pale-lime accent",
+    "source": "src/app/globals.css",
+    "decision": "Overridden by explicit redesign approval: warm paper, graphite, restrained oxblood"
+  },
+  "motion": {
+    "found": "motion 12 with universal reveal and scroll progress",
+    "decision": "Motion-cut; retain only functional scroll progress and one first-paint entrance"
+  },
+  "spacing": {
+    "found": "Existing custom-property scale",
+    "decision": "Replace with locked 4-point Hallmark scale"
+  },
+  "designSystem": "design.md",
+  "tokenSource": "tokens.css"
+}
