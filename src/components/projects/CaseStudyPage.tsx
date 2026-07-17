@@ -119,8 +119,8 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
 
       <section className="case-tour shell" aria-labelledby="tour-heading">
         <header className="case-section-heading">
-          <h2 id="tour-heading">A guided product tour</h2>
-          <p>Three real views from the reviewed demo environment.</p>
+          <h2 id="tour-heading">A short project tour</h2>
+          <p>Three screenshots from the current demo.</p>
         </header>
 
         <ol className="workbench-tour">
@@ -133,7 +133,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
               <ProjectMedia
                 media={media}
                 priority={index === 0}
-                sizes="(max-width: 59.99rem) calc(100vw - 2rem), 70vw"
+                sizes="(max-width: 59.99rem) calc(100vw - 2rem), (max-width: 99.99rem) 70vw, 68rem"
                 className={media.height > media.width ? "project-media--portrait" : undefined}
                 linkToSource
               />
@@ -163,7 +163,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
 
       <section className="case-content shell" aria-labelledby="brief-heading">
         <header className="case-section-heading">
-          <h2 id="brief-heading">The operating brief</h2>
+          <h2 id="brief-heading">Project brief</h2>
         </header>
         <div className="case-brief">
           <div className="case-brief__lead">
@@ -195,18 +195,18 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
         </div>
       </section>
 
-      <section className="case-content shell" aria-labelledby="engineering-heading">
+      <section className="case-content shell" aria-labelledby="implementation-heading">
         <header className="case-section-heading">
-          <h2 id="engineering-heading">Engineering and reliability</h2>
-          <p>Implementation decisions tied to how the system behaves.</p>
+          <h2 id="implementation-heading">Implementation and checks</h2>
+          <p>The tools, technical choices, and verification behind the demo.</p>
         </header>
         <div className="case-ledger">
           <article className="case-ledger__row">
-            <h3>Technical implementation</h3>
+            <h3>Technical setup</h3>
             <ClaimList claims={project.caseStudy.technicalImplementation} />
           </article>
           <article className="case-ledger__row">
-            <h3>Testing and reliability</h3>
+            <h3>Checks and known behavior</h3>
             <ClaimList claims={project.caseStudy.testingAndReliability} />
           </article>
           <article className="case-ledger__row case-ledger__row--compact">
@@ -234,7 +234,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
         </div>
         {project.caseStudy.contentWarnings.map((warning) => (
           <p className="evidence-note" key={warning.text}>
-            <strong>Evidence boundary.</strong> {warning.text}
+            <strong>Note.</strong> {warning.text}
           </p>
         ))}
       </section>
@@ -252,8 +252,8 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
       </section>
 
       <footer className="route-footer shell">
-        <p>Yours,</p>
-        <p className="route-footer__name">Aaron</p>
+        <p>Aaron Tagapan</p>
+        <p className="route-footer__name">IT operations and systems</p>
         <p>
           <a href="mailto:aarontagapan@gmail.com">aarontagapan@gmail.com</a>
         </p>

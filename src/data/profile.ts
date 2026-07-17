@@ -6,15 +6,15 @@ export const profile = {
   initials: "AT",
   professionalLabel: "IT Operations · Systems · Business Technology",
   heroHeadline: {
-    text: "I make operational systems easier to understand and support.",
+    text: "Information Systems graduate focused on operations and support.",
     evidence: ["candidate-brief", "resume"],
   },
   professionalSummary: {
-    text: "BS Information Systems graduate with a foundation in IT operations, systems administration, software development, and AI workflow automation. Completed a 486-hour MIS internship at Gardenia Bakeries Philippines supporting enterprise documentation, QA testing, process analysis, and system improvements. Hands-on experience developing SaaS applications, CRM platforms, and AI-powered automation solutions using Python, Google ADK, Gemini API, MCP, and cloud-based application platforms. Seeking opportunities in IT operations, technical support, systems analysis, application support, and business technology roles.",
-    evidence: ["resume"],
+    text: "BS Information Systems graduate with experience in MIS documentation, process analysis, QA/UAT, and technical support. Completed a 486-hour MIS internship at Gardenia Bakeries Philippines. Uses AI-assisted coding tools to prototype personal projects around inventory, scheduling, billing, and workflow automation. Seeking entry-level roles in IT operations, application support, systems analysis, QA/UAT, and business technology.",
+    evidence: ["candidate-brief", "resume"],
   },
   about: {
-    text: "I am an Information Systems graduate interested in the point where technology, people, and everyday operations meet. My experience ranges from enterprise documentation and testing at Gardenia to building systems for inventory, scheduling, billing, customer management, and AI-assisted workflows.",
+    text: "I’m a recent Information Systems graduate with internship experience in documentation, process analysis, QA, and UAT. I also use AI-assisted coding tools to prototype workflow ideas, including the two personal projects shown here.",
     evidence: ["candidate-brief", "resume"],
   },
   availability: {

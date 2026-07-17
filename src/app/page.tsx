@@ -40,13 +40,13 @@ const capabilityGroups = [
     ],
   },
   {
-    title: "Development",
+    title: "AI-assisted prototyping",
     items: [
+      "AI-assisted coding",
       "Next.js",
       "React",
       "TypeScript",
       "Python",
-      "FastAPI",
       "Workflow automation",
     ],
   },
@@ -113,7 +113,7 @@ export default function Home() {
       <section id="work" className="home-work shell" aria-labelledby="work-heading">
         <header className="chapter-heading">
           <h2 id="work-heading">Selected work</h2>
-          <p>Two operational systems · 2026</p>
+          <p>Two personal projects · 2026</p>
         </header>
         <div className="project-list">
           {featuredProjects.map((project, index) => (
@@ -128,7 +128,7 @@ export default function Home() {
         aria-labelledby="experience-heading"
       >
         <header className="experience-section__heading">
-          <h2 id="experience-heading">Enterprise work</h2>
+          <h2 id="experience-heading">MIS internship</h2>
           <p>
             Documentation, analysis, and validation inside a working MIS team.
           </p>
@@ -163,10 +163,10 @@ export default function Home() {
       <section id="skills" className="background-section" aria-labelledby="skills-heading">
         <div className="shell background-section__inner">
           <header className="background-section__heading">
-            <h2 id="skills-heading">Working range</h2>
+            <h2 id="skills-heading">Skills and tools</h2>
             <p>
-              A practical toolkit for understanding a system, supporting its users,
-              and improving the workflow around it.
+              Tools I have used for support, documentation, testing, systems work,
+              and personal prototypes.
             </p>
           </header>
 
@@ -201,9 +201,9 @@ export default function Home() {
 
       <footer id="contact" className="letter-close shell" aria-labelledby="contact-heading">
         <div className="letter-close__body">
-          <p className="letter-close__salutation">For the right team,</p>
+          <p className="letter-close__salutation">Availability</p>
           <h2 id="contact-heading">
-            Open to roles where systems meet day-to-day operations.
+            Open to entry-level IT operations and systems support roles.
           </h2>
           <p>{profile.availability.text}</p>
           <a className="letter-close__email" href={`mailto:${profile.email}`}>
@@ -232,8 +232,8 @@ export default function Home() {
           </nav>
         </div>
         <div className="letter-close__signoff">
-          <p>Yours,</p>
-          <p className="letter-close__name">Aaron</p>
+          <p>Contact</p>
+          <p className="letter-close__name">Aaron Tagapan</p>
           <p>Los Baños, Laguna · 2026</p>
         </div>
       </footer>

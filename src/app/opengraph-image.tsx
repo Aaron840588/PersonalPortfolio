@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Aaron Tagapan — IT operations, systems, and business technology";
+export const alt = "Aaron Tagapan — Information Systems, operations, and support";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -64,7 +64,7 @@ export default function OpenGraphImage() {
                 letterSpacing: 1.6,
               }}
             >
-              IT OPERATIONS · SYSTEMS · BUSINESS TECHNOLOGY
+              IT OPERATIONS · SYSTEMS · SUPPORT
             </span>
             <span
               style={{
@@ -75,7 +75,7 @@ export default function OpenGraphImage() {
                 letterSpacing: -2.2,
               }}
             >
-              Operational systems, made easier to understand and support.
+              Information Systems graduate focused on operations and support.
             </span>
           </div>
 
@@ -115,7 +115,7 @@ export default function OpenGraphImage() {
           }}
         >
           <span>Los Baños, Laguna, Philippines</span>
-          <span>Selected systems and operating work</span>
+          <span>Experience and two personal projects</span>
         </div>
       </div>
     ),

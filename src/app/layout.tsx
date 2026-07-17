@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
 import { HeaderNavigation } from "@/components/navigation/HeaderNavigation";
-import { ScrollProgress } from "@/components/navigation/ScrollProgress";
-import { MotionProvider } from "@/components/motion/MotionProvider";
 import { getSiteUrl, siteDescription, siteName } from "@/lib/metadata";
 import "../../tokens.css";
 import "./globals.css";
@@ -134,11 +132,8 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
-        <MotionProvider>
-          <ScrollProgress />
-          <HeaderNavigation />
-          {children}
-        </MotionProvider>
+        <HeaderNavigation />
+        {children}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

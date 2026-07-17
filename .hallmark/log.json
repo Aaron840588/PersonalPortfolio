@@ -1,0 +1,14 @@
+[
+  {
+    "date": "2026-07-17",
+    "scope": "app",
+    "macrostructure": "Split Studio / Workbench / Long Document",
+    "theme": "Atelier",
+    "theme_axes": "light / roman-serif / warm",
+    "typography_override": "Newsreader / IBM Plex Sans / IBM Plex Mono",
+    "nav": "N9 Edge-aligned minimal",
+    "footer": "Ft6 Direct close",
+    "enrichment": "real project captures only",
+    "brief": "Aaron Tagapan portfolio · 1440p readability and performance pass"
+  }
+]

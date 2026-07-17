@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "Résumé",
   description:
-    "View or download Aaron Tagapan's résumé covering IT operations, systems, business analysis, QA/UAT, cloud platforms, and technical projects.",
+    "View or download Aaron Tagapan’s résumé covering IT operations, systems, business analysis, QA/UAT, cloud platforms, and AI-assisted personal projects.",
   path: "/resume",
 });
 
@@ -71,8 +71,8 @@ export default function ResumePage() {
       </div>
 
       <footer className="route-footer shell">
-        <p>Yours,</p>
-        <p className="route-footer__name">Aaron</p>
+        <p>Aaron Tagapan</p>
+        <p className="route-footer__name">IT operations and systems</p>
         <p>Los Baños, Laguna · 2026</p>
       </footer>
     </main>
