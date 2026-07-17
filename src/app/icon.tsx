@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+import { imageResponseTokens } from "@/lib/image-response-tokens";
+
 export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
@@ -12,11 +14,11 @@ export default function Icon() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "#f7ece2",
-        color: "#201513",
-        border: "2px solid #782222",
+        background: imageResponseTokens.color.paper,
+        color: imageResponseTokens.color.ink,
+        border: `2px solid ${imageResponseTokens.color.accent}`,
         borderTopWidth: 6,
-        fontFamily: "Arial, sans-serif",
+        fontFamily: imageResponseTokens.font.body,
         fontSize: 22,
         fontWeight: 700,
         letterSpacing: -1,

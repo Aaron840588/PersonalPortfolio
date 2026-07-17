@@ -36,7 +36,9 @@ restrained warm-accent discipline remains.
 
 - Display: Newsreader, variable weight 400, roman only.
 - Body: IBM Plex Sans, variable weight 425 with 600 for emphasis.
-- Mono/outlier: IBM Plex Mono, weights 400 and 500, metadata and captions only.
+- Mono/outlier: IBM Plex Mono, weights 400 and 500, limited to dates,
+  provenance, and compact technical metadata. Screenshot captions use the body
+  face so the outlier appears in no more than two roles on a page.
 - Display tracking: -0.035em.
 - Type scale anchors: `--text-base = 1.0625rem` and `--text-display = clamp(2.75rem, 7vw, 4.75rem)`.
 - No italic headings, decorative all-caps sections, or fourth font family.

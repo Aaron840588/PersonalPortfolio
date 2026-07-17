@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+import { imageResponseTokens } from "@/lib/image-response-tokens";
+
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
@@ -12,11 +14,11 @@ export default function AppleIcon() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "#f7ece2",
-        color: "#201513",
-        border: "5px solid #782222",
+        background: imageResponseTokens.color.paper,
+        color: imageResponseTokens.color.ink,
+        border: `5px solid ${imageResponseTokens.color.accent}`,
         borderTopWidth: 16,
-        fontFamily: "Arial, sans-serif",
+        fontFamily: imageResponseTokens.font.body,
         fontSize: 60,
         fontWeight: 700,
         letterSpacing: -3,
