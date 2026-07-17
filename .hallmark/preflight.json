@@ -13,7 +13,7 @@
   },
   "motion": {
     "found": "motion 12 with universal reveal and scroll progress",
-    "decision": "Motion-cut; retain only functional scroll progress and one first-paint entrance"
+    "decision": "Static-first; remove the client motion layer and keep only CSS interaction-state transitions"
   },
   "spacing": {
     "found": "Existing custom-property scale",

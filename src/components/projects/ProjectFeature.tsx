@@ -32,7 +32,8 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
       >
         <ProjectMedia
           media={project.media[0]}
-          sizes="(max-width: 59.99rem) calc(100vw - 2rem), 58vw"
+          priority={index === 1}
+          sizes="(max-width: 59.99rem) calc(100vw - 2rem), (max-width: 99.99rem) 58vw, 56rem"
         />
       </Link>
 

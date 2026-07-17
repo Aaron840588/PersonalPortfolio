@@ -24,6 +24,7 @@ restrained warm-accent discipline remains.
 - `--color-paper-2` oklch(91% 0.022 65)
 - `--color-ink` oklch(21% 0.018 35)
 - `--color-ink-2` oklch(32% 0.020 35)
+- `--color-muted` oklch(40% 0.020 35)
 - `--color-rule` oklch(77% 0.025 65)
 - `--color-accent` oklch(39% 0.120 25)
 - `--color-focus` oklch(47% 0.180 25)
@@ -32,23 +33,25 @@ restrained warm-accent discipline remains.
 ## Typography
 
 - Display: Newsreader, variable weight 400, roman only.
-- Body: IBM Plex Sans, variable weight 400 with 600 for emphasis.
+- Body: IBM Plex Sans, variable weight 425 with 600 for emphasis.
 - Mono/outlier: IBM Plex Mono, weights 400 and 500, metadata and captions only.
 - Display tracking: -0.035em.
-- Type scale anchor: `--text-display = clamp(2.75rem, 7vw, 4.5rem)`.
+- Type scale anchors: `--text-base = 1.0625rem` and `--text-display = clamp(2.75rem, 7vw, 4.75rem)`.
 - No italic headings, decorative all-caps sections, or fourth font family.
 
 ## Spacing
 
 4-point named scale. `tokens.css` is canonical. Layout code uses named spacing
 tokens; section rhythm deliberately varies instead of repeating one padded block.
+The editorial shell caps at 96rem so 1440p displays use their width without
+stretching reading measures beyond 62ch.
 
 ## Motion
 
-- Stance: motion-cut.
-- One restrained first-paint entrance; no universal scroll-triggered reveals.
-- Scroll progress is functional and transform-only.
-- Reduced-motion fallback: opacity-only, at most 150 ms.
+- Stance: static-first.
+- Content is fully visible at first paint; there are no scroll-triggered reveals.
+- Motion is limited to short color and pressed-state transitions on controls.
+- Reduced-motion collapses all nonessential transition duration.
 
 ## Microinteractions stance
 
@@ -111,9 +114,9 @@ tokens; section rhythm deliberately varies instead of repeating one padded block
   --space-md: 1.5rem;
   --space-lg: 2rem;
   --space-xl: 3rem;
-  --text-base: 1rem;
-  --text-md: 1.25rem;
-  --text-display: clamp(2.75rem, 7vw, 4.5rem);
+  --text-base: 1.0625rem;
+  --text-md: 1.3125rem;
+  --text-display: clamp(2.75rem, 7vw, 4.75rem);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-short: 220ms;
   --radius-card: 0;
@@ -140,8 +143,8 @@ tokens; section rhythm deliberately varies instead of repeating one padded block
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
-  --text-base: 1rem;
-  --text-md: 1.25rem;
+  --text-base: 1.0625rem;
+  --text-md: 1.3125rem;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --radius-card: 0;
 }
@@ -188,7 +191,7 @@ tokens; section rhythm deliberately varies instead of repeating one padded block
   --secondary: 87% 0.024 65;
   --secondary-foreground: 32% 0.020 35;
   --muted: 77% 0.025 65;
-  --muted-foreground: 44% 0.020 35;
+  --muted-foreground: 40% 0.020 35;
   --border: 77% 0.025 65;
   --input: 77% 0.025 65;
   --ring: 47% 0.180 25;

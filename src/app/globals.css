@@ -1,6 +1,6 @@
 /* Hallmark · genre: editorial · macrostructures: Split Studio / Workbench / Long Document · design-system: design.md · designed-as-app
  * theme: Atelier (Newsreader override) · nav: N9 Edge-aligned minimal · footer: Ft6 Letter close · enrichment: real project captures only
- * pre-emit critique: P5 H5 E4 S5 R5 V5 · contrast: pending · mobile: pending · slop: pending
+ * pre-emit critique: P5 H5 E4 S5 R5 V5 · contrast: pass · mobile: pass · slop: pass
  */
 /* Hallmark · genre: editorial · macrostructure: Split Studio · route: / · design-system: design.md · designed-as-app */
 /* Hallmark · genre: editorial · macrostructure: Workbench · routes: /work/* · design-system: design.md · designed-as-app */
@@ -33,6 +33,7 @@ body {
   font-size: var(--text-base);
   font-weight: var(--body-weight);
   line-height: 1.6;
+  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -148,16 +149,6 @@ button:disabled,
 
 .skip-link:focus {
   transform: none;
-}
-
-.scroll-progress {
-  position: fixed;
-  inset-block-start: 0;
-  inset-inline: 0;
-  z-index: var(--z-overlay);
-  height: var(--rule-fine);
-  background: var(--color-accent);
-  transform-origin: left center;
 }
 
 .site-header {
@@ -310,18 +301,6 @@ button:disabled,
 
 .home-hero__body {
   min-width: 0;
-  animation: home-entry var(--dur-long) var(--ease-out) both;
-}
-
-@keyframes home-entry {
-  from {
-    opacity: 0;
-    transform: translateY(var(--space-2xs));
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 .home-hero h1 {
@@ -1361,12 +1340,4 @@ button:disabled,
     transition-duration: 0.01ms !important;
   }
 
-  .home-hero__body,
-  .scroll-progress {
-    animation: none !important;
-  }
-
-  .scroll-progress {
-    display: none;
-  }
 }

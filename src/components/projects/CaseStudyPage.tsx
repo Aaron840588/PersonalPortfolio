@@ -133,7 +133,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
               <ProjectMedia
                 media={media}
                 priority={index === 0}
-                sizes="(max-width: 59.99rem) calc(100vw - 2rem), 70vw"
+                sizes="(max-width: 59.99rem) calc(100vw - 2rem), (max-width: 99.99rem) 70vw, 68rem"
                 className={media.height > media.width ? "project-media--portrait" : undefined}
                 linkToSource
               />

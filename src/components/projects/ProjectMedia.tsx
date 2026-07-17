@@ -12,7 +12,7 @@ type ProjectMediaProps = {
 export function ProjectMedia({
   media,
   priority = false,
-  sizes = "(max-width: 47.99rem) calc(100vw - 2rem), 60vw",
+  sizes = "(max-width: 47.99rem) calc(100vw - 2rem), (max-width: 99.99rem) 60vw, 60rem",
   className,
   linkToSource = false,
 }: ProjectMediaProps) {
