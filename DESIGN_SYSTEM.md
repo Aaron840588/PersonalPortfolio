@@ -27,7 +27,8 @@ underlines. Status meaning always includes text.
 - Newsreader: display headings and project names, weight 400.
 - IBM Plex Sans: body and interface copy, variable weight 425 with 600 for
   emphasis.
-- IBM Plex Mono: dates, provenance, technical metadata, and captions only.
+- IBM Plex Mono: dates, provenance, and compact technical metadata only.
+  Screenshot captions stay in IBM Plex Sans so the outlier face remains rare.
 - Body copy starts at 17px; supporting copy at 15px; metadata at 13px.
 - Display text caps at 76px.
 - Reading measure caps at 62ch.

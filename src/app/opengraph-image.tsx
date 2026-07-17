@@ -1,18 +1,12 @@
 import { ImageResponse } from "next/og";
 
+import { imageResponseTokens } from "@/lib/image-response-tokens";
+
 export const alt = "Aaron Tagapan — Information Systems, operations, and support";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const colors = {
-  paper: "#f7ece2",
-  paperAlt: "#ecdfd2",
-  ink: "#201513",
-  inkSoft: "#3c2f2c",
-  muted: "#5d4f4b",
-  rule: "#c0b1a4",
-  accent: "#782222",
-};
+const { color, font } = imageResponseTokens;
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -24,10 +18,10 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: colors.paper,
-          color: colors.ink,
+          background: color.paper,
+          color: color.ink,
           padding: "58px 64px 52px",
-          fontFamily: "Arial, sans-serif",
+          fontFamily: font.body,
         }}
       >
         <div
@@ -36,12 +30,12 @@ export default function OpenGraphImage() {
             alignItems: "center",
             justifyContent: "space-between",
             paddingBottom: 20,
-            borderBottom: `1px solid ${colors.rule}`,
+            borderBottom: `1px solid ${color.rule}`,
             fontSize: 20,
           }}
         >
           <span style={{ fontWeight: 700, letterSpacing: -0.4 }}>Aaron Tagapan</span>
-          <span style={{ color: colors.muted, fontSize: 16, letterSpacing: 1.4 }}>
+          <span style={{ color: color.muted, fontSize: 16, letterSpacing: 1.4 }}>
             PORTFOLIO / 2026
           </span>
         </div>
@@ -58,7 +52,7 @@ export default function OpenGraphImage() {
             <span
               style={{
                 marginBottom: 22,
-                color: colors.accent,
+                color: color.accent,
                 fontSize: 17,
                 fontWeight: 700,
                 letterSpacing: 1.6,
@@ -68,7 +62,7 @@ export default function OpenGraphImage() {
             </span>
             <span
               style={{
-                fontFamily: "Georgia, serif",
+                fontFamily: font.display,
                 fontSize: 70,
                 fontWeight: 400,
                 lineHeight: 0.98,
@@ -86,9 +80,9 @@ export default function OpenGraphImage() {
               flexDirection: "column",
               alignItems: "flex-start",
               padding: "18px 20px",
-              borderTop: `6px solid ${colors.accent}`,
-              background: colors.paperAlt,
-              color: colors.inkSoft,
+              borderTop: `6px solid ${color.accent}`,
+              background: color.paperAlt,
+              color: color.inkSoft,
             }}
           >
             <span style={{ marginBottom: 24, fontSize: 13, letterSpacing: 1.2 }}>
@@ -109,8 +103,8 @@ export default function OpenGraphImage() {
             display: "flex",
             justifyContent: "space-between",
             paddingTop: 18,
-            borderTop: `1px solid ${colors.rule}`,
-            color: colors.muted,
+            borderTop: `1px solid ${color.rule}`,
+            color: color.muted,
             fontSize: 16,
           }}
         >

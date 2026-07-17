@@ -6,7 +6,7 @@ Validated **July 17, 2026 (Asia/Manila)**.
 
 The portfolio passes production build, strict TypeScript, ESLint, dependency
 audit, route health, responsive browser, image, landmark, heading, overflow,
-clipping, and contrast checks.
+clipping, contrast, and Hallmark's 58-gate slop test.
 
 The 1440p audit identified and corrected three issues:
 
@@ -28,6 +28,19 @@ metadata is 13px, muted text is darker, and deterministic LCP images preload.
 - Kept Next.js at the current installed 16.2.10 release.
 - Left major upgrades to ESLint 10, TypeScript 7, and Node type definitions 26
   out of scope because they require migration work.
+
+## Hallmark final pass
+
+- Result: **58 / 58 gates passed** for the editorial genre.
+- The homepage, case studies, and résumé use three distinct macrostructures:
+  Split Studio, Workbench, and Long Document.
+- The Atelier palette, typography, spacing, motion, and layering remain locked
+  in named tokens.
+- The mono outlier is limited to no more than two roles per page; screenshot
+  captions use the body face.
+- Link underline offset is fixed at 2px, matching the decorative-text gate.
+- Standalone Open Graph and app-icon routes consume one named image-response
+  token module instead of declaring local palette and font values.
 
 ## Automated checks
 
@@ -57,8 +70,8 @@ All returned HTTP 200 with the expected content type:
 
 ## Browser matrix
 
-Every main route was checked at 320, 375, 768, 1280, 2048, and 2560 CSS
-pixels: 24 route/viewport combinations.
+Every main route was checked at 320, 375, 414, 768, 1280, 2048, and 2560 CSS
+pixels: 28 route/viewport combinations.
 
 - No horizontal overflow.
 - No clipped headings, paragraphs, labels, or actions.
@@ -70,6 +83,8 @@ pixels: 24 route/viewport combinations.
 - The homepage preloads its first project image; each case study preloads its
   first tour image.
 - A fresh runtime console check returned no warnings or errors after the LCP fix.
+- At 1280×800, the headline, context, and primary action all remain above the
+  fold.
 
 The true 2560px viewport uses a 1536px shell with about 505px of outer space per
 side after the browser scrollbar. A common Windows 125%-scaled 1440p setup is
@@ -105,5 +120,5 @@ contrast against the oxblood fill.
 
 ## External actions
 
-This report covers the validated local and production-build state. Publishing is
-handled separately through the GitHub branch and draft pull request workflow.
+The validated changes are published through GitHub `main` and the linked Vercel
+production project at <https://personal-portfolio-alpha-silk-12.vercel.app/>.

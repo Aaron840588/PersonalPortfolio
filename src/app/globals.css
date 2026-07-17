@@ -47,7 +47,7 @@ a {
   color: inherit;
   text-decoration-color: var(--color-accent);
   text-decoration-thickness: var(--rule-hair);
-  text-underline-offset: 0.2em;
+  text-underline-offset: var(--rule-fine);
 }
 
 button,
@@ -404,7 +404,6 @@ button:disabled,
 .project-feature__index,
 .case-provenance,
 .workbench-step__annotation > p,
-.project-media figcaption,
 .resume-rail__edition {
   color: var(--color-muted);
   font-family: var(--font-outlier);
@@ -413,6 +412,14 @@ button:disabled,
   letter-spacing: var(--tracking-label);
   line-height: 1.5;
   text-transform: uppercase;
+}
+
+.project-media figcaption {
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .project-feature h3 {
