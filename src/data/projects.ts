@@ -10,7 +10,7 @@ export const featuredProjects = [
     slug: "hh-hub",
     name: "H+H Hub",
     resumeName: "H+H Hub — Operations Management Platform",
-    type: "Food operations and ERP platform",
+    type: "AI-assisted food-operations prototype",
     kind: "operations-platform",
     lifecycle: "ongoing",
     period: {
@@ -21,12 +21,12 @@ export const featuredProjects = [
     featured: true,
     caseStudyHref: "/work/hh-hub",
     statement: {
-      text: "A food-operations ERP portfolio demo connecting production planning, recipe costing, inventory, wholesale, consignment, market-event sales, and operational tasks.",
-      evidence: ["resume", "repository"],
+      text: "A personal project exploring production planning, recipe costing, inventory, wholesale, consignment, market-event sales, and operational tasks.",
+      evidence: ["candidate-brief", "repository"],
     },
     summary: {
-      text: "Built a role-aware operations platform with database-backed business workflows for inventory management, recipe costing, purchasing, customer management, and B2B consignment.",
-      evidence: ["resume", "repository"],
+      text: "A role-aware operations prototype with linked workflows for inventory, costing, purchasing, customer records, and B2B consignment.",
+      evidence: ["candidate-brief", "repository"],
     },
     technologies: [
       { name: "Next.js 16.2.10", evidence: ["repository"] },
@@ -106,7 +106,7 @@ export const featuredProjects = [
         evidence: ["repository"],
       },
       systemResponse: {
-        text: "The platform combines a Next.js frontend and FastAPI backend with recursive costing and production logic, expiry-aware FIFO inventory, role boundaries, bounded synthetic demo data, and guarded offline mutation replay.",
+        text: "The prototype combines a Next.js frontend and FastAPI backend with recursive costing and production logic, expiry-aware FIFO inventory, role boundaries, bounded synthetic demo data, and guarded offline mutation replay.",
         evidence: ["repository"],
       },
       usersAndRoles: [
@@ -147,12 +147,12 @@ export const featuredProjects = [
       ],
       responsibilities: [
         {
-          text: "Architected and deployed the SaaS operations platform with role-based access control and linked operational workflows.",
-          evidence: ["resume"],
+          text: "Defined the operating workflows and used AI-assisted coding tools to turn them into a working portfolio prototype.",
+          evidence: ["candidate-brief", "repository"],
         },
         {
-          text: "Designed database structures and business workflows to support operational processes.",
-          evidence: ["resume"],
+          text: "Reviewed the code and data structure, tested the main workflows, and documented the deployment limits shown in this case study.",
+          evidence: ["candidate-brief", "repository", "deployment"],
         },
       ],
       technicalImplementation: [
@@ -228,6 +228,12 @@ export const featuredProjects = [
     },
     evidence: [
       {
+        id: "portfolio-brief",
+        kind: "candidate-brief",
+        label: "Candidate-provided portfolio brief",
+        verifiedAt: "2026-07-17",
+      },
+      {
         id: "latest-resume",
         kind: "resume",
         label: "Aaron Tagapan resume",
@@ -255,7 +261,7 @@ export const featuredProjects = [
     slug: "pet-care-crm",
     name: "Kat's Pet-Care CRM",
     resumeName: "Cloud Business Management Platform",
-    type: "Responsive operations CRM for solo pet-care providers",
+    type: "AI-assisted pet-care operations prototype",
     kind: "business-management-platform",
     lifecycle: "completed",
     period: {
@@ -266,12 +272,12 @@ export const featuredProjects = [
     featured: true,
     caseStudyHref: "/work/pet-care-crm",
     statement: {
-      text: "A business workspace for connecting pet-care clients, visits, keys, billing, earnings, errands, and customer updates.",
-      evidence: ["resume", "repository"],
+      text: "A personal project connecting pet-care clients, visits, keys, billing, earnings, errands, and customer updates.",
+      evidence: ["candidate-brief", "repository"],
     },
     summary: {
-      text: "Built a responsive React/Vite operations CRM with client and pet profiles, scheduling, billing, Firestore synchronization, key handovers, earnings summaries, errands, and shareable visit report cards.",
-      evidence: ["resume", "repository"],
+      text: "A responsive operations CRM prototype with client and pet records, scheduling, billing, key handovers, earnings summaries, errands, and visit report cards.",
+      evidence: ["candidate-brief", "repository"],
     },
     technologies: [
       { name: "React 19.2.4", evidence: ["resume", "repository"] },
@@ -355,7 +361,7 @@ export const featuredProjects = [
         evidence: ["repository"],
       },
       systemResponse: {
-        text: "A state-driven React application links eleven lazy-loaded operational views, with a synthetic in-memory public demo and a separate Firebase-backed architecture for non-demo deployments.",
+        text: "The prototype links eleven lazy-loaded operational views, with a synthetic in-memory public demo and a separate Firebase-backed setup for non-demo deployments.",
         evidence: ["repository", "deployment"],
       },
       usersAndRoles: [
@@ -382,16 +388,16 @@ export const featuredProjects = [
       ],
       responsibilities: [
         {
-          text: "Designed and deployed a client-facing CRM and business-management application for a local pet-services business.",
-          evidence: ["resume"],
+          text: "Mapped the scheduling, billing, client-record, and key-handling workflows for a solo pet-care operator.",
+          evidence: ["candidate-brief", "repository"],
         },
         {
-          text: "Implemented appointment scheduling, customer billing, and Firebase Firestore synchronization.",
-          evidence: ["resume", "repository"],
+          text: "Used AI-assisted coding tools to assemble and iterate the responsive application.",
+          evidence: ["candidate-brief", "repository"],
         },
         {
-          text: "Created a public in-memory demo using synthetic data and isolated it from Firebase initialization.",
-          evidence: ["repository"],
+          text: "Tested the main flows and prepared a synthetic public demo that stays separate from Firebase initialization.",
+          evidence: ["candidate-brief", "repository", "deployment"],
         },
       ],
       technicalImplementation: [
@@ -463,6 +469,12 @@ export const featuredProjects = [
     },
     evidence: [
       {
+        id: "portfolio-brief",
+        kind: "candidate-brief",
+        label: "Candidate-provided portfolio brief",
+        verifiedAt: "2026-07-17",
+      },
+      {
         id: "latest-resume",
         kind: "resume",
         label: "Aaron Tagapan resume",
@@ -500,12 +512,12 @@ export const additionalProjects = [
     featured: false,
     caseStudyHref: undefined,
     statement: {
-      text: "Modular AI agents and automation workflows for structured data extraction, transcription processing, natural-language understanding, and business workflow automation.",
-      evidence: ["resume"],
+      text: "A personal AI-workflow experiment covering structured data extraction, transcription processing, natural-language understanding, and business automation.",
+      evidence: ["candidate-brief", "resume"],
     },
     summary: {
-      text: "Developed with Python, Google ADK, Gemini API, and MCP.",
-      evidence: ["resume"],
+      text: "Explored with Python, Google ADK, Gemini API, and MCP.",
+      evidence: ["candidate-brief", "resume"],
     },
     technologies: [
       { name: "Python", evidence: ["resume"] },
@@ -525,6 +537,12 @@ export const additionalProjects = [
     media: [],
     caseStudy: undefined,
     evidence: [
+      {
+        id: "portfolio-brief",
+        kind: "candidate-brief",
+        label: "Candidate-provided portfolio brief",
+        verifiedAt: "2026-07-17",
+      },
       { id: "latest-resume", kind: "resume", label: "Aaron Tagapan resume", verifiedAt: "2026-07-15" },
     ],
   },

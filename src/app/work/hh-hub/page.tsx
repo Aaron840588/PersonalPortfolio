@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "H+H Hub case study",
   description:
-    "A repository-backed case study of H+H Hub, Aaron Tagapan's food-operations platform spanning inventory, production planning, recursive costing, role access, wholesale, and consignment.",
+    "A case study of Aaron Tagapan’s AI-assisted food-operations prototype spanning inventory, production planning, costing, role access, wholesale, and consignment.",
   path: "/work/hh-hub",
 });
 

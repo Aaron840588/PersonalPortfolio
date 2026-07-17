@@ -1,8 +1,18 @@
 # Content source and claim ledger
 
-Last reconciled: **July 15, 2026 (Asia/Manila)**
+Last reconciled: **July 17, 2026 (Asia/Manila)**
 
 This file is the publishing boundary for the portfolio. It separates identity and career facts from repository evidence, time-sensitive deployment checks, and design language. If a claim is not supported here, it should not appear on the site without a new verification pass.
+
+## Current positioning directive
+
+Aaron does not want the portfolio to present him as a software engineer or
+developer. His formal positioning is Information Systems, IT operations,
+application support, systems analysis, QA/UAT, and business technology. The two
+featured applications are AI-assisted personal projects: describe his role as
+defining workflows, iterating with coding tools, reviewing the implementation,
+testing the result, and documenting limits. Do not imply unaided authorship or
+software-development employment.
 
 ## Evidence hierarchy
 
@@ -143,7 +153,7 @@ Portfolio rule:
 - Do not claim sub-5ms performance, scheduled resets, production scale, real user counts, uptime, revenue, savings, or measured business outcomes.
 - Do not claim the `swr` package is used; the repository uses custom cache/fallback behavior.
 - Describe the owner demo role as exposing broader workflows, not unrestricted full access.
-- The resume's wording that Aaron architected and deployed the platform may be quoted as a project contribution, but **Software Architect** is not his title.
+- The resume's wording that Aaron architected and deployed the platform is superseded for portfolio positioning by the current user directive above. Do not use **Software Architect**, software engineer, or developer as his title, and do not imply unaided implementation.
 
 ### Pet Care CRM / Cloud Business Management Platform
 

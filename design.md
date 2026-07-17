@@ -7,6 +7,8 @@ emitting code. Do not regenerate per page—extend or amend it intentionally.
 
 Editorial. The portfolio should read like a considered working document: direct,
 source-backed, quiet, and specific to Aaron’s operational systems work.
+Copy must distinguish formal internship experience from AI-assisted personal
+projects and must not position Aaron as a software engineer or developer.
 
 ## Macrostructure family
 
@@ -69,7 +71,7 @@ stretching reading measures beyond 62ch.
 ## Navigation and footer
 
 - Navigation: **N9 Edge-aligned minimal** — wordmark left, one contact action right.
-- Footer: **Ft6 Letter close** — contact first, personal signoff, no link columns.
+- Footer: **Ft6 Direct close** — availability and contact first, with no faux-letter salutation or link columns.
 
 ## Per-page allowances
 

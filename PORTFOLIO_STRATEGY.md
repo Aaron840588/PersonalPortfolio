@@ -2,7 +2,7 @@
 
 ## Strategy in one sentence
 
-Present Aaron as an operations-and-systems candidate with implementation fluency through a calm, recruiter-scannable portfolio where professional experience establishes trust, two real projects provide the strongest visual evidence, and technology supports the story without becoming his identity.
+Present Aaron as an operations-and-systems candidate through a calm, recruiter-scannable portfolio where professional experience establishes trust, two AI-assisted personal projects show practical curiosity, and technology supports the story without becoming his identity.
 
 ## Audience and positioning
 
@@ -12,11 +12,13 @@ Use this professional label consistently:
 
 **IT Operations · Systems · Business Technology**
 
-The core value proposition is:
+The core positioning is:
 
-**I make operational systems easier to understand, support, test, and improve.**
+**Information Systems graduate focused on IT operations, application support, systems analysis, and QA/UAT.**
 
 Lead with workflows, documentation, requirements, testing, data, support, and cloud platforms. Present frameworks and programming languages as implementation tools. Do not position Aaron as senior, an expert, a Software Architect, an AI Engineer, a Cloud Engineer, or a Full-Stack Engineer by profession.
+
+Label the two featured applications as AI-assisted personal projects. Describe Aaron’s role as defining workflows, iterating with coding tools, reviewing the implementation, testing the result, and documenting limits. Do not imply conventional software-engineering employment or unaided authorship.
 
 ## The 30-second recruiter test
 
@@ -51,7 +53,7 @@ Projects are the dominant visual section and should appear immediately after the
 
 - Project name and one-line description.
 - One large, real, sanitized screenshot.
-- Brief Problem, What I built, and My role summaries.
+- Brief Problem, Approach, and My role summaries.
 - A short technology line.
 - Case study, repository, and live-demo actions where currently valid.
 
@@ -96,7 +98,7 @@ Show the project name, system type, period/status, one-line description, reposit
 Use a restrained three-column or stacked layout:
 
 1. **Problem** — the operational coordination, data, or support problem.
-2. **What I built** — one coherent system response rather than a feature dump.
+2. **Approach** — one coherent system response rather than a feature dump.
 3. **My role** — Aaron's verified responsibilities and decisions.
 
 This replaces separate context, system-response, users, contribution, and evidence-rail sections.
@@ -187,6 +189,6 @@ The page must remain complete with motion disabled. Respect `prefers-reduced-mot
 - Is Gardenia clearly professional experience?
 - Can every section be scanned without reading repeated copy?
 - Are H+H maintenance and Pet CRM demo behavior represented accurately?
-- Does each case study clearly show Problem, What I built, My role, selected workflows, implementation, and evidence boundaries?
+- Does each case study clearly show Problem, Approach, My role, selected workflows, implementation, and evidence boundaries?
 - Can keyboard and reduced-motion users reach every action and all meaningful content?
 - Can a skeptical reviewer trace every material claim to a source?

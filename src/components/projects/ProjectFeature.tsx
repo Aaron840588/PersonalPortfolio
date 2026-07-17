@@ -44,7 +44,7 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
             <dd>{project.caseStudy.problem.text}</dd>
           </div>
           <div>
-            <dt>Built</dt>
+            <dt>Approach</dt>
             <dd>{project.caseStudy.systemResponse.text}</dd>
           </div>
           <div>

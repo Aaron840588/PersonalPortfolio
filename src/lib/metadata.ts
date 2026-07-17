@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const siteName = "Aaron Tagapan — IT Operations, Systems and Business Technology";
 export const siteDescription =
-  "Portfolio of Aaron Tagapan, a BS Information Systems graduate working across IT operations, systems analysis, application support, cloud platforms, business workflows, and AI-assisted automation.";
+  "Portfolio of Aaron Tagapan, a BS Information Systems graduate focused on IT operations, application support, systems analysis, QA/UAT, and AI-assisted personal projects.";
 
 export function getSiteUrl() {
   const candidate = process.env.NEXT_PUBLIC_SITE_URL?.trim();

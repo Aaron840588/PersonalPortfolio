@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "Kat's Pet-Care CRM case study",
   description:
-    "A repository-backed case study of Aaron Tagapan's responsive pet-care operations CRM for client records, scheduling, key handovers, invoices, earnings, and visit reporting.",
+    "A case study of Aaron Tagapan’s AI-assisted pet-care operations prototype for client records, scheduling, key handovers, invoices, earnings, and visit reporting.",
   path: "/work/pet-care-crm",
 });
 
