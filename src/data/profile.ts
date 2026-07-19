@@ -6,37 +6,29 @@ export const profile = {
   initials: "AT",
   professionalLabel: "IT Operations · Systems · Business Technology",
   heroHeadline: {
-    text: "Information Systems graduate focused on operations and support.",
+    text: "Information Systems graduate with internship experience in requirements documentation and QA/UAT.",
     evidence: ["candidate-brief", "resume"],
   },
   professionalSummary: {
-    text: "BS Information Systems graduate with experience in MIS documentation, process analysis, QA/UAT, and technical support. Completed a 486-hour MIS internship at Gardenia Bakeries Philippines. Uses AI-assisted coding tools to prototype personal projects around inventory, scheduling, billing, and workflow automation. Seeking entry-level roles in IT operations, application support, systems analysis, QA/UAT, and business technology.",
+    text: "BS Information Systems graduate with a foundation in IT operations and technical support, plus internship experience in functional documentation, process analysis, QA, and UAT. Completed a 486-hour MIS internship at Gardenia Bakeries Philippines. Uses AI-assisted coding tools to prototype personal projects around inventory, scheduling, billing, and workflow automation.",
     evidence: ["candidate-brief", "resume"],
   },
   about: {
-    text: "I’m a recent Information Systems graduate with internship experience in documentation, process analysis, QA, and UAT. I also use AI-assisted coding tools to prototype workflow ideas, including the two personal projects shown here.",
+    text: "During a 486-hour MIS internship at Gardenia, I developed functional specifications and supported process analysis, QA testing, and UAT. The projects below are AI-assisted prototypes I used to practice mapping operational workflows.",
     evidence: ["candidate-brief", "resume"],
   },
   availability: {
-    text: "Open to entry-level opportunities in IT operations, application support, systems analysis, cloud support, QA, and business technology.",
+    text: "Open to entry-level roles in IT operations, technical or application support, systems analysis, QA/UAT, and business technology.",
     evidence: ["candidate-brief", "resume"],
   },
   location: "Los Baños, Laguna, Philippines",
   email: "aarontagapan@gmail.com",
-  phone: "0945 170 8774",
   links: [
     {
       kind: "email",
       label: "Email",
       value: "aarontagapan@gmail.com",
       href: "mailto:aarontagapan@gmail.com",
-      external: false,
-    },
-    {
-      kind: "phone",
-      label: "Phone",
-      value: "0945 170 8774",
-      href: "tel:09451708774",
       external: false,
     },
     {

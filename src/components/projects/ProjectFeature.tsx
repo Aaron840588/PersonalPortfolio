@@ -65,7 +65,7 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
             Read case study
           </Link>
           <a href={project.repository.href} target="_blank" rel="noreferrer">
-            Review source <span aria-hidden="true">↗</span>
+            View repository <span aria-hidden="true">↗</span>
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
           {project.liveDemo ? (
@@ -75,7 +75,7 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
             </a>
           ) : (
             <span className="project-feature__status">
-              Demo under maintenance
+              {project.demoStatus.label}
             </span>
           )}
         </div>

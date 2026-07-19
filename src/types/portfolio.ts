@@ -24,7 +24,7 @@ export interface DateRange {
   readonly label: string
 }
 
-export type ContactLinkKind = "email" | "phone" | "linkedin" | "github"
+export type ContactLinkKind = "email" | "linkedin" | "github"
 
 export interface ContactLink {
   readonly kind: ContactLinkKind
@@ -45,7 +45,6 @@ export interface Profile {
   readonly availability: SourcedClaim
   readonly location: string
   readonly email: string
-  readonly phone: string
   readonly links: readonly ContactLink[]
   readonly targetRoles: readonly string[]
   readonly targetRolesEvidence: readonly EvidenceKind[]
@@ -97,7 +96,7 @@ export type ProjectKind =
   | "automation-suite"
   | "capstone"
 
-export type ProjectLifecycle = "ongoing" | "completed"
+export type ProjectLifecycle = "ongoing" | "completed" | "not-specified"
 
 export interface TechnologyItem {
   readonly name: string

@@ -23,7 +23,7 @@ export function ProjectMedia({
       width={media.width}
       height={media.height}
       sizes={sizes}
-      quality={90}
+      quality={80}
       preload={priority}
     />
   );
@@ -36,9 +36,9 @@ export function ProjectMedia({
             href={media.src}
             target="_blank"
             rel="noreferrer"
-            aria-label="Open this screenshot at full size in a new tab"
           >
             {image}
+            <span className="sr-only"> (opens full-size image in a new tab)</span>
           </a>
         ) : (
           image

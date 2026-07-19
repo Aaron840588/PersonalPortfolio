@@ -21,7 +21,7 @@ export const featuredProjects = [
     featured: true,
     caseStudyHref: "/work/hh-hub",
     statement: {
-      text: "A personal project exploring production planning, recipe costing, inventory, wholesale, consignment, market-event sales, and operational tasks.",
+      text: "A personal prototype connecting production planning, recipe costing, FIFO inventory, wholesale, and consignment workflows.",
       evidence: ["candidate-brief", "repository"],
     },
     summary: {
@@ -29,13 +29,13 @@ export const featuredProjects = [
       evidence: ["candidate-brief", "repository"],
     },
     technologies: [
-      { name: "Next.js 16.2.10", evidence: ["repository"] },
-      { name: "React 19.2.4", evidence: ["repository"] },
+      { name: "Next.js", evidence: ["repository"] },
+      { name: "React", evidence: ["repository"] },
       { name: "TypeScript", evidence: ["repository"] },
-      { name: "Tailwind CSS 4", evidence: ["repository"] },
-      { name: "FastAPI 0.110.0", evidence: ["repository"] },
+      { name: "Tailwind CSS", evidence: ["repository"] },
+      { name: "FastAPI", evidence: ["repository"] },
       { name: "Python", evidence: ["resume", "repository"] },
-      { name: "SQLAlchemy 2", evidence: ["repository"] },
+      { name: "SQLAlchemy", evidence: ["repository"] },
       { name: "Supabase", evidence: ["resume", "repository"] },
       { name: "PostgreSQL", evidence: ["resume", "repository"] },
       { name: "SQLite", evidence: ["repository"] },
@@ -43,8 +43,8 @@ export const featuredProjects = [
       { name: "Vercel", evidence: ["resume", "repository", "deployment"] },
     ],
     metrics: [
-      { value: "10", label: "verified user-facing routes", evidence: ["repository"] },
-      { value: "33", label: "backend unit-test methods", evidence: ["repository"] },
+      { value: "11", label: "verified user-facing routes", evidence: ["repository"] },
+      { value: "57", label: "backend unit-test methods", evidence: ["repository"] },
     ],
     repository: {
       href: "https://github.com/Aaron840588/food-operations-erp-demo",
@@ -62,8 +62,8 @@ export const featuredProjects = [
     demoStatus: {
       availability: "maintenance",
       label: "Deployment under maintenance",
-      detail: "The hosted frontend responded, but its public API health endpoint returned HTTP 503 on July 15, 2026. The repository remains available while hosted login is unavailable.",
-      verifiedAt: "2026-07-15",
+      detail: "The hosted frontend responds, but its API health endpoint returned HTTP 503 on July 18, 2026 because the deployment could not reach its configured database. The repository remains available while hosted login is unavailable.",
+      verifiedAt: "2026-07-18",
       evidence: ["deployment"],
     },
     liveDemo: undefined,
@@ -71,7 +71,7 @@ export const featuredProjects = [
       {
         src: "/projects/hh-hub/dashboard.png",
         alt: "H+H Hub synthetic local demo dashboard showing its guided portfolio tour and the connected inventory, production, costing, wholesale, consignment, access-control, and offline-resilience workflows.",
-        caption: "Sanitized local demo dashboard after health, authentication, and synthetic-data checks passed.",
+        caption: "Sanitized local demo dashboard; the separate hosted backend is under maintenance.",
         width: 1280,
         height: 720,
         kind: "interface-screenshot",
@@ -102,11 +102,11 @@ export const featuredProjects = [
         evidence: ["repository"],
       },
       problem: {
-        text: "Food operations require interconnected planning, stock, costing, sales, and maintenance workflows to apply consistent business rules without exposing restricted financial information to every role.",
+        text: "Recipes, production, stock, and reseller orders share quantities and business rules, while staff access should exclude owner-only financial information.",
         evidence: ["repository"],
       },
       systemResponse: {
-        text: "The prototype combines a Next.js frontend and FastAPI backend with recursive costing and production logic, expiry-aware FIFO inventory, role boundaries, bounded synthetic demo data, and guarded offline mutation replay.",
+        text: "The prototype combines role checks, recursive costing and production logic, expiry-aware FIFO stock handling, and synthetic demo data in a Next.js and FastAPI application.",
         evidence: ["repository"],
       },
       usersAndRoles: [
@@ -147,11 +147,11 @@ export const featuredProjects = [
       ],
       responsibilities: [
         {
-          text: "Defined the operating workflows and used AI-assisted coding tools to turn them into a working portfolio prototype.",
+          text: "Defined the operating workflows and iterated on the prototype with AI-assisted coding tools.",
           evidence: ["candidate-brief", "repository"],
         },
         {
-          text: "Reviewed the code and data structure, tested the main workflows, and documented the deployment limits shown in this case study.",
+          text: "Reviewed the implementation, tested key workflows, and documented the public deployment issue and demo limits.",
           evidence: ["candidate-brief", "repository", "deployment"],
         },
       ],
@@ -175,11 +175,11 @@ export const featuredProjects = [
       ],
       testingAndReliability: [
         {
-          text: "The current public head passed its GitHub Actions quality gate for frontend install, audit, lint, type-check, build, and Python compilation/tests.",
+          text: "The production frontend build passed and enumerated 11 user-facing routes, including a new timesheets route added after the initial audit.",
           evidence: ["repository"],
         },
         {
-          text: "The repository contains 33 backend unittest methods covering authentication, financial validity, authorization, reseller stock, and market-event transaction integrity.",
+          text: "The repository contains 57 backend unittest methods covering authentication, financial validity, authorization, reseller stock, consignment, market-event integrity, and security hardening.",
           evidence: ["repository"],
         },
         {
@@ -207,21 +207,21 @@ export const featuredProjects = [
       ],
       lessonsLearned: [
         {
-          text: "Recursive business structures need explicit circular-reference protection and reusable calculations, not only a visually connected interface.",
+          text: "I learned that recursive business structures need explicit circular-reference protection and reusable calculations, not only a visually connected interface.",
           evidence: ["repository"],
         },
         {
-          text: "Offline resilience needs different rules for replayable operational writes and financial mutations that could create duplicate submissions.",
+          text: "I learned to use different offline rules for replayable operational writes and financial mutations that could create duplicate submissions.",
           evidence: ["repository"],
         },
         {
-          text: "A credible portfolio sandbox needs synthetic records, bounded operations, visible role boundaries, and tests that prove redaction behavior.",
+          text: "I found that a credible portfolio sandbox needs synthetic records, bounded operations, visible role boundaries, and tests that prove redaction behavior.",
           evidence: ["repository"],
         },
       ],
       contentWarnings: [
         {
-          text: "Screens on this page were freshly captured from a sanitized local demo after local health and authentication checks passed. The separate public deployment remains under maintenance because its API health endpoint returned HTTP 503.",
+          text: "These screens come from a sanitized local demo, not the current public deployment. The hosted backend remained under maintenance after its API health endpoint returned HTTP 503 on July 18, 2026.",
           evidence: ["repository", "deployment"],
         },
       ],
@@ -237,14 +237,14 @@ export const featuredProjects = [
         id: "latest-resume",
         kind: "resume",
         label: "Aaron Tagapan resume",
-        verifiedAt: "2026-07-15",
+        verifiedAt: "2026-07-18",
       },
       {
         id: "hh-public-repository",
         kind: "repository",
         label: "Aaron840588/food-operations-erp-demo",
         href: "https://github.com/Aaron840588/food-operations-erp-demo",
-        verifiedAt: "2026-07-15",
+        verifiedAt: "2026-07-18",
       },
       {
         id: "hh-public-deployment",
@@ -263,7 +263,7 @@ export const featuredProjects = [
     resumeName: "Cloud Business Management Platform",
     type: "AI-assisted pet-care operations prototype",
     kind: "business-management-platform",
-    lifecycle: "completed",
+    lifecycle: "not-specified",
     period: {
       start: "2026",
       end: "2026",
@@ -272,7 +272,7 @@ export const featuredProjects = [
     featured: true,
     caseStudyHref: "/work/pet-care-crm",
     statement: {
-      text: "A personal project connecting pet-care clients, visits, keys, billing, earnings, errands, and customer updates.",
+      text: "A personal prototype connecting client and pet records with scheduling, key handovers, billing, errands, and visit reports.",
       evidence: ["candidate-brief", "repository"],
     },
     summary: {
@@ -280,11 +280,11 @@ export const featuredProjects = [
       evidence: ["candidate-brief", "repository"],
     },
     technologies: [
-      { name: "React 19.2.4", evidence: ["resume", "repository"] },
-      { name: "Vite 8", evidence: ["resume", "repository"] },
+      { name: "React", evidence: ["resume", "repository"] },
+      { name: "Vite", evidence: ["resume", "repository"] },
       { name: "JavaScript", evidence: ["resume", "repository"] },
       { name: "Responsive CSS", evidence: ["repository"] },
-      { name: "Firebase 12", evidence: ["resume", "repository"] },
+      { name: "Firebase", evidence: ["resume", "repository"] },
       { name: "Firestore", evidence: ["resume", "repository"] },
       { name: "Firebase Authentication", evidence: ["repository"] },
       { name: "html-to-image", evidence: ["repository"] },
@@ -293,7 +293,7 @@ export const featuredProjects = [
     ],
     metrics: [
       { value: "11", label: "verified application views", evidence: ["repository"] },
-      { value: "16/16", label: "passing helper tests", evidence: ["repository"] },
+      { value: "23/23", label: "passing helper tests", evidence: ["repository"] },
     ],
     repository: {
       href: "https://github.com/Aaron840588/pet-care-crm-demo",
@@ -318,8 +318,8 @@ export const featuredProjects = [
     liveDemo: {
       href: "https://pet-care-crm-demo.vercel.app",
       label: "Open live demo",
-      accessNote: "No login required · Opens in demo mode",
-      verifiedAt: "2026-07-15",
+      accessNote: "No login required · Uses synthetic demo records",
+      verifiedAt: "2026-07-18",
       evidence: ["deployment"],
     },
     media: [
@@ -361,7 +361,7 @@ export const featuredProjects = [
         evidence: ["repository"],
       },
       systemResponse: {
-        text: "The prototype links eleven lazy-loaded operational views, with a synthetic in-memory public demo and a separate Firebase-backed setup for non-demo deployments.",
+        text: "The prototype connects these workflows in a responsive React app. Its public demo uses synthetic in-memory records; Firebase authentication and Firestore are reserved for non-demo deployments.",
         evidence: ["repository", "deployment"],
       },
       usersAndRoles: [
@@ -392,11 +392,11 @@ export const featuredProjects = [
           evidence: ["candidate-brief", "repository"],
         },
         {
-          text: "Used AI-assisted coding tools to assemble and iterate the responsive application.",
+          text: "Used AI-assisted coding tools to iterate on a responsive React application.",
           evidence: ["candidate-brief", "repository"],
         },
         {
-          text: "Tested the main flows and prepared a synthetic public demo that stays separate from Firebase initialization.",
+          text: "Tested key paths and prepared a synthetic public demo that bypasses Firebase initialization.",
           evidence: ["candidate-brief", "repository", "deployment"],
         },
       ],
@@ -424,7 +424,11 @@ export const featuredProjects = [
           evidence: ["repository"],
         },
         {
-          text: "Sixteen of sixteen Node tests passed across booking order, invoice balance filtering, HTML escaping, calendar export, key status, own-pet status, and non-consecutive schedule dates.",
+          text: "Twenty-three of twenty-three Node tests pass across booking order, invoice balance filtering, HTML escaping, calendar export, key status, own-pet status, non-consecutive schedule dates, report card logic, and OCR donation text parsing.",
+          evidence: ["repository"],
+        },
+        {
+          text: "A Playwright e2e suite (3 active tests) covers desktop and mobile navigation across all 11 views and runs Axe accessibility checks for WCAG AA color-contrast and named-button compliance.",
           evidence: ["repository"],
         },
         {
@@ -448,21 +452,21 @@ export const featuredProjects = [
       ],
       lessonsLearned: [
         {
-          text: "Public portfolio demos are safer when synthetic in-memory state is separated from production authentication and database initialization.",
+          text: "I learned that public portfolio demos are safer when synthetic in-memory state is separated from production authentication and database initialization.",
           evidence: ["repository"],
         },
         {
-          text: "Scheduling, billing, key tracking, and visit reporting become more useful when they share the same client and service context.",
+          text: "I found that scheduling, billing, key tracking, and visit reporting become more useful when they share the same client and service context.",
           evidence: ["repository"],
         },
         {
-          text: "Mobile workflows benefit from focused actions and shareable outputs because service work happens away from a desk.",
+          text: "I learned to keep mobile workflows focused and make outputs easy to share because service work happens away from a desk.",
           evidence: ["repository"],
         },
       ],
       contentWarnings: [
         {
-          text: "The display label Kat's Pet-Care CRM comes from the portfolio brief and is not presented as a verified legal business or client identity. Screens shown here are freshly reviewed public-demo captures with fictional data.",
+          text: "Kat's Pet-Care CRM is a portfolio display label, not a verified legal business or client identity. The screens shown here use fictional public-demo data and were reviewed on July 18, 2026.",
           evidence: ["repository"],
         },
       ],
@@ -485,7 +489,7 @@ export const featuredProjects = [
         kind: "repository",
         label: "Aaron840588/pet-care-crm-demo",
         href: "https://github.com/Aaron840588/pet-care-crm-demo",
-        verifiedAt: "2026-07-15",
+        verifiedAt: "2026-07-19",
       },
       {
         id: "pet-crm-public-deployment",

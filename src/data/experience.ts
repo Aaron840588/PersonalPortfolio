@@ -15,7 +15,7 @@ export const experience = [
       label: "December 2025 – March 2026",
     },
     summary: {
-      text: "Supported enterprise documentation, process analysis, QA testing, UAT, and system-improvement work during a 486-hour MIS internship.",
+      text: "Supported enterprise documentation, process analysis, QA testing, and UAT within Gardenia’s MIS department.",
       evidence: ["resume"],
     },
     highlights: [

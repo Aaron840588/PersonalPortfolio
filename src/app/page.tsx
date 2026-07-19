@@ -113,7 +113,7 @@ export default function Home() {
       <section id="work" className="home-work shell" aria-labelledby="work-heading">
         <header className="chapter-heading">
           <h2 id="work-heading">Selected work</h2>
-          <p>Two personal projects · 2026</p>
+          <p>Two AI-assisted personal projects · 2026</p>
         </header>
         <div className="project-list">
           {featuredProjects.map((project, index) => (
@@ -130,7 +130,7 @@ export default function Home() {
         <header className="experience-section__heading">
           <h2 id="experience-heading">MIS internship</h2>
           <p>
-            Documentation, analysis, and validation inside a working MIS team.
+            Functional specifications, process analysis, QA testing, and UAT.
           </p>
         </header>
 

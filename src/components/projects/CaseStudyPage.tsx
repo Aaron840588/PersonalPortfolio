@@ -23,13 +23,16 @@ const tourTitles = {
 } as const;
 
 export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
+  const programmingLanguages = new Set(["JavaScript", "Python", "TypeScript"]);
   const softwareJsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
     name: project.name,
     description: project.summary.text,
     codeRepository: project.repository.href,
-    programmingLanguage: project.technologies.map((technology) => technology.name),
+    programmingLanguage: project.technologies
+      .map((technology) => technology.name)
+      .filter((technology) => programmingLanguages.has(technology)),
     author: {
       "@type": "Person",
       name: "Aaron Tagapan",
@@ -74,7 +77,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Review source <span aria-hidden="true">↗</span>
+                  View repository <span aria-hidden="true">↗</span>
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               )}
@@ -85,7 +88,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Review source <span aria-hidden="true">↗</span>
+                  View repository <span aria-hidden="true">↗</span>
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               ) : null}
@@ -100,18 +103,12 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
         </div>
 
         <dl className="case-facts">
-          {project.metrics.map((metric) => (
-            <div key={metric.label}>
-              <dt>{metric.value}</dt>
-              <dd>{metric.label}</dd>
-            </div>
-          ))}
           <div>
-            <dt>{project.lifecycle}</dt>
-            <dd>project status</dd>
+            <dt>{project.period.label}</dt>
+            <dd>project period</dd>
           </div>
           <div>
-            <dt>Public review</dt>
+            <dt>Public repository</dt>
             <dd>{project.repository.licenseLabel}</dd>
           </div>
         </dl>
@@ -120,7 +117,11 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
       <section className="case-tour shell" aria-labelledby="tour-heading">
         <header className="case-section-heading">
           <h2 id="tour-heading">A short project tour</h2>
-          <p>Three screenshots from the current demo.</p>
+          <p>
+            {project.id === "hh-hub"
+              ? "Three sanitized local-demo screens; the hosted backend is under maintenance."
+              : "Three screens from the synthetic public demo."}
+          </p>
         </header>
 
         <ol className="workbench-tour">
@@ -154,7 +155,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
             target="_blank"
             rel="noreferrer"
           >
-            {project.liveDemo ? "Open demo" : "Review source"} {" "}
+            {project.liveDemo ? "Open demo" : "View repository"} {" "}
             <span aria-hidden="true">↗</span>
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
