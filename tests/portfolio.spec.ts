@@ -86,3 +86,16 @@ test("production responses include the expected security headers", async ({ requ
   expect(headers["x-frame-options"]).toBe("DENY");
   expect(headers["permissions-policy"]).toContain("camera=()");
 });
+
+test("capture screenshots of all pages for visual audit", async ({ page }) => {
+  const screenshotPaths = {
+    "/": "C:/Users/aaron/.gemini/antigravity/brain/5ad333ce-4832-4315-b2eb-3473a0720c55/media__homepage.png",
+    "/work/hh-hub": "C:/Users/aaron/.gemini/antigravity/brain/5ad333ce-4832-4315-b2eb-3473a0720c55/media__hh_hub.png",
+    "/work/pet-care-crm": "C:/Users/aaron/.gemini/antigravity/brain/5ad333ce-4832-4315-b2eb-3473a0720c55/media__pet_care_crm.png",
+    "/resume": "C:/Users/aaron/.gemini/antigravity/brain/5ad333ce-4832-4315-b2eb-3473a0720c55/media__resume.png",
+  };
+  for (const [route, path] of Object.entries(screenshotPaths)) {
+    await page.goto(route);
+    await page.screenshot({ path, fullPage: true });
+  }
+});
