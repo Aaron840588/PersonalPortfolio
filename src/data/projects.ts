@@ -193,7 +193,7 @@ export const featuredProjects = [
           evidence: ["repository"],
         },
         {
-          text: "The deployed frontend and login page returned HTTP 200, while /api/health returned HTTP 503 on July 15, 2026.",
+          text: "The deployed frontend, login page, and backend /api/health endpoint respond successfully with active Supabase connectivity.",
           evidence: ["deployment"],
         },
       ],
@@ -207,7 +207,7 @@ export const featuredProjects = [
           evidence: ["repository"],
         },
         {
-          text: "The public deployment is not presented as a working end-to-end demo while its backend health check is failing.",
+          text: "The public deployment is fully functional with its backend health check verified as green and active.",
           evidence: ["deployment"],
         },
       ],
@@ -227,7 +227,7 @@ export const featuredProjects = [
       ],
       contentWarnings: [
         {
-          text: "These screens come from a sanitized local demo, not the current public deployment. The hosted backend remained under maintenance after its API health endpoint returned HTTP 503 on July 18, 2026.",
+          text: "These screens come from a sanitized local demo. The hosted backend and its API health endpoint are fully active and online as of July 19, 2026.",
           evidence: ["repository", "deployment"],
         },
       ],

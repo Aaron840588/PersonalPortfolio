@@ -119,7 +119,9 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
           <h2 id="tour-heading">A short project tour</h2>
           <p>
             {project.id === "hh-hub"
-              ? "Three sanitized local-demo screens; the hosted backend is under maintenance."
+              ? (project.demoStatus.availability === "maintenance"
+                ? "Three sanitized local-demo screens; the hosted backend is under maintenance."
+                : "Three sanitized local-demo screens; the hosted backend is active and online.")
               : "Three screens from the synthetic public demo."}
           </p>
         </header>
