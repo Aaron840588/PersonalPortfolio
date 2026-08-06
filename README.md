@@ -12,7 +12,7 @@ card grids, and motion-heavy presentation.
 ## Deployment
 
 The current production site is hosted on Vercel at
-[personal-portfolio-alpha-silk-12.vercel.app](https://personal-portfolio-alpha-silk-12.vercel.app/).
+[aarontagapan.vercel.app](https://aarontagapan.vercel.app/).
 
 ## Routes
 

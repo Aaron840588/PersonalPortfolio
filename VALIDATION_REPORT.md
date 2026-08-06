@@ -121,4 +121,4 @@ contrast against the oxblood fill.
 ## External actions
 
 The validated changes are published through GitHub `main` and the linked Vercel
-production project at <https://personal-portfolio-alpha-silk-12.vercel.app/>.
+production project at <https://aarontagapan.vercel.app/>.

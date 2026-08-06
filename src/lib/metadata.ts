@@ -4,7 +4,7 @@ export const siteName = "Aaron Tagapan — IT Operations, Systems and Business T
 export const siteDescription =
   "Portfolio of Aaron Tagapan, a BS Information Systems graduate focused on IT operations, application support, systems analysis, QA/UAT, and AI-assisted personal projects.";
 
-const productionSiteUrl = "https://personal-portfolio-alpha-silk-12.vercel.app";
+const productionSiteUrl = "https://aarontagapan.vercel.app";
 
 export function getSiteUrl() {
   const explicitUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();

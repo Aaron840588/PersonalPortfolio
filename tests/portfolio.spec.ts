@@ -2,7 +2,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
 const routes = ["/", "/work/hh-hub", "/work/pet-care-crm", "/resume"];
-const productionUrl = "https://personal-portfolio-alpha-silk-12.vercel.app";
+const productionUrl = "https://aarontagapan.vercel.app";
 
 for (const route of routes) {
   test(`${route} has working structure, metadata, and no critical accessibility issues`, async ({
