@@ -161,13 +161,13 @@ Portfolio rule:
 
 - Resume title: **Cloud Business Management Platform**
 - Public repository title: **Pet Care Operations CRM — Public Portfolio Demo Sandbox**
-- User-brief display label: **Kat's Pet-Care CRM**
+- User-brief display label: **Pet-Care CRM**
 - Date: **2026**
 - Repository: `https://github.com/Aaron840588/pet-care-crm-demo`
 - Live demo: `https://pet-care-crm-demo.vercel.app`
 - Repository status: public source for portfolio review; proprietary / not open source
 
-The label "Kat's Pet-Care CRM" comes from the user's direct brief, not from the resume or public repository. It may be used as the requested case-study display label, but it must not be expanded into an unverified legal business name, client testimonial, or identifiable customer story.
+The label "Pet-Care CRM" comes from the user's direct brief, not from the resume or public repository. It may be used as the requested case-study display label, but it must not be expanded into an unverified legal business name, client testimonial, or identifiable customer story.
 
 #### Verified technology
 

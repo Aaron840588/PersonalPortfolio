@@ -17,7 +17,15 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
     >
       <div className="project-feature__intro">
         <p className="project-feature__index">
-          {indexLabel} · {project.type} · {project.period.label}
+          <span>{indexLabel}</span>
+          <span className="project-feature__index-sep" aria-hidden="true">
+            ·
+          </span>
+          <span>{project.type}</span>
+          <span className="project-feature__index-sep" aria-hidden="true">
+            ·
+          </span>
+          <span>{project.period.label}</span>
         </p>
         <h3>
           <Link href={project.caseStudyHref}>{project.name}</Link>

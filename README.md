@@ -20,7 +20,7 @@ The current production site is hosted on Vercel at
 | --- | --- |
 | `/` | Portfolio overview, selected work, experience, capabilities, and contact |
 | `/work/hh-hub` | H+H Hub case study |
-| `/work/pet-care-crm` | Kat's Pet-Care CRM case study |
+| `/work/pet-care-crm` | Pet-Care CRM case study |
 | `/resume` | Embedded résumé with open and download actions |
 | `/opengraph-image` | Generated social-sharing image |
 | `/sitemap.xml` | Generated sitemap |
@@ -89,7 +89,7 @@ The case study uses reviewed screenshots from a sanitized local demo. On July
 HTTP 503 and login failed. The portfolio therefore marks the demo as under
 maintenance and does not offer a misleading live-demo action.
 
-### Kat's Pet-Care CRM
+### Pet-Care CRM
 
 The public synthetic demo was verified to launch. Core demo records are in
 memory and reset on refresh; custom service configuration can remain in local

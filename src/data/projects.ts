@@ -10,7 +10,7 @@ export const featuredProjects = [
     slug: "hh-hub",
     name: "H+H Hub",
     resumeName: "H+H Hub — Operations Management Platform",
-    type: "AI-assisted food-operations prototype",
+    type: "Food-operations prototype",
     kind: "operations-platform",
     lifecycle: "ongoing",
     period: {
@@ -265,9 +265,9 @@ export const featuredProjects = [
   {
     id: "pet-care-crm",
     slug: "pet-care-crm",
-    name: "Kat's Pet-Care CRM",
+    name: "Pet-Care CRM",
     resumeName: "Cloud Business Management Platform",
-    type: "AI-assisted pet-care operations prototype",
+    type: "Pet-care operations prototype",
     kind: "business-management-platform",
     lifecycle: "not-specified",
     period: {
@@ -472,7 +472,7 @@ export const featuredProjects = [
       ],
       contentWarnings: [
         {
-          text: "Kat's Pet-Care CRM is a portfolio display label, not a verified legal business or client identity. The screens shown here use fictional public-demo data and were reviewed on July 18, 2026.",
+          text: "Pet-Care CRM is a portfolio display label, not a verified legal business or client identity. The screens shown here use fictional public-demo data and were reviewed on July 18, 2026.",
           evidence: ["repository"],
         },
       ],

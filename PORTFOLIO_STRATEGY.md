@@ -57,7 +57,7 @@ Projects are the dominant visual section and should appear immediately after the
 - A short technology line.
 - Case study, repository, and live-demo actions where currently valid.
 
-H+H Hub appears first because it shows the greatest systems depth. Kat's Pet-Care CRM receives the clearer live-demo affordance. Additional projects may appear only as one quiet text row after the two primary projects; they must not compete visually with them.
+H+H Hub appears first because it shows the greatest systems depth. Pet-Care CRM receives the clearer live-demo affordance. Additional projects may appear only as one quiet text row after the two primary projects; they must not compete visually with them.
 
 ### 03 — Experience
 
@@ -126,14 +126,14 @@ Summarize two or three meaningful tradeoffs or lessons, show the evidence bounda
 - Screenshots are from a sanitized local synthetic demo and must be described that way.
 - The repository is public but proprietary and not open source.
 
-### Kat's Pet-Care CRM
+### Pet-Care CRM
 
 - Present it as a responsive operations CRM for a solo pet-care provider.
 - Emphasize client and pet records, scheduling, key handovers, invoices, earnings, errands, and visit reports.
 - The live public demo may be linked with a clear synthetic-data disclosure.
 - Core demo records are in memory and reset on refresh; Firebase-backed behavior is a separate non-demo architecture.
 - Do not imply that every workflow was exhaustively retested.
-- Kat's Pet-Care CRM is a portfolio display label, not a verified legal business or client identity.
+- Pet-Care CRM is a portfolio display label, not a verified legal business or client identity.
 - The repository is public but proprietary and not open source.
 
 ## Content reduction rules

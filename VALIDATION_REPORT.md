@@ -114,7 +114,7 @@ contrast against the oxblood fill.
 - Coarse-pointer actions use the 46px control target.
 - Reduced motion disables smooth scrolling and collapses transition duration.
 - H+H remains marked under maintenance with no live-demo action.
-- Kat's Pet-Care CRM remains labeled as a synthetic, resettable public demo.
+- Pet-Care CRM remains labeled as a synthetic, resettable public demo.
 - No private source, credentials, production customer information, or unsupported
   outcome claims were added.
 

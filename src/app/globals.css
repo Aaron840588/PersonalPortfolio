@@ -401,6 +401,20 @@ button:disabled,
   text-decoration: none;
 }
 
+.project-feature__index {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35em;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.project-feature__index-sep {
+  color: var(--color-rule);
+  user-select: none;
+}
+
 .project-feature__index,
 .case-provenance,
 .workbench-step__annotation > p,
@@ -423,8 +437,9 @@ button:disabled,
 }
 
 .project-feature h3 {
-  margin-block-start: var(--space-sm);
-  font-size: var(--text-3xl);
+  margin-block-start: var(--space-xs);
+  font-size: clamp(2rem, 3.2vw, 2.5rem);
+  line-height: 1.2;
 }
 
 .project-feature h3 a {
@@ -432,11 +447,11 @@ button:disabled,
 }
 
 .project-feature__statement {
-  max-width: 58ch;
-  margin-block-start: var(--space-md);
+  max-width: 54ch;
+  margin-block-start: var(--space-xs);
   color: var(--color-ink-2);
   font-size: var(--text-md);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .project-feature__ledger {
@@ -1240,17 +1255,17 @@ button:disabled,
   }
 
   .project-feature {
-    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
     grid-template-areas:
       "intro media"
       "details media";
     grid-template-rows: auto minmax(0, 1fr);
-    gap: var(--space-xl);
+    gap: var(--space-2xl);
     align-items: start;
   }
 
   .project-feature--reverse {
-    grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.78fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
     grid-template-areas:
       "media intro"
       "media details";
