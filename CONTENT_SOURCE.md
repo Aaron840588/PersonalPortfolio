@@ -1,3 +1,7 @@
+# October 20, 2026 reconciliation
+
+Current deployment and repository checks supersede historical health/test totals below. See [EMPLOYER_REVIEW.md](EMPLOYER_REVIEW.md). Personal facts retain their original résumé provenance; no new employment claims were introduced.
+
 # Content source and claim ledger
 
 Last reconciled: **July 17, 2026 (Asia/Manila)**

@@ -1,3 +1,9 @@
+# Current validation
+
+See [EMPLOYER_REVIEW.md](EMPLOYER_REVIEW.md) for the October 20, 2026 review and current limitations. The report below is historical and does not establish current deployment health.
+
+---
+
 # Portfolio validation report
 
 Validated **July 17, 2026 (Asia/Manila)**.

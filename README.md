@@ -28,7 +28,7 @@ The current production site is hosted on Vercel at
 
 ## Stack
 
-- Next.js 16.2.10 App Router
+- Next.js 16.4.2 App Router
 - React and React DOM 19.2.7
 - Strict TypeScript and ESLint
 - Newsreader, IBM Plex Sans, and IBM Plex Mono through `next/font`
@@ -76,18 +76,16 @@ The site targets WCAG 2.2 AA with semantic landmarks, one H1 per route,
 sequential headings, a skip link, visible keyboard focus, descriptive links and
 image alternatives, 44px-or-larger control targets, and 320px reflow.
 
-Content is fully visible at first paint. Motion is limited to short hover and
-pressed-state transitions; `prefers-reduced-motion` collapses those durations
-and disables smooth scrolling.
+Content stays at full contrast. The homepage uses a short hero entrance and one-time scroll entrances, plus restrained image hover motion. Reduced-motion disables entrances and smooth scrolling; content is usable without JavaScript.
 
 ## Featured demo caveats
 
 ### H+H Hub
 
-The case study uses reviewed screenshots from a sanitized local demo. On July
-15, 2026, the public frontend responded but its API health endpoint returned
-HTTP 503 and login failed. The portfolio therefore marks the demo as under
-maintenance and does not offer a misleading live-demo action.
+The case study uses reviewed screenshots from a sanitized local demo. On October
+20, 2026, the public frontend loaded, but API health returned HTTP 503 and the
+Owner demo returned to login. The portfolio marks it under maintenance and
+routes visitors to screenshots and source code instead of a broken demo.
 
 ### Pet-Care CRM
 

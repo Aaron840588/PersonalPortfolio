@@ -59,7 +59,7 @@ Desktop grid areas may alternate visually without changing that order.
 ## Motion and performance
 
 - Content is fully visible at first paint.
-- No universal reveal, scroll-progress listener, parallax, or idle animation.
+- Homepage only: short transform-based hero and one-time section entrances. No opacity fades, scroll-progress listener, parallax, or idle animation. Content remains visible without JavaScript.
 - Only short color and pressed-state CSS transitions remain.
 - Reduced motion disables smooth scrolling and collapses transition duration.
 - The first homepage project image and first case-study image are preloaded as

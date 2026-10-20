@@ -4,6 +4,7 @@ import { education } from "@/data/credentials";
 import { primaryExperience } from "@/data/experience";
 import { profile } from "@/data/profile";
 import { featuredProjects } from "@/data/projects";
+import { PageMotion } from "@/components/ui/PageMotion";
 
 const capabilityGroups = [
   {
@@ -55,6 +56,7 @@ const capabilityGroups = [
 export default function Home() {
   return (
     <main id="main-content" className="home-page">
+      <PageMotion />
       <section className="home-hero shell" aria-labelledby="hero-title">
         <aside className="home-hero__identity" aria-label="Profile at a glance">
           <p className="home-hero__role">{profile.professionalLabel}</p>
@@ -79,7 +81,8 @@ export default function Home() {
         </aside>
 
         <div className="home-hero__body">
-          <h1 id="hero-title">{profile.heroHeadline.text}</h1>
+          <p className="hero-eyebrow">Aaron Tagapan / Information Systems graduate</p>
+          <h1 id="hero-title">IT operations.<br /><span>Systems thinking.</span></h1>
           <p className="home-hero__summary">{profile.about.text}</p>
           <div className="home-hero__actions" aria-label="Portfolio actions">
             <a className="action action--primary" href="#work">
@@ -108,12 +111,16 @@ export default function Home() {
             </a>
           </nav>
         </div>
+        <div className="hero-footnote">
+          <p>Requirements → Process flows → Testing</p>
+          <a href="#work">Explore the work <span aria-hidden="true">↓</span></a>
+        </div>
       </section>
 
       <section id="work" className="home-work shell" aria-labelledby="work-heading">
         <header className="chapter-heading">
           <h2 id="work-heading">Selected work</h2>
-          <p>Two AI-assisted personal projects · 2026</p>
+          <p>Personal projects · Built with AI assistance · 2026</p>
         </header>
         <div className="project-list">
           {featuredProjects.map((project, index) => (
