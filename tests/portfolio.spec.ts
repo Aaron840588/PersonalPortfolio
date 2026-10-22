@@ -158,3 +158,50 @@ test("reduced motion and disabled JavaScript retain readable content", async ({ 
   expect(await page.locator("h1").evaluate((heading) => getComputedStyle(heading).animationName)).toBe("none");
   await context.close();
 });
+
+test("hero workflow switches with pointer and keyboard without shifting the page", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.goto("/");
+  const panel = page.locator(".workflow-study");
+  const original = await panel.boundingBox();
+  await expect(page.getByRole("link", { name: "Explore Pet-Care CRM" })).toBeVisible();
+  await page.locator('label[for="workflow-food"]').click();
+  await expect(page.getByRole("radio", { name: "Food operations", exact: true })).toBeChecked();
+  await expect(page.getByRole("img", { name: /^H\+H Hub: Recipe/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Explore Pet-Care CRM" })).toBeHidden();
+  expect((await panel.boundingBox())?.height).toBe(original?.height);
+  await page.locator("#workflow-food").focus();
+  await page.keyboard.press("ArrowLeft");
+  await expect(page.getByRole("radio", { name: "Pet-care", exact: true })).toBeChecked();
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "Explore Pet-Care CRM" })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/work\/pet-care-crm$/);
+  expect(errors).toEqual([]);
+});
+
+test("hero workflow works without JavaScript and respects reduced motion", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, reducedMotion: "reduce" });
+  const page = await context.newPage();
+  await page.goto("http://127.0.0.1:3100/");
+  await page.locator('label[for="workflow-food"]').click();
+  await expect(page.getByRole("link", { name: "Explore H+H Hub" })).toBeVisible();
+  const animatedParts = page.locator(".workflow-study__panel--food .workflow-map__trace, .workflow-study__panel--food .workflow-map__node");
+  expect(await animatedParts.evaluateAll((elements) => elements.every((element) => getComputedStyle(element).animationName === "none"))).toBe(true);
+  await page.getByRole("link", { name: "Explore H+H Hub" }).click();
+  await expect(page).toHaveURL(/\/work\/hh-hub$/);
+  await context.close();
+});
+
+test("project index jumps to both projects and hero motion settles", async ({ page }) => {
+  await page.goto("/");
+  await expect.poll(() => page.locator(".workflow-study").evaluate((element) =>
+    element.getAnimations({ subtree: true }).filter((animation) => animation.playState === "running").length,
+  )).toBe(0);
+  for (const [name, id] of [["H+H Hub", "hh-hub"], ["Pet-Care CRM", "pet-care-crm"]]) {
+    await page.getByRole("navigation", { name: "Jump to a project" }).getByRole("link", { name: new RegExp(name.replace("+", "\\+")) }).click();
+    await expect(page).toHaveURL(new RegExp(`#${id}$`));
+    await expect(page.locator(`#${id} h3`)).toBeInViewport();
+  }
+});
