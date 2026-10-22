@@ -45,3 +45,9 @@ GitHub links responded successfully. LinkedIn returned HTTP 999 to automated acc
 3. Recheck the deployed versions after merging. The local test results above do not certify deployment health.
 
 Browser coverage is Chromium only; Safari, Firefox, real devices and assistive-technology user testing remain outside this pass. Automated checks do not establish that every possible interaction is defect-free. LinkedIn visitor access remains unverified because it blocks automated requests.
+
+## Deeper privacy audit — October 22
+
+A follow-up inspection found exposed API/login credentials in Pet Care's public import script/history, historical invoice captures with a payment number, and a bundled staff payroll workbook in H+H's public source. Sanitization is prepared in the separate project PRs, but provider credential revocation and Git-history remediation remain required. Do not describe the projects as leak-free. The revised public resume removes the phone number at the owner's request; the live PDF will retain it until deployment.
+
+The follow-up checks pass: 28 portfolio browser checks, 16 Pet Care production-preview browser checks plus 16 helper tests, and 156 H+H backend tests plus eight frontend tests. H+H Python dependencies now audit clean. Live H+H remains unavailable; live Pet Care booking/image-export observations require deployment and retesting. A local detailed report records scope and limitations without credential values.
