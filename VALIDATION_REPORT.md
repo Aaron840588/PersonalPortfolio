@@ -1,4 +1,8 @@
-# Current validation
+# Current validation — October 22, 2026
+
+Latest implementation: Next.js 16.4.2; interactive workflow hero; phone-free public résumé. Lint, TypeScript, production build and all 34 desktop/mobile Chromium tests passed. Checks include four-page accessibility, six viewport widths (320–2560px), links/images/PDF, headers, keyboard interaction, workflow switching without layout shifts, reduced motion and JavaScript-disabled operation. Hosted checks also passed for the redesign commit. Safari, Firefox and physical-device flows were not tested in this run.
+
+See `RELEASE_NOTES.md` for the publication scope. Earlier dependency audits found no production vulnerabilities; five development-only ESLint-chain findings remain.
 
 See [EMPLOYER_REVIEW.md](EMPLOYER_REVIEW.md) for the October 20, 2026 review and current limitations. The report below is historical and does not establish current deployment health.
 
