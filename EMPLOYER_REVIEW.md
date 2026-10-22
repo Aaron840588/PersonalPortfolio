@@ -1,4 +1,4 @@
-# Employer portfolio review — October 20, 2026
+# Employer portfolio review — October 22, 2026
 
 ## Verdict
 The revised portfolio is suitable for presenting entry-level IT / systems experience with clear prototype boundaries. Do not describe both project demos as fully working: H+H currently fails after entry. Changes are prepared on a review branch; production has not been replaced.
@@ -25,26 +25,23 @@ The revised portfolio is suitable for presenting entry-level IT / systems experi
 ### H+H Hub — release blocker for the live-demo button
 The public login page loads. Owner View briefly opens the dashboard, then returns to login. `/api/health` returned HTTP 503 with a database-connection failure. The response also exposes internal database connection details; the backend should return a generic public error and retain details in private logs. Repair and verify backend connectivity before restoring the portfolio demo button. No database settings or credentials were changed in this review.
 
-Repository examined: `01904d87305cc4909fee2d498148fb67eaee7646`. Route and test-file presence were inspected; the full backend suite was not executed. Existing local-demo images are historical and are labelled accordingly.
+The separate H+H review branch now replaces the nonfunctional guest entry with a maintenance page, redacts database errors, updates dependencies and corrects lint issues. All 152 backend tests pass against isolated SQLite; eight frontend regressions, lint, typecheck and production build pass. The maintenance page was checked at 375px and 1280px. Production dependencies audit clean. Database connectivity and genuine server-authorized guest access remain deployment blockers. These fixes are not deployed yet.
 
-### Pet-Care CRM — available, with quality work remaining
-The public demo launches. All 11 application views rendered: dashboard, clients, errands, schedule, own pets, keys, invoice builder, invoice records, earnings, visit reports and settings. All 16 current Node helper tests pass; Vite production build passes with a large-chunk warning. ESLint reports 13 errors and two warnings. Dependency install reports nine high-severity findings. These are findings in the separate project, not the portfolio dependency audit.
+### Pet-Care CRM — workflow fixes prepared
+The separate Pet-Care review branch fixes invoice save/reset state, client autofill, repeated AM/PM labels, modal keyboard focus and demo reset behavior. Demo mode is enabled by default, initializes no Firebase connection, registers no push notifications and resets service settings with the rest of the session. Public branding and backup/storage descriptions now match sandbox behavior.
 
-Observed presentation issue: dashboard times repeat AM/PM (for example `2:00 PM PM`). Settings says all changes reset on refresh, but source code persists service configuration in localStorage; the portfolio retains that caveat.
-
-Repository examined: `6a5bc1da384b393f926980c204476efc63a9613c`. No mutations, exports, printing, uploads, actual financial transactions, or complete cross-screen workflows were claimed as exhaustively tested. This review did not modify the separate project repositories.
+ESLint passes, all 16 Node helper tests and six desktop/mobile browser tests pass, and the production build passes. The full dependency audit reports zero vulnerabilities. Browser coverage includes all 11 screens, invoice creation/reset, service changes discarded on refresh and no Firebase requests. The large JavaScript bundle warning remains. The live deployment has not been replaced; local fixes must be reviewed and deployed before its behavior matches this branch.
 
 ## Résumé and content
-The one-page PDF was extracted and visually inspected; it is readable and its internship dates, education and 486-hour duration agree with the website. It uses stronger project claims (“Architected”, “SaaS”, client-facing business deployment) than the website's AI-assisted prototype positioning. Suggested wording for the H+H bullet: “Defined operational workflows and iterated on an AI-assisted prototype covering inventory, recipe costing, purchasing and consignment.” Confirm the scope of real client use before retaining that claim. The original PDF is unchanged.
+The one-page résumé was rebuilt and visually checked. Project descriptions now use the same AI-assisted prototype positioning as the website; unsupported SaaS, architecture and client deployment claims were removed. Original contact details, internship dates, education and 486-hour duration were retained. The revised PDF is included in this branch.
 
 Personal identity and employment claims were checked for consistency with the supplied repository résumé, not independently verified with employers or institutions. No outcomes, commercial usage, qualifications or metrics were invented.
 
 GitHub links responded successfully. LinkedIn returned HTTP 999 to automated access, so public visitor access remains unverified. Mail links were inspected; no emails were sent.
 
 ## Remaining release decisions
-1. Review the portfolio branch and merge it to deploy through the existing Vercel integration.
-2. Repair H+H connectivity before re-enabling its demo action.
-3. Clean up Pet-Care lint/dependency findings, repeated time suffixes and demo-reset wording, then test key record and export workflows.
-4. Align résumé project wording with the authorship and deployment claims you can explain in an interview.
+1. Review and merge the portfolio and demo branches to deploy through the existing integrations.
+2. Restore H+H database connectivity and authenticated guest access before re-enabling the portfolio demo action. No hosting credentials or connected infrastructure tools were available for this repair.
+3. Recheck the deployed versions after merging. The local test results above do not certify deployment health.
 
-Browser coverage is Chromium only; Safari, Firefox, real devices and assistive-technology user testing remain outside this pass. Automated checks do not establish that every possible interaction is defect-free.
+Browser coverage is Chromium only; Safari, Firefox, real devices and assistive-technology user testing remain outside this pass. Automated checks do not establish that every possible interaction is defect-free. LinkedIn visitor access remains unverified because it blocks automated requests.
