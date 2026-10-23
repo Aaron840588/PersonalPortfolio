@@ -59,13 +59,19 @@ export const featuredProjects = [
       evidence: ["repository"],
     },
     demoStatus: {
-      availability: "maintenance",
-      label: "Demo under maintenance",
-      detail: "The public demo is currently unavailable. Explore the screenshots and source code below.",
-      verifiedAt: "2026-10-20",
+      availability: "verified-live",
+      label: "Interactive fictional demo",
+      detail: "Try inventory, order fulfilment and batch costing with fictional records. Changes reset on refresh. This focused browser simulation is separate from the full ERP.",
+      verifiedAt: "2026-10-23",
       evidence: ["deployment"],
     },
-    liveDemo: undefined,
+    liveDemo: {
+      href: "https://food-operations-erp-demo.vercel.app/demo",
+      label: "Open fictional demo",
+      accessNote: "No login required · Fictional browser-only simulation",
+      verifiedAt: "2026-10-23",
+      evidence: ["deployment"],
+    },
     media: [
       {
         src: "/projects/hh-hub/dashboard.png",
@@ -168,7 +174,7 @@ export const featuredProjects = [
           evidence: ["repository", "deployment"],
         },
         {
-          text: "IndexedDB stores eligible failed writes for replay; wholesale checkout and market-event sales are excluded to avoid duplicate financial submissions.",
+          text: "Generic mutation replay is disabled. The full prototype has a dedicated idempotent Market Event offline journal; the public browser simulation does not replay or synchronize writes.",
           evidence: ["repository"],
         },
       ],
@@ -182,11 +188,11 @@ export const featuredProjects = [
           evidence: ["repository"],
         },
         {
-          text: "Earlier local build results are historical. The current hosted demo could not be validated end to end because its database connection is unavailable.",
+          text: "The fictional workspace has regression tests for stock validation, order fulfilment, cancellation, reset and costing. The full database-backed ERP remains unavailable.",
           evidence: ["repository"],
         },
         {
-          text: "On October 20, 2026, the login page loaded, but the API health check returned HTTP 503 and the Owner demo returned to login.",
+          text: "The public entry serves a browser-only sample workspace. It does not depend on the unavailable API or expose live accounts.",
           evidence: ["deployment"],
         },
       ],
@@ -196,11 +202,11 @@ export const featuredProjects = [
           evidence: ["repository"],
         },
         {
-          text: "The owner demo role exposes broader workflows, but sensitive administration and configuration mutations remain restricted.",
+          text: "The public sample deliberately limits scope to inventory, orders and costing. It does not expose administration, payroll or real payments.",
           evidence: ["repository"],
         },
         {
-          text: "The hosted demo depends on a working database connection. While it is under maintenance, the case study and sanitized screenshots remain available for review.",
+          text: "The browser simulation trades backend fidelity for reliable, private exploration. The full ERP still needs an isolated database and server-authorized guest sessions before reopening.",
           evidence: ["deployment"],
         },
       ],
@@ -251,7 +257,7 @@ export const featuredProjects = [
         label: "Food Operations ERP public deployment",
         href: "https://food-operations-erp-demo.vercel.app",
         verifiedAt: "2026-07-15",
-        note: "October 20, 2026: frontend loads; API health HTTP 503; Owner demo returns to login.",
+        note: "October 23, 2026: fictional browser workspace published; separate database-backed API remains unavailable.",
       },
     ],
   },
