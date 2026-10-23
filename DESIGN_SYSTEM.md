@@ -30,7 +30,7 @@ underlines. Status meaning always includes text.
 - IBM Plex Mono: dates, provenance, and compact technical metadata only.
   Screenshot captions stay in IBM Plex Sans so the outlier face remains rare.
 - Body copy starts at 17px; supporting copy at 15px; metadata at 13px.
-- Display text caps at 76px.
+- Hero display text scales to 5.4rem; other headings use their contextual tokens.
 - Reading measure caps at 62ch.
 
 No italic headings, decorative all-caps section system, or fourth font family.
@@ -59,8 +59,9 @@ Desktop grid areas may alternate visually without changing that order.
 ## Motion and performance
 
 - Content is fully visible at first paint.
-- No universal reveal, scroll-progress listener, parallax, or idle animation.
-- Only short color and pressed-state CSS transitions remain.
+- Homepage only: short transform-based hero and one-time section entrances. No opacity fades, scroll-progress listener, parallax, or idle animation. Content remains visible without JavaScript.
+- The hero workflow draws SVG connections over 1.6s and settles nodes over 600ms, once per selection. Native radio controls work without JavaScript.
+- Link arrows use brief directional transforms. No continuous idle animation.
 - Reduced motion disables smooth scrolling and collapses transition duration.
 - The first homepage project image and first case-study image are preloaded as
   deterministic LCP candidates.

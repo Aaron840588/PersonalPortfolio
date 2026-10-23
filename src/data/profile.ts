@@ -6,7 +6,7 @@ export const profile = {
   initials: "AT",
   professionalLabel: "IT Operations · Systems · Business Technology",
   heroHeadline: {
-    text: "Information Systems graduate with internship experience in requirements documentation and QA/UAT.",
+    text: "IT operations. Systems thinking.",
     evidence: ["candidate-brief", "resume"],
   },
   professionalSummary: {
@@ -14,7 +14,7 @@ export const profile = {
     evidence: ["candidate-brief", "resume"],
   },
   about: {
-    text: "During a 486-hour MIS internship at Gardenia, I developed functional specifications and supported process analysis, QA testing, and UAT. The projects below are AI-assisted prototypes I used to practice mapping operational workflows.",
+    text: "I’m Aaron, an Information Systems graduate. During my 486-hour MIS internship at Gardenia, I documented requirements, analyzed processes, and supported QA and user acceptance testing. Now I’m looking to bring that practical approach to an entry-level IT or systems support role.",
     evidence: ["candidate-brief", "resume"],
   },
   availability: {

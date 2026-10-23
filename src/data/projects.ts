@@ -43,8 +43,7 @@ export const featuredProjects = [
       { name: "Vercel", evidence: ["resume", "repository", "deployment"] },
     ],
     metrics: [
-      { value: "11", label: "verified user-facing routes", evidence: ["repository"] },
-      { value: "57", label: "backend unit-test methods", evidence: ["repository"] },
+
     ],
     repository: {
       href: "https://github.com/Aaron840588/food-operations-erp-demo",
@@ -60,19 +59,13 @@ export const featuredProjects = [
       evidence: ["repository"],
     },
     demoStatus: {
-      availability: "verified-live",
-      label: "Live public demo",
-      detail: "The hosted frontend and its backend API health endpoint were verified as healthy and connected on July 19, 2026. The full operational dashboard and role-aware workflows are fully active.",
-      verifiedAt: "2026-07-19",
+      availability: "maintenance",
+      label: "Demo under maintenance",
+      detail: "The public demo is currently unavailable. Explore the screenshots and source code below.",
+      verifiedAt: "2026-10-20",
       evidence: ["deployment"],
     },
-    liveDemo: {
-      href: "https://food-operations-erp-demo.vercel.app",
-      label: "Open live demo",
-      accessNote: "No registration required · Guest prefill available",
-      verifiedAt: "2026-07-19",
-      evidence: ["deployment"],
-    },
+    liveDemo: undefined,
     media: [
       {
         src: "/projects/hh-hub/dashboard.png",
@@ -181,19 +174,19 @@ export const featuredProjects = [
       ],
       testingAndReliability: [
         {
-          text: "The production frontend build passed and enumerated 11 user-facing routes, including a new timesheets route added after the initial audit.",
+          text: "The public repository includes dedicated screens for inventory, recipes, production planning, pre-orders, wholesale, consignment, market events, tasks, and timesheets.",
           evidence: ["repository"],
         },
         {
-          text: "The repository contains 57 backend unittest methods covering authentication, financial validity, authorization, reseller stock, consignment, market-event integrity, and security hardening.",
+          text: "The repository includes backend tests for authentication, financial validation, permissions, inventory, consignment, and market-event integrity. Test presence does not establish that the deployed service is healthy.",
           evidence: ["repository"],
         },
         {
-          text: "An isolated frontend check passed install, TypeScript checking, and production build; ESLint exited successfully with 44 warnings.",
+          text: "Earlier local build results are historical. The current hosted demo could not be validated end to end because its database connection is unavailable.",
           evidence: ["repository"],
         },
         {
-          text: "The deployed frontend, login page, and backend /api/health endpoint respond successfully with active Supabase connectivity.",
+          text: "On October 20, 2026, the login page loaded, but the API health check returned HTTP 503 and the Owner demo returned to login.",
           evidence: ["deployment"],
         },
       ],
@@ -207,7 +200,7 @@ export const featuredProjects = [
           evidence: ["repository"],
         },
         {
-          text: "The public deployment is fully functional with its backend health check verified as green and active.",
+          text: "The hosted demo depends on a working database connection. While it is under maintenance, the case study and sanitized screenshots remain available for review.",
           evidence: ["deployment"],
         },
       ],
@@ -227,7 +220,7 @@ export const featuredProjects = [
       ],
       contentWarnings: [
         {
-          text: "These screens come from a sanitized local demo. The hosted backend and its API health endpoint are fully active and online as of July 19, 2026.",
+          text: "These screenshots show a sanitized local demo, not the current availability of the hosted service. Public demo access was checked on October 20, 2026.",
           evidence: ["repository", "deployment"],
         },
       ],
@@ -258,7 +251,7 @@ export const featuredProjects = [
         label: "Food Operations ERP public deployment",
         href: "https://food-operations-erp-demo.vercel.app",
         verifiedAt: "2026-07-15",
-        note: "Frontend HTTP 200; API health HTTP 503.",
+        note: "October 20, 2026: frontend loads; API health HTTP 503; Owner demo returns to login.",
       },
     ],
   },
@@ -299,7 +292,7 @@ export const featuredProjects = [
     ],
     metrics: [
       { value: "11", label: "verified application views", evidence: ["repository"] },
-      { value: "23/23", label: "passing helper tests", evidence: ["repository"] },
+
     ],
     repository: {
       href: "https://github.com/Aaron840588/pet-care-crm-demo",
@@ -317,7 +310,7 @@ export const featuredProjects = [
     demoStatus: {
       availability: "verified-live",
       label: "Live public demo",
-      detail: "The public deployment and required assets returned HTTP 200, and an interactive smoke test verified that the demo launches into the application. Not every view was exhaustively retested.",
+      detail: "Explore fictional clients, scheduling, billing, and visit reports without an account. Core demo records reset when you refresh the page.",
       verifiedAt: "2026-07-15",
       evidence: ["deployment"],
     },
@@ -426,19 +419,19 @@ export const featuredProjects = [
       ],
       testingAndReliability: [
         {
-          text: "The isolated project passed ESLint without reported warnings and completed a Vite production build.",
+          text: "On October 20, 2026, the public project completed a production build and passed all 16 helper tests. Its lint check reported 13 errors and two warnings; cleanup remains outstanding.",
           evidence: ["repository"],
         },
         {
-          text: "Twenty-three of twenty-three Node tests pass across booking order, invoice balance filtering, HTML escaping, calendar export, key status, own-pet status, non-consecutive schedule dates, report card logic, and OCR donation text parsing.",
+          text: "Helper tests exercise business rules separately from the interface; browser checks are also needed to verify complete workflows.",
           evidence: ["repository"],
         },
         {
-          text: "A Playwright e2e suite (3 active tests) covers desktop and mobile navigation across all 11 views and runs Axe accessibility checks for WCAG AA color-contrast and named-button compliance.",
+          text: "The public repository includes Node tests for booking order, scheduling, invoice-balance filtering, HTML escaping, calendar export, key tracking, and own-pet behavior.",
           evidence: ["repository"],
         },
         {
-          text: "The deployment, main bundles, manifest, logo, and demo-login bundle returned HTTP 200; a smoke test confirmed the demo launches.",
+          text: "On October 20, 2026, the public demo launched and all 11 application views rendered. This was a navigation smoke test, not an exhaustive test of every save, export, and payment-state workflow.",
           evidence: ["deployment"],
         },
       ],
@@ -452,7 +445,7 @@ export const featuredProjects = [
           evidence: ["repository"],
         },
         {
-          text: "The repository has no public CI workflow, so lint, build, and tests were verified in an isolated local copy rather than claimed as CI/CD.",
+          text: "Local build and helper tests are separate from browser checks. A successful build does not establish that every operational workflow is correct.",
           evidence: ["repository"],
         },
       ],
@@ -503,7 +496,7 @@ export const featuredProjects = [
         label: "Pet Care CRM public demo",
         href: "https://pet-care-crm-demo.vercel.app",
         verifiedAt: "2026-07-15",
-        note: "Public demo launch verified; individual workflows were not exhaustively retested.",
+        note: "October 20, 2026: demo launch and all 11 views checked; individual mutations and exports not exhaustively tested.",
       },
     ],
   },

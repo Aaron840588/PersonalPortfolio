@@ -4,6 +4,8 @@ import { education } from "@/data/credentials";
 import { primaryExperience } from "@/data/experience";
 import { profile } from "@/data/profile";
 import { featuredProjects } from "@/data/projects";
+import { PageMotion } from "@/components/ui/PageMotion";
+import { WorkflowStudy } from "@/components/ui/WorkflowStudy";
 
 const capabilityGroups = [
   {
@@ -55,32 +57,13 @@ const capabilityGroups = [
 export default function Home() {
   return (
     <main id="main-content" className="home-page">
+      <PageMotion />
       <section className="home-hero shell" aria-labelledby="hero-title">
-        <aside className="home-hero__identity" aria-label="Profile at a glance">
-          <p className="home-hero__role">{profile.professionalLabel}</p>
-          <dl className="home-hero__facts">
-            <div>
-              <dt>Status</dt>
-              <dd>Open to entry-level opportunities</dd>
-            </div>
-            <div>
-              <dt>Based in</dt>
-              <dd>Los Baños, Laguna</dd>
-            </div>
-            <div>
-              <dt>Experience</dt>
-              <dd>486-hour MIS internship</dd>
-            </div>
-            <div>
-              <dt>Education</dt>
-              <dd>BS Information Systems · 2026</dd>
-            </div>
-          </dl>
-        </aside>
-
         <div className="home-hero__body">
-          <h1 id="hero-title">{profile.heroHeadline.text}</h1>
-          <p className="home-hero__summary">{profile.about.text}</p>
+          <p className="hero-eyebrow">Aaron Tagapan / Information Systems graduate</p>
+          <h1 id="hero-title">IT operations.<br /><span>Systems thinking.</span></h1>
+          <p className="home-hero__summary">I turn requirements into process flows, documentation, and tested prototypes. Information Systems graduate with a 486-hour MIS internship at Gardenia.</p>
+          <p className="home-hero__availability"><span aria-hidden="true" />Open to entry-level IT and systems support roles.</p>
           <div className="home-hero__actions" aria-label="Portfolio actions">
             <a className="action action--primary" href="#work">
               View selected work
@@ -108,13 +91,28 @@ export default function Home() {
             </a>
           </nav>
         </div>
+        <WorkflowStudy />
+        <div className="hero-footnote">
+          <p>Los Baños, Laguna <span aria-hidden="true">·</span> BS Information Systems, 2026</p>
+          <a href="#work">Explore the work <span aria-hidden="true">↓</span></a>
+        </div>
       </section>
 
       <section id="work" className="home-work shell" aria-labelledby="work-heading">
         <header className="chapter-heading">
           <h2 id="work-heading">Selected work</h2>
-          <p>Two AI-assisted personal projects · 2026</p>
+          <p>Personal projects · Built with AI assistance · 2026</p>
         </header>
+        <nav className="project-index" aria-label="Jump to a project">
+          {featuredProjects.map((project, index) => (
+            <a key={project.id} href={`#${project.id}`}>
+              <span className="project-index__number">0{index + 1}</span>
+              <span>{project.name}</span>
+              <span className="project-index__kind">{project.type}</span>
+              <span className="project-index__arrow" aria-hidden="true">↓</span>
+            </a>
+          ))}
+        </nav>
         <div className="project-list">
           {featuredProjects.map((project, index) => (
             <ProjectFeature key={project.id} project={project} index={index + 1} />

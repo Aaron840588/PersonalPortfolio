@@ -34,7 +34,7 @@ restrained warm-accent discipline remains.
 
 ## Typography
 
-- Display: Newsreader, variable weight 400, roman only.
+- Display: Newsreader, variable weight 400, roman only. The homepage pairs a large IBM Plex Sans lead line with a Newsreader accent line.
 - Body: IBM Plex Sans, variable weight 425 with 600 for emphasis.
 - Mono/outlier: IBM Plex Mono, weights 400 and 500, limited to dates,
   provenance, and compact technical metadata. Screenshot captions use the body
@@ -53,8 +53,8 @@ stretching reading measures beyond 62ch.
 ## Motion
 
 - Stance: static-first.
-- Content is fully visible at first paint; there are no scroll-triggered reveals.
-- Motion is limited to short color and pressed-state transitions on controls.
+- Content stays visible at full contrast. The homepage adds a brief staggered hero entrance and one-time 24px scroll entrances as progressive enhancement.
+- Motion uses transforms only, with no scroll hijacking, parallax, loops, or animation library. Reduced-motion disables entrance effects.
 - Reduced-motion collapses all nonessential transition duration.
 
 ## Microinteractions stance
@@ -72,7 +72,7 @@ stretching reading measures beyond 62ch.
 
 ## Navigation and footer
 
-- Navigation: **N9 Edge-aligned minimal** — wordmark left, one contact action right.
+- Navigation: wordmark left, Work / Experience / Résumé section links, email action right; navigation wraps onto a second row on phones.
 - Footer: **Ft6 Direct close** — availability and contact first, with no faux-letter salutation or link columns.
 
 ## Per-page allowances

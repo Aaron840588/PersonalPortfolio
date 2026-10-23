@@ -87,15 +87,121 @@ test("production responses include the expected security headers", async ({ requ
   expect(headers["permissions-policy"]).toContain("camera=()");
 });
 
-test("capture screenshots of all pages for visual audit", async ({ page }) => {
-  const screenshotPaths = {
-    "/": "C:/Users/aaron/.gemini/antigravity/brain/5ad333ce-4832-4315-b2eb-3473a0720c55/media__homepage.png",
-    "/work/hh-hub": "C:/Users/aaron/.gemini/antigravity/brain/5ad333ce-4832-4315-b2eb-3473a0720c55/media__hh_hub.png",
-    "/work/pet-care-crm": "C:/Users/aaron/.gemini/antigravity/brain/5ad333ce-4832-4315-b2eb-3473a0720c55/media__pet_care_crm.png",
-    "/resume": "C:/Users/aaron/.gemini/antigravity/brain/5ad333ce-4832-4315-b2eb-3473a0720c55/media__resume.png",
-  };
-  for (const [route, path] of Object.entries(screenshotPaths)) {
+test("capture screenshots of all pages for visual audit", async ({ page }, testInfo) => {
+  for (const route of routes) {
     await page.goto(route);
-    await page.screenshot({ path, fullPage: true });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    for (const image of await page.locator("main img").all()) {
+      await image.scrollIntoViewIfNeeded();
+      await expect(image).toHaveJSProperty("complete", true);
+      expect(await image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+    }
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    await page.screenshot({ path: testInfo.outputPath(`${route.replaceAll("/", "_") || "home"}.png`), fullPage: true });
+  }
+});
+
+test("maintenance demo is not offered as a working destination", async ({ page }) => {
+  for (const route of ["/", "/work/hh-hub"]) {
+    await page.goto(route);
+    await expect(page.locator('a[href="https://food-operations-erp-demo.vercel.app"]')).toHaveCount(0);
+    await expect(page.getByText("Demo under maintenance", { exact: false }).first()).toBeVisible();
+  }
+});
+
+test("every page link, fragment, and screenshot has a valid local destination", async ({ page, request }) => {
+  for (const route of routes) {
+    await page.goto(route);
+    const hrefs = await page.locator("a[href]").evaluateAll((links) =>
+      [...new Set(links.map((link) => link.getAttribute("href")!))],
+    );
+    for (const href of hrefs) {
+      if (href.startsWith("#")) {
+        await expect(page.locator(href)).toHaveCount(1);
+      } else if (href.startsWith("/")) {
+        const url = new URL(href, "http://localhost");
+        expect((await request.get(url.pathname)).ok(), href).toBeTruthy();
+      } else {
+        expect(href).toMatch(/^(https:\/\/|mailto:)/);
+      }
+    }
+    await expect(page.locator("h1")).toHaveCount(1);
+  }
+});
+
+test("keyboard skip link reaches main content", async ({ page }) => {
+  await page.goto("/");
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "Skip to main content" })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#main-content$/);
+});
+
+test("all routes reflow from narrow phones to large desktop screens", async ({ page }) => {
+  for (const width of [320, 375, 768, 1280, 2048, 2560]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const route of routes) {
+      await page.goto(route);
+      expect(await page.evaluate(() =>
+        document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      ), `${route} at ${width}px`).toBeLessThanOrEqual(1);
+    }
+  }
+});
+
+test("reduced motion and disabled JavaScript retain readable content", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, reducedMotion: "reduce" });
+  const page = await context.newPage();
+  await page.goto("http://127.0.0.1:3100/");
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Read case study" })).toHaveCount(2);
+  expect(await page.locator("h1").evaluate((heading) => getComputedStyle(heading).animationName)).toBe("none");
+  await context.close();
+});
+
+test("hero workflow switches with pointer and keyboard without shifting the page", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.goto("/");
+  const panel = page.locator(".workflow-study");
+  const original = await panel.boundingBox();
+  await expect(page.getByRole("link", { name: "Explore Pet-Care CRM" })).toBeVisible();
+  await page.locator('label[for="workflow-food"]').click();
+  await expect(page.getByRole("radio", { name: "Food operations", exact: true })).toBeChecked();
+  await expect(page.getByRole("img", { name: /^H\+H Hub: Recipe/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Explore Pet-Care CRM" })).toBeHidden();
+  expect((await panel.boundingBox())?.height).toBe(original?.height);
+  await page.locator("#workflow-food").focus();
+  await page.keyboard.press("ArrowLeft");
+  await expect(page.getByRole("radio", { name: "Pet-care", exact: true })).toBeChecked();
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "Explore Pet-Care CRM" })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/work\/pet-care-crm$/);
+  expect(errors).toEqual([]);
+});
+
+test("hero workflow works without JavaScript and respects reduced motion", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, reducedMotion: "reduce" });
+  const page = await context.newPage();
+  await page.goto("http://127.0.0.1:3100/");
+  await page.locator('label[for="workflow-food"]').click();
+  await expect(page.getByRole("link", { name: "Explore H+H Hub" })).toBeVisible();
+  const animatedParts = page.locator(".workflow-study__panel--food .workflow-map__trace, .workflow-study__panel--food .workflow-map__node");
+  expect(await animatedParts.evaluateAll((elements) => elements.every((element) => getComputedStyle(element).animationName === "none"))).toBe(true);
+  await page.getByRole("link", { name: "Explore H+H Hub" }).click();
+  await expect(page).toHaveURL(/\/work\/hh-hub$/);
+  await context.close();
+});
+
+test("project index jumps to both projects and hero motion settles", async ({ page }) => {
+  await page.goto("/");
+  await expect.poll(() => page.locator(".workflow-study").evaluate((element) =>
+    element.getAnimations({ subtree: true }).filter((animation) => animation.playState === "running").length,
+  )).toBe(0);
+  for (const [name, id] of [["H+H Hub", "hh-hub"], ["Pet-Care CRM", "pet-care-crm"]]) {
+    await page.getByRole("navigation", { name: "Jump to a project" }).getByRole("link", { name: new RegExp(name.replace("+", "\\+")) }).click();
+    await expect(page).toHaveURL(new RegExp(`#${id}$`));
+    await expect(page.locator(`#${id} h3`)).toBeInViewport();
   }
 });
