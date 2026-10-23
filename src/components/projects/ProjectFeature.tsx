@@ -78,7 +78,7 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
           </a>
           {project.liveDemo ? (
             <a href={project.liveDemo.href} target="_blank" rel="noreferrer">
-              Open demo <span aria-hidden="true">↗</span>
+              {project.liveDemo.label} <span aria-hidden="true">↗</span>
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
           ) : (

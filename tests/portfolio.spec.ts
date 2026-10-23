@@ -105,7 +105,11 @@ test("fictional H+H demo is linked with accurate scope", async ({ page }) => {
   for (const route of ["/", "/work/hh-hub"]) {
     await page.goto(route);
     await expect(page.locator('a[href="https://food-operations-erp-demo.vercel.app/demo"]').first()).toBeVisible();
-    await expect(page.getByText("Interactive fictional demo", { exact: false }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /Open fictional demo/ }).first()).toBeVisible();
+    if (route === "/work/hh-hub") {
+      await expect(page.getByText("Interactive fictional demo", { exact: false }).first()).toBeVisible();
+      await expect(page.getByText(/focused browser simulation is separate from the full ERP/)).toBeVisible();
+    }
   }
 });
 
