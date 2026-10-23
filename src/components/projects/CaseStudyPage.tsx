@@ -67,7 +67,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {project.liveDemo.label} <span aria-hidden="true">↗</span>
+                  {project.id === "hh-hub" ? project.liveDemo.label : "Open public demo"} <span aria-hidden="true">↗</span>
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               ) : (
