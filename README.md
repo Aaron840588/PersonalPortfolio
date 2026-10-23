@@ -95,10 +95,7 @@ Content stays at full contrast. The homepage uses a short hero entrance and one-
 
 ### H+H Hub
 
-The case study uses reviewed screenshots from a sanitized local demo. On October
-20, 2026, the public frontend loaded, but API health returned HTTP 503 and the
-Owner demo returned to login. The portfolio marks it under maintenance and
-routes visitors to screenshots and source code instead of a broken demo.
+The case study uses sanitized screenshots from the full prototype. Its public link opens a separate fictional browser simulation for stock receipts, order fulfilment/cancellation, totals and batch costing. No login, database or private records are required; changes reset on refresh. The full backend remains unavailable, and its broader features are not implied to work in the sample.
 
 ### Pet-Care CRM
 

@@ -67,7 +67,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Open public demo <span aria-hidden="true">↗</span>
+                  {project.id === "hh-hub" ? project.liveDemo.label : "Open public demo"} <span aria-hidden="true">↗</span>
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               ) : (
@@ -121,7 +121,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
             {project.id === "hh-hub"
               ? (project.demoStatus.availability === "maintenance"
                 ? "Three sanitized local-demo screens; the hosted backend is under maintenance."
-                : "Three sanitized local-demo screens showing the implemented workflows.")
+                : "Three sanitized screens from the full prototype. The linked fictional demo focuses on inventory, orders and costing.")
               : "Three screens from the synthetic public demo."}
           </p>
         </header>
