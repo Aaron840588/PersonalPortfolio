@@ -257,6 +257,7 @@
   box-shadow: 0 7px 20px #23302616;
   transition: transform 600ms var(--ease-out);
 }
+.project-feature__media-action { display: flex; justify-content: space-between; align-items: center; min-height: 2.875rem; margin-top: .5rem; font-size: .8125rem; font-weight: 600; }
 .project-feature__media:hover img {
   transform: translateY(-4px);
   opacity: 1;
