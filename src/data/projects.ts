@@ -60,14 +60,14 @@ export const featuredProjects = [
     },
     demoStatus: {
       availability: "verified-live",
-      label: "Interactive fictional demo",
-      detail: "Try inventory, order fulfilment and batch costing with fictional records. Changes reset on refresh. This focused browser simulation is separate from the full ERP.",
+      label: "Original interface · fictional data",
+      detail: "Explore the original H+H screens with isolated fictional records. Changes reset on refresh. External account connections and private uploads are unavailable in this public demo.",
       verifiedAt: "2026-10-23",
       evidence: ["deployment"],
     },
     liveDemo: {
-      href: "https://food-operations-erp-demo.vercel.app/demo",
-      label: "Open fictional demo",
+      href: "https://food-operations-erp-demo.vercel.app",
+      label: "Open H+H demo",
       accessNote: "No login required · Fictional browser-only simulation",
       verifiedAt: "2026-10-23",
       evidence: ["deployment"],
@@ -188,11 +188,11 @@ export const featuredProjects = [
           evidence: ["repository"],
         },
         {
-          text: "The fictional workspace has regression tests for stock validation, order fulfilment, cancellation, reset and costing. The full database-backed ERP remains unavailable.",
+          text: "The original screens use the existing ERP handlers in an isolated sample workspace. Regression tests cover visitor isolation, staff permissions, connected stock updates and repeat production completion.",
           evidence: ["repository"],
         },
         {
-          text: "The public entry serves a browser-only sample workspace. It does not depend on the unavailable API or expose live accounts.",
+          text: "The public sample creates a separate temporary database for each operation and retains only fictional state in the visitor’s tab. It does not connect to a private production database.",
           evidence: ["deployment"],
         },
       ],
@@ -202,11 +202,11 @@ export const featuredProjects = [
           evidence: ["repository"],
         },
         {
-          text: "The public sample deliberately limits scope to inventory, orders and costing. It does not expose administration, payroll or real payments.",
+          text: "Owner and staff sample views demonstrate the original role-aware interface. All records are fictional; no real account access or payment processing is provided.",
           evidence: ["repository"],
         },
         {
-          text: "The browser simulation trades backend fidelity for reliable, private exploration. The full ERP still needs an isolated database and server-authorized guest sessions before reopening.",
+          text: "Using the original handlers preserves connected business rules, while temporary sample state keeps visitors separate. Google Sheets credentials, push delivery and private uploads are deliberately outside the public demo.",
           evidence: ["deployment"],
         },
       ],

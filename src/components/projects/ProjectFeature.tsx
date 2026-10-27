@@ -36,13 +36,13 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
       <Link
         className="project-feature__media"
         href={project.caseStudyHref}
-        aria-label={`Read the ${project.name} case study`}
       >
         <ProjectMedia
           media={project.media[0]}
           priority={index === 1}
           sizes="(max-width: 59.99rem) calc(100vw - 2rem), (max-width: 99.99rem) 58vw, 56rem"
         />
+        <span className="project-feature__media-action">Read the {project.name} case study <span aria-hidden="true">↗</span></span>
       </Link>
 
       <div className="project-feature__details">

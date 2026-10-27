@@ -104,11 +104,11 @@ test("capture screenshots of all pages for visual audit", async ({ page }, testI
 test("fictional H+H demo is linked with accurate scope", async ({ page }) => {
   for (const route of ["/", "/work/hh-hub"]) {
     await page.goto(route);
-    await expect(page.locator('a[href="https://food-operations-erp-demo.vercel.app/demo"]').first()).toBeVisible();
-    await expect(page.getByRole("link", { name: /Open fictional demo/ }).first()).toBeVisible();
+    await expect(page.locator('a[href="https://food-operations-erp-demo.vercel.app"]').first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /Open H\+H demo/ }).first()).toBeVisible();
     if (route === "/work/hh-hub") {
-      await expect(page.getByText("Interactive fictional demo", { exact: false }).first()).toBeVisible();
-      await expect(page.getByText(/focused browser simulation is separate from the full ERP/)).toBeVisible();
+      await expect(page.getByText("Original interface · fictional data", { exact: false }).first()).toBeVisible();
+      await expect(page.getByText(/External account connections and private uploads/)).toBeVisible();
     }
   }
 });
@@ -174,7 +174,8 @@ test("hero workflow switches with pointer and keyboard without shifting the page
   await expect(page.getByRole("radio", { name: "Food operations", exact: true })).toBeChecked();
   await expect(page.getByRole("img", { name: /^H\+H Hub: Recipe/ })).toBeVisible();
   await expect(page.getByRole("link", { name: "Explore Pet-Care CRM" })).toBeHidden();
-  expect((await panel.boundingBox())?.height).toBe(original?.height);
+  // Subpixel rounding during the entrance transform is not layout movement.
+  expect((await panel.boundingBox())?.height).toBeCloseTo(original?.height ?? 0, 0);
   await page.locator("#workflow-food").focus();
   await page.keyboard.press("ArrowLeft");
   await expect(page.getByRole("radio", { name: "Pet-care", exact: true })).toBeChecked();
