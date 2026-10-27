@@ -6,10 +6,9 @@ An editorial portfolio for Aaron Tagapan, a BS Information Systems graduate
 focused on IT operations, systems, application support, QA/UAT, and business
 technology.
 
-The interface uses a warm-paper canvas, graphite typography, restrained
-oxblood actions, real project screenshots, and deliberately varied editorial
-layouts. It avoids gradients, glass effects, decorative dashboards, generic
-card grids, and motion-heavy presentation.
+The interface uses an ivory canvas, deep green typography and actions, a
+contrasting interactive project workbench, real project screenshots, and
+editorial layouts. Brief hero and scroll motion respect reduced-motion preferences.
 
 ## Local development and checks
 
@@ -42,9 +41,9 @@ The current production site is hosted on Vercel at
 
 ## Stack
 
-- Next.js 16.4.2 App Router
-- React and React DOM 19.2.7
-- Strict TypeScript and ESLint
+- Next.js 16.4.3 App Router
+- React and React DOM 19.3.1
+- Strict TypeScript 6.0.3 and ESLint 9.39.5
 - Newsreader, IBM Plex Sans, and IBM Plex Mono through `next/font`
 - Authored global CSS and project-level design tokens
 
@@ -55,6 +54,7 @@ not ship a general animation library or icon library.
 ## Design system
 
 - `DESIGN_RESEARCH.md` records the October 22 redesign and reference comparisons.
+- `DESIGN_RESEARCH_2026-10-27.md` records the current palette, hero, recent GitHub references and compatible stack review.
 - `design.md` records the original editorial design contract; the newer research and implementation take precedence for hero motion.
 - `tokens.css` is the canonical token source.
 - `DESIGN_SYSTEM.md` explains the implementation rules.
