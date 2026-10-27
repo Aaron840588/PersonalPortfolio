@@ -60,10 +60,27 @@ export default function Home() {
       <PageMotion />
       <section className="home-hero shell" aria-labelledby="hero-title">
         <div className="home-hero__body">
-          <p className="hero-eyebrow">Aaron Tagapan / Information Systems graduate</p>
-          <h1 id="hero-title">IT operations.<br /><span>Systems thinking.</span></h1>
-          <p className="home-hero__summary">I turn requirements into process flows, documentation, and tested prototypes. Information Systems graduate with a 486-hour MIS internship at Gardenia.</p>
-          <p className="home-hero__availability"><span aria-hidden="true" />Open to entry-level IT and systems support roles.</p>
+          <p className="hero-eyebrow">
+            <span className="hero-edition">AT / 2026</span> Information Systems
+            graduate
+          </p>
+          <h1 id="hero-title">
+            Clear thinking.
+            <br />
+            <span>
+              Connected
+              <br className="hero-desktop-break" /> systems.
+            </span>
+          </h1>
+          <p className="home-hero__summary">
+            I’m Aaron Tagapan. I connect requirements, people and technology
+            through process analysis, documentation, testing and working
+            prototypes.
+          </p>
+          <p className="home-hero__availability">
+            <span aria-hidden="true" />
+            Open to entry-level IT and systems support roles.
+          </p>
           <div className="home-hero__actions" aria-label="Portfolio actions">
             <a className="action action--primary" href="#work">
               View selected work
@@ -72,7 +89,10 @@ export default function Home() {
               Read résumé <span aria-hidden="true">→</span>
             </Link>
           </div>
-          <nav className="home-hero__references" aria-label="Professional profiles">
+          <nav
+            className="home-hero__references"
+            aria-label="Professional profiles"
+          >
             <a
               href="https://github.com/Aaron840588"
               target="_blank"
@@ -90,15 +110,34 @@ export default function Home() {
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
           </nav>
+          <dl className="hero-evidence" aria-label="Experience at a glance">
+            <div>
+              <dt>486 hours</dt>
+              <dd>MIS internship at Gardenia</dd>
+            </div>
+            <div>
+              <dt>02 projects</dt>
+              <dd>Explore the live demos</dd>
+            </div>
+          </dl>
         </div>
         <WorkflowStudy />
         <div className="hero-footnote">
-          <p>Los Baños, Laguna <span aria-hidden="true">·</span> BS Information Systems, 2026</p>
-          <a href="#work">Explore the work <span aria-hidden="true">↓</span></a>
+          <p>
+            Los Baños, Laguna <span aria-hidden="true">·</span> BS Information
+            Systems, 2026
+          </p>
+          <a href="#work">
+            Explore the work <span aria-hidden="true">↓</span>
+          </a>
         </div>
       </section>
 
-      <section id="work" className="home-work shell" aria-labelledby="work-heading">
+      <section
+        id="work"
+        className="home-work shell"
+        aria-labelledby="work-heading"
+      >
         <header className="chapter-heading">
           <h2 id="work-heading">Selected work</h2>
           <p>Personal projects · Built with AI assistance · 2026</p>
@@ -109,13 +148,19 @@ export default function Home() {
               <span className="project-index__number">0{index + 1}</span>
               <span>{project.name}</span>
               <span className="project-index__kind">{project.type}</span>
-              <span className="project-index__arrow" aria-hidden="true">↓</span>
+              <span className="project-index__arrow" aria-hidden="true">
+                ↓
+              </span>
             </a>
           ))}
         </nav>
         <div className="project-list">
           {featuredProjects.map((project, index) => (
-            <ProjectFeature key={project.id} project={project} index={index + 1} />
+            <ProjectFeature
+              key={project.id}
+              project={project}
+              index={index + 1}
+            />
           ))}
         </div>
       </section>
@@ -158,13 +203,17 @@ export default function Home() {
         </article>
       </section>
 
-      <section id="skills" className="background-section" aria-labelledby="skills-heading">
+      <section
+        id="skills"
+        className="background-section"
+        aria-labelledby="skills-heading"
+      >
         <div className="shell background-section__inner">
           <header className="background-section__heading">
             <h2 id="skills-heading">Skills and tools</h2>
             <p>
-              Tools I have used for support, documentation, testing, systems work,
-              and personal prototypes.
+              Tools I have used for support, documentation, testing, systems
+              work, and personal prototypes.
             </p>
           </header>
 
@@ -187,7 +236,9 @@ export default function Home() {
                     <div>
                       <h4>{item.qualification}</h4>
                       <p>{item.institution}</p>
-                      {item.recognition ? <small>{item.recognition}</small> : null}
+                      {item.recognition ? (
+                        <small>{item.recognition}</small>
+                      ) : null}
                     </div>
                   </article>
                 ))}
@@ -197,7 +248,11 @@ export default function Home() {
         </div>
       </section>
 
-      <footer id="contact" className="letter-close shell" aria-labelledby="contact-heading">
+      <footer
+        id="contact"
+        className="letter-close shell"
+        aria-labelledby="contact-heading"
+      >
         <div className="letter-close__body">
           <p className="letter-close__salutation">Availability</p>
           <h2 id="contact-heading">
@@ -207,7 +262,10 @@ export default function Home() {
           <a className="letter-close__email" href={`mailto:${profile.email}`}>
             {profile.email} <span aria-hidden="true">↗</span>
           </a>
-          <nav className="letter-close__references" aria-label="Contact references">
+          <nav
+            className="letter-close__references"
+            aria-label="Contact references"
+          >
             <a
               href="https://www.linkedin.com/in/aaron-tagapan1"
               target="_blank"

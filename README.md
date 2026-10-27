@@ -1,3 +1,5 @@
+> Current design/stack review: [27 October research](DESIGN_RESEARCH_2026-10-27.md). It supersedes earlier palette and hero notes.
+
 # Aaron Tagapan Portfolio
 
 An editorial portfolio for Aaron Tagapan, a BS Information Systems graduate
@@ -95,7 +97,7 @@ Content stays at full contrast. The homepage uses a short hero entrance and one-
 
 ### H+H Hub
 
-The case study uses sanitized screenshots from the full prototype. Its public link opens a separate fictional browser simulation for stock receipts, order fulfilment/cancellation, totals and batch costing. No login, database or private records are required; changes reset on refresh. The full backend remains unavailable, and its broader features are not implied to work in the sample.
+The public link opens the original H+H interface backed by isolated fictional data and the existing ERP business handlers. Stock, costing, sales, consignment and production stay connected. Changes reset on refresh. Google Sheets accounts, push delivery and private uploads are intentionally unavailable; no private production database is connected.
 
 ### Pet-Care CRM
 

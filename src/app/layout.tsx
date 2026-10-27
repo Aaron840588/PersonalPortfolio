@@ -4,6 +4,7 @@ import { HeaderNavigation } from "@/components/navigation/HeaderNavigation";
 import { getSiteUrl, siteDescription, siteName } from "@/lib/metadata";
 import "../../tokens.css";
 import "./globals.css";
+import './modern.css';
 
 const newsreader = Newsreader({
   variable: "--font-newsreader",
