@@ -44,7 +44,7 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
     <article
       ref={ref}
       id={project.id}
-      className="grid scroll-mt-28 gap-10 border-t border-line pt-12 lg:grid-cols-12 lg:gap-12 lg:pt-16"
+      className="grid scroll-mt-28 grid-cols-[minmax(0,1fr)] gap-10 border-t border-line pt-12 lg:grid-cols-12 lg:gap-12 lg:pt-16"
     >
       <header className="lg:col-span-12 flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
         <div className="max-w-2xl">
@@ -98,7 +98,7 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
                 <span className="size-2.5 rounded-full bg-line-2" />
                 <span className="size-2.5 rounded-full bg-line-2" />
                 <span className="size-2.5 rounded-full bg-line-2" />
-                <span className="ml-3 truncate text-[0.75rem] text-mute">
+                <span className="ml-3 min-w-0 truncate text-[0.75rem] text-mute">
                   {project.liveDemo?.href.replace("https://", "") ?? project.repository.label}
                 </span>
               </div>
