@@ -87,8 +87,8 @@ export default function Home() {
               <dd className="text-mute">No login required</dd>
             </div>
             <div>
-              <dt className="font-semibold text-ink">Dean’s Lister</dt>
-              <dd className="text-mute">BS Information Systems, 2026</dd>
+              <dt className="font-semibold text-ink">BS Information Systems</dt>
+              <dd className="text-mute">National University, 2026</dd>
             </div>
           </dl>
         </div>

@@ -22,7 +22,7 @@ export const education = [
       end: "2026",
       label: "2022 – 2026",
     },
-    recognition: "Dean's Lister (Multiple Semesters)",
+    recognition: undefined,
     evidence: resumeEvidence,
   },
   {

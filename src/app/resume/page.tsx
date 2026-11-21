@@ -15,7 +15,7 @@ export default function ResumePage() {
   return (
     <>
       <main id="main-content" className="shell pb-24 pt-28 sm:pt-36">
-        <Link className="link text-[0.95rem] text-ink-2" href="/">
+        <Link className="link inline-block py-2.5 text-[0.95rem] text-ink-2" href="/">
           Back to portfolio
         </Link>
 
@@ -36,7 +36,7 @@ export default function ResumePage() {
                 </a>
               </div>
               <p className="mt-6">
-                <a className="link" href={`mailto:${profile.email}`}>
+                <a className="link inline-block py-2.5" href={`mailto:${profile.email}`}>
                   {profile.email}
                 </a>
               </p>

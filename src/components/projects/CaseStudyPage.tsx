@@ -80,7 +80,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
       <main id="main-content">
         <section aria-labelledby="case-title" className="relative isolate overflow-hidden pt-28 sm:pt-36">
           <div className="shell">
-            <Link className="link text-[0.95rem] text-ink-2" href="/#work">
+            <Link className="link inline-block py-2.5 text-[0.95rem] text-ink-2" href="/#work">
               Back to selected work
             </Link>
             <div className="mt-10 grid gap-10 lg:grid-cols-12">

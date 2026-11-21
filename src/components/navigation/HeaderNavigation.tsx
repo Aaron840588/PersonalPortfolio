@@ -52,14 +52,13 @@ export function HeaderNavigation() {
       }`}
     >
       <div className="shell flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2.5 font-display text-[1.02rem] font-semibold tracking-tight text-ink">
+        <Link href="/" aria-label="Aaron Tagapan, home" className="-ml-2 flex min-h-11 min-w-11 items-center gap-2.5 px-2 font-display text-[1.02rem] font-semibold tracking-tight text-ink">
           <svg aria-hidden="true" viewBox="0 0 16 16" className="size-4 text-spark">
             <path d="M8 1.5 13.6 4.7 8 7.9 2.4 4.7Z" fill="currentColor" />
             <path d="M2.4 4.7 8 7.9v6.6L2.4 11.3Z" fill="currentColor" opacity=".55" />
             <path d="M13.6 4.7 8 7.9v6.6l5.6-3.2Z" fill="currentColor" opacity=".8" />
           </svg>
           <span className="hidden min-[400px]:inline">Aaron Tagapan</span>
-          <span className="sr-only">, home</span>
         </Link>
 
         <nav aria-label="Main navigation" className="flex items-center gap-1 sm:gap-2">
