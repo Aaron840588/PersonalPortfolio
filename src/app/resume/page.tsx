@@ -44,7 +44,7 @@ export default function ResumePage() {
           </aside>
 
           <div className="lg:col-span-8">
-            <div className="overflow-hidden rounded-2xl border border-line-2 bg-panel">
+            <div className="overflow-hidden border border-line-2 bg-panel">
               <object
                 data={profile.resume.fileHref}
                 type="application/pdf"

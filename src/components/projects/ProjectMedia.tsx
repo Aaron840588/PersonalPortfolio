@@ -33,7 +33,7 @@ export function ProjectMedia({
   return (
     <figure className={`project-media ${className ?? ""}`}>
       <div
-        className={`project-media__image overflow-hidden rounded-2xl border border-line-2 bg-panel shadow-[0_30px_90px_-40px_rgba(0,0,0,0.9)] ${
+        className={`project-media__image overflow-hidden border border-line-2 bg-panel ${
           portrait ? "mx-auto max-w-md" : ""
         }`}
       >

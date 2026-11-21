@@ -22,6 +22,19 @@ function ExternalMark() {
   );
 }
 
+/** Corner registration ticks, as on a sheet in a drawing set. */
+function RegistrationTicks() {
+  const tick = "absolute size-3 border-ink-2/70";
+  return (
+    <span aria-hidden="true" className="pointer-events-none absolute -inset-2">
+      <span className={`${tick} left-0 top-0 border-l border-t`} />
+      <span className={`${tick} right-0 top-0 border-r border-t`} />
+      <span className={`${tick} bottom-0 left-0 border-b border-l`} />
+      <span className={`${tick} bottom-0 right-0 border-b border-r`} />
+    </span>
+  );
+}
+
 export function ProjectFeature({ project, index }: ProjectFeatureProps) {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
@@ -33,50 +46,39 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
   const rotateY = useTransform(progress, [0, 1], [flip * -6, 0]);
   const scale = useTransform(progress, [0, 1], [0.94, 1]);
   const y = useTransform(progress, [0, 1], [48, 0]);
-  const backY = useTransform(progress, [0, 1], [40, -28]);
-  const backRotate = useTransform(progress, [0, 1], [flip * -2, flip * -7]);
+  const backY = useTransform(progress, [0, 1], [36, -24]);
 
   const [hero, ...rest] = project.media;
   const back = rest.find((m) => m.width >= m.height);
+  const host = project.liveDemo?.href.replace("https://", "") ?? project.repository.label;
 
   return (
-    <article
-      ref={ref}
-      id={project.id}
-      className="grid scroll-mt-28 grid-cols-[minmax(0,1fr)] gap-10 border-t border-line pt-12 lg:grid-cols-12 lg:gap-12 lg:pt-16"
-    >
-      <header className="lg:col-span-12 flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
-        <div className="max-w-2xl">
-          <p className="text-mute text-[0.95rem]">
-            {project.type}, {project.period.label}
-          </p>
-          <h3 className="mt-2 text-[clamp(2.2rem,5vw,3.6rem)] font-semibold">
-            <Link href={project.caseStudyHref} className="hover:text-signal transition-colors">
+    <article ref={ref} id={project.id} className="grid scroll-mt-28 grid-cols-[minmax(0,1fr)] gap-12">
+      <header className="grid gap-6 md:grid-cols-12">
+        <p className="text-[0.9rem] text-mute md:col-span-3">
+          <span className="tabular-nums text-ink-2">Fig. {index}</span>
+          <span className="block">{project.type}</span>
+          <span className="block tabular-nums">{project.period.label}</span>
+        </p>
+        <div className="md:col-span-9">
+          <h3 className="text-[clamp(2.4rem,5.4vw,4.2rem)] font-semibold leading-[0.95] tracking-[-0.04em]">
+            <Link href={project.caseStudyHref} className="transition-colors hover:text-ink-2">
               {project.name}
             </Link>
           </h3>
-          <p className="mt-4 text-[1.15rem] leading-relaxed text-ink-2">{project.statement.text}</p>
+          <p className="mt-5 max-w-[40rem] text-[1.15rem] leading-relaxed text-ink-2">{project.statement.text}</p>
         </div>
-        {project.liveDemo ? (
-          <p className="flex items-center gap-2.5 text-[0.92rem] text-ink-2">
-            <span className="live-dot" aria-hidden="true" />
-            {project.liveDemo.accessNote}
-          </p>
-        ) : null}
       </header>
 
-      <div className="lg:col-span-12 [perspective:1600px]">
-        <Link
-          href={project.caseStudyHref}
-          className="group relative block"
-        >
+      <figure className="[perspective:1800px]">
+        <Link href={project.caseStudyHref} className="group relative block">
           <span className="sr-only">Read the {project.name} case study: </span>
           {back ? (
             <motion.div
               aria-hidden="true"
-              style={reduce ? undefined : { y: backY, rotate: backRotate }}
-              className={`absolute top-[6%] hidden w-[46%] overflow-hidden rounded-xl border border-line-2 opacity-70 shadow-2xl md:block ${
-                flip > 0 ? "right-[-2%]" : "left-[-2%]"
+              style={reduce ? undefined : { y: backY }}
+              className={`absolute top-[8%] hidden w-[42%] border border-line-2 bg-night opacity-60 md:block ${
+                flip > 0 ? "-right-[3%]" : "-left-[3%]"
               }`}
             >
               <Image src={back.src} alt="" width={back.width} height={back.height} sizes="40vw" quality={75} />
@@ -85,73 +87,79 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
 
           <motion.div
             style={reduce ? undefined : { rotateX, rotateY, scale, y, transformStyle: "preserve-3d" }}
-            className="relative mx-auto w-full max-w-[64rem] origin-bottom"
+            className="relative mx-auto w-full max-w-[66rem] origin-bottom"
           >
-            <div className="overflow-hidden rounded-2xl border border-line-2 bg-panel shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)]">
-              <div className="flex h-9 items-center gap-1.5 border-b border-line px-4" aria-hidden="true">
-                <span className="size-2.5 rounded-full bg-line-2" />
-                <span className="size-2.5 rounded-full bg-line-2" />
-                <span className="size-2.5 rounded-full bg-line-2" />
-                <span className="ml-3 min-w-0 truncate text-[0.75rem] text-mute">
-                  {project.liveDemo?.href.replace("https://", "") ?? project.repository.label}
-                </span>
-              </div>
+            <RegistrationTicks />
+            <div className="overflow-hidden border border-line-2 bg-panel">
               <Image
                 src={hero.src}
                 alt={hero.alt}
                 width={hero.width}
                 height={hero.height}
-                sizes="(max-width: 64rem) calc(100vw - 2rem), 64rem"
+                sizes="(max-width: 66rem) calc(100vw - 2rem), 66rem"
                 quality={80}
                 preload={index === 1}
-                className="block w-full transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.015]"
+                className="block w-full transition-[filter] duration-500 group-hover:brightness-110"
               />
             </div>
           </motion.div>
         </Link>
-      </div>
+        <figcaption className="mx-auto mt-5 flex max-w-[66rem] flex-wrap justify-between gap-x-6 gap-y-1 text-[0.9rem] text-mute">
+          <span>
+            <span className="tabular-nums text-ink-2">Fig. {index}.</span> {hero.caption}
+          </span>
+          <span className="min-w-0 truncate">{host}</span>
+        </figcaption>
+      </figure>
 
-      <dl className="grid gap-8 sm:grid-cols-3 lg:col-span-8">
-        {[
-          ["Problem", project.caseStudy.problem.text],
-          ["Approach", project.caseStudy.systemResponse.text],
-          ["My role", project.caseStudy.responsibilities[0].text],
-        ].map(([term, detail]) => (
-          <div key={term}>
-            <dt className="font-display text-[1.05rem] font-semibold text-ink">{term}</dt>
-            <dd className="mt-2 text-[0.97rem] leading-relaxed text-ink-2">{detail}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="flex flex-col gap-6 lg:col-span-4 lg:items-end">
-        <ul className="flex flex-wrap gap-2 lg:justify-end" aria-label={`${project.name} technologies`}>
-          {project.technologies.slice(0, 6).map((technology) => (
-            <li
-              key={technology.name}
-              className="rounded-full border border-line px-3 py-1 text-[0.82rem] text-ink-2"
-            >
-              {technology.name}
-            </li>
+      <div className="grid gap-10 md:grid-cols-12">
+        <dl className="grid gap-8 sm:grid-cols-3 md:col-span-9 md:col-start-4">
+          {[
+            ["Problem", project.caseStudy.problem.text],
+            ["Approach", project.caseStudy.systemResponse.text],
+            ["My role", project.caseStudy.responsibilities[0].text],
+          ].map(([term, detail]) => (
+            <div key={term} className="border-t border-line pt-4">
+              <dt className="font-semibold text-ink">{term}</dt>
+              <dd className="mt-2 text-[0.96rem] leading-relaxed text-ink-2">{detail}</dd>
+            </div>
           ))}
-        </ul>
-        <div className="flex flex-wrap items-center gap-3 lg:justify-end">
-          <Link className="btn btn-primary" href={project.caseStudyHref}>
-            Read case study
-          </Link>
-          {project.liveDemo ? (
-            <a className="btn btn-ghost" href={project.liveDemo.href} target="_blank" rel="noreferrer">
-              {project.liveDemo.label} <ExternalMark />
+        </dl>
+
+        <div className="grid gap-6 md:col-span-9 md:col-start-4">
+          <p className="text-[0.95rem] text-mute">
+            Built with{" "}
+            <span className="text-ink-2">
+              {project.technologies
+                .slice(0, 6)
+                .map((technology) => technology.name)
+                .join(", ")}
+            </span>
+          </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link className="btn btn-primary" href={project.caseStudyHref}>
+              Read case study
+            </Link>
+            {project.liveDemo ? (
+              <a className="link inline-flex items-center gap-1.5 whitespace-nowrap" href={project.liveDemo.href} target="_blank" rel="noreferrer">
+                {project.liveDemo.label} <ExternalMark />
+              </a>
+            ) : null}
+            <a
+              className="link inline-flex items-center gap-1.5 whitespace-nowrap"
+              href={project.repository.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View repository <ExternalMark />
             </a>
-          ) : null}
-          <a
-            className="link inline-flex items-center gap-1.5 whitespace-nowrap px-1 text-[0.95rem]"
-            href={project.repository.href}
-            target="_blank"
-            rel="noreferrer"
-          >
-            View repository <ExternalMark />
-          </a>
+            {project.liveDemo ? (
+              <span className="flex items-center gap-2 text-[0.9rem] text-mute">
+                <span className="live-dot" aria-hidden="true" />
+                {project.liveDemo.accessNote.split(" · ")[0]}
+              </span>
+            ) : null}
+          </div>
         </div>
       </div>
     </article>

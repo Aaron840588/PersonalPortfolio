@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { HeroScene } from "@/components/hero/HeroScene";
 import { ProjectFeature } from "@/components/projects/ProjectFeature";
+import { SectionHeading } from "@/components/ui/LayerMark";
 import { credentials, education } from "@/data/credentials";
 import { primaryExperience } from "@/data/experience";
 import { profile } from "@/data/profile";
@@ -94,189 +95,178 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Work */}
-      <section id="work" aria-labelledby="work-heading" className="shell scroll-mt-24 pb-24 pt-16 sm:pb-32 lg:pt-4">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <h2 id="work-heading" className="text-[clamp(2.4rem,5.5vw,4.25rem)] font-semibold">
-              Selected work
-            </h2>
-            <p className="mt-4 text-[1.1rem] text-ink-2">
-              Two personal prototypes for real operating problems, built with AI-assisted coding
-              and reviewed, tested and documented by me.
-            </p>
-          </div>
-          <nav aria-label="Jump to a project" className="flex flex-wrap gap-2">
-            {featuredProjects.map((project) => (
-              <a
-                key={project.id}
-                href={`#${project.id}`}
-                className="rounded-full border border-line px-4 py-2 text-[0.92rem] text-ink-2 transition-colors hover:border-signal hover:text-ink"
-              >
+      {/* Work: the systems layer */}
+      <section id="work" aria-labelledby="work-heading" className="shell scroll-mt-24 pb-28 pt-16 sm:pb-36 lg:pt-6">
+        <SectionHeading
+          id="work-heading"
+          layer="systems"
+          title="Selected work"
+          intro="Two personal prototypes for real operating problems. I mapped the workflows, built them with AI-assisted coding, then tested and documented them."
+        />
+        <nav aria-label="Jump to a project" className="mt-8 flex flex-wrap gap-x-6 gap-y-2 md:ml-[25%] md:pl-2">
+          {featuredProjects.map((project, index) => (
+            <a
+              key={project.id}
+              href={`#${project.id}`}
+              className="group inline-flex items-baseline gap-2 text-[0.98rem] text-ink-2 transition-colors hover:text-ink"
+            >
+              <span className="text-[0.82rem] tabular-nums text-mute">Fig. {index + 1}</span>
+              <span className="border-b border-line-2 pb-0.5 transition-colors group-hover:border-spark">
                 {project.name}
-              </a>
-            ))}
-          </nav>
-        </div>
-        <div className="mt-16 grid gap-28 sm:gap-36">
+              </span>
+            </a>
+          ))}
+        </nav>
+        <div className="mt-20 grid gap-32 sm:gap-40">
           {featuredProjects.map((project, index) => (
             <ProjectFeature key={project.id} project={project} index={index + 1} />
           ))}
         </div>
       </section>
 
-      {/* Experience */}
-      <section
-        id="experience"
-        aria-labelledby="experience-heading"
-        className="scroll-mt-24 border-y border-line bg-night-2 py-24 sm:py-32"
-      >
-        <div className="shell grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <h2 id="experience-heading" className="text-[clamp(2.2rem,4.5vw,3.5rem)] font-semibold">
-              MIS internship
-            </h2>
-            <p className="mt-4 text-ink-2">
-              Functional specifications, process analysis, QA testing and UAT inside an
-              enterprise MIS team.
-            </p>
-          </div>
-
-          <article className="relative rounded-3xl border border-line bg-panel/60 p-7 sm:p-10 lg:col-span-8">
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div>
-                <p className="text-ink-2">{primaryExperience.organization}</p>
-                <h3 className="mt-1 text-[1.9rem] font-semibold">{primaryExperience.role}</h3>
-                <p className="mt-1 text-mute">
-                  {primaryExperience.department}, {primaryExperience.location}
-                </p>
-              </div>
-              <div className="text-right text-[0.92rem]">
-                <p className="text-ink">{primaryExperience.period.label}</p>
-                <p className="text-spark">{primaryExperience.hours} hours</p>
-              </div>
+      {/* Experience: the process layer */}
+      <section id="experience" aria-labelledby="experience-heading" className="shell scroll-mt-24 pb-28 sm:pb-36">
+        <SectionHeading
+          id="experience-heading"
+          layer="process"
+          title="MIS internship"
+          intro="Requirements, process analysis, QA testing and UAT inside an enterprise MIS team."
+        />
+        <article className="mt-14 grid gap-8 md:grid-cols-12">
+          <dl className="grid content-start gap-5 text-[0.95rem] md:col-span-3">
+            <div>
+              <dt className="text-mute">Period</dt>
+              <dd className="text-ink">{primaryExperience.period.label}</dd>
             </div>
-            <p className="mt-8 text-[1.08rem] text-ink">{primaryExperience.summary.text}</p>
-            <ul className="claim-list mt-6">
-              {primaryExperience.highlights.map((highlight) => (
-                <li key={highlight.text}>{highlight.text}</li>
-              ))}
-            </ul>
-            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Focus areas">
-              {primaryExperience.focusAreas.map((area) => (
-                <li key={area} className="rounded-full bg-line/70 px-3 py-1 text-[0.82rem] text-ink-2">
-                  {area}
+            <div>
+              <dt className="text-mute">Time on site</dt>
+              <dd className="tabular-nums text-ink">{primaryExperience.hours} hours</dd>
+            </div>
+            <div>
+              <dt className="text-mute">Location</dt>
+              <dd className="text-ink">{primaryExperience.location}</dd>
+            </div>
+          </dl>
+          <div className="md:col-span-9">
+            <h3 className="text-[clamp(1.7rem,3vw,2.3rem)] font-semibold leading-tight">
+              {primaryExperience.role}
+            </h3>
+            <p className="mt-1 text-[1.05rem] text-ink-2">
+              {primaryExperience.department}, {primaryExperience.organization}
+            </p>
+            <p className="mt-8 max-w-[40rem] text-[1.1rem] leading-relaxed text-ink">
+              {primaryExperience.summary.text}
+            </p>
+            <ol className="mt-10 grid border-t border-line">
+              {primaryExperience.highlights.map((highlight, index) => (
+                <li
+                  key={highlight.text}
+                  className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-2 border-b border-line py-5 text-ink-2"
+                >
+                  <span className="pt-0.5 text-[0.85rem] tabular-nums text-mute">{index + 1}</span>
+                  <span className="max-w-[44rem] leading-relaxed">{highlight.text}</span>
                 </li>
               ))}
-            </ul>
-          </article>
-        </div>
+            </ol>
+            <p className="mt-6 text-[0.95rem] text-mute">
+              Focus areas: {primaryExperience.focusAreas.join(", ")}.
+            </p>
+          </div>
+        </article>
       </section>
 
       {/* Skills */}
-      <section id="skills" aria-labelledby="skills-heading" className="shell scroll-mt-24 py-24 sm:py-32">
-        <div className="max-w-2xl">
-          <h2 id="skills-heading" className="text-[clamp(2.2rem,4.5vw,3.5rem)] font-semibold">
-            Skills and tools
-          </h2>
-          <p className="mt-4 text-ink-2">
-            What I have used for support, documentation, testing, systems work and personal
-            prototypes.
-          </p>
-        </div>
-        <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2">
+      <section id="skills" aria-labelledby="skills-heading" className="shell scroll-mt-24 pb-28 sm:pb-36">
+        <SectionHeading
+          id="skills-heading"
+          title="Skills and tools"
+          intro="What I have used for support, documentation, testing, systems work and personal prototypes."
+        />
+        <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {capabilityGroups.map((group) => (
-            <article key={group.title} className="bg-night p-7 sm:p-9">
-              <h3 className="text-[1.45rem] font-semibold">{group.title}</h3>
-              <p className="mt-1 text-[0.95rem] text-mute">{group.note}</p>
-              <ul className="mt-6 flex flex-wrap gap-2">
+            <article key={group.title} className="border-t border-line-2 pt-5">
+              <h3 className="text-[1.2rem] font-semibold">{group.title}</h3>
+              <p className="mt-1 text-[0.92rem] text-mute">{group.note}</p>
+              <ul className="mt-5 grid gap-2 text-[0.98rem] text-ink-2">
                 {group.items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-lg border border-line-2 px-3 py-1.5 text-[0.9rem] text-ink-2"
-                  >
-                    {item}
-                  </li>
+                  <li key={item}>{item}</li>
                 ))}
               </ul>
             </article>
           ))}
         </div>
 
-        <div className="mt-20 grid gap-14 lg:grid-cols-2">
-          <div>
-            <h3 className="text-[1.6rem] font-semibold">Education</h3>
-            <ol className="mt-6 grid gap-6 border-l border-line-2 pl-6">
+        <div className="mt-24 grid gap-14 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <h3 className="text-[1.45rem] font-semibold">Education</h3>
+            <ol className="mt-6 grid gap-8">
               {education.map((item) => (
-                <li key={item.id} className="relative">
-                  <span
-                    aria-hidden="true"
-                    className="absolute -left-[1.86rem] top-2 size-2.5 rotate-45 border border-signal bg-night"
-                  />
-                  <p className="text-[0.9rem] text-mute">{item.period.label}</p>
-                  <p className="mt-1 font-display text-[1.2rem] font-semibold">{item.qualification}</p>
+                <li key={item.id} className="grid gap-1">
+                  <p className="text-[0.9rem] tabular-nums text-mute">{item.period.label}</p>
+                  <p className="font-display text-[1.15rem] font-semibold leading-snug">{item.qualification}</p>
                   <p className="text-ink-2">{item.institution}</p>
-                  {item.recognition ? <p className="mt-1 text-[0.92rem] text-spark">{item.recognition}</p> : null}
+                  {item.recognition ? <p className="text-[0.95rem] text-spark">{item.recognition}</p> : null}
                 </li>
               ))}
             </ol>
           </div>
-          <div>
-            <h3 className="text-[1.6rem] font-semibold">Training</h3>
-            <ul className="mt-6 divide-y divide-line border-y border-line">
-              {credentials.map((item) => (
-                <li key={item.id} className="flex items-baseline justify-between gap-4 py-3">
-                  <span>
-                    <span className="text-ink">{item.title}</span>
-                    <span className="block text-[0.88rem] text-mute">{item.provider}</span>
-                  </span>
-                  <span className="text-[0.88rem] text-mute tabular-nums">{item.year}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="md:col-span-7">
+            <h3 className="text-[1.45rem] font-semibold">Training</h3>
+            <table className="mt-6 w-full text-left text-[0.97rem]">
+              <caption className="sr-only">Certifications and training</caption>
+              <thead className="sr-only">
+                <tr>
+                  <th scope="col">Course</th>
+                  <th scope="col">Provider</th>
+                  <th scope="col">Year</th>
+                </tr>
+              </thead>
+              <tbody className="border-t border-line">
+                {credentials.map((item) => (
+                  <tr key={item.id} className="border-b border-line">
+                    <td className="py-3 pr-4 text-ink">{item.title}</td>
+                    <td className="hidden py-3 pr-4 text-mute sm:table-cell">{item.provider}</td>
+                    <td className="py-3 text-right tabular-nums text-mute">{item.year}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
-      {/* Contact */}
-      <footer id="contact" aria-labelledby="contact-heading" className="relative overflow-hidden border-t border-line">
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 -z-10 h-[70%] bg-[radial-gradient(50%_70%_at_50%_100%,rgba(61,107,255,0.18),transparent_70%)]"
-        />
-        <div className="shell py-24 sm:py-36">
-          <h2
-            id="contact-heading"
-            className="max-w-4xl text-[clamp(2.4rem,6vw,4.75rem)] font-semibold leading-[1]"
-          >
-            Hiring for IT operations or systems support?
-          </h2>
-          <p className="mt-6 max-w-xl text-[1.1rem] text-ink-2">{profile.availability.text}</p>
-          <a
-            href={`mailto:${profile.email}`}
-            className="group mt-10 inline-flex items-center gap-3 font-display text-[clamp(1.3rem,3.6vw,2.4rem)] font-semibold text-signal"
-          >
-            <span className="border-b border-signal/40 pb-1 transition-colors group-hover:border-signal">
-              {profile.email}
-            </span>
-          </a>
-          <nav aria-label="Contact references" className="mt-12 flex flex-wrap gap-3">
-            <a className="btn btn-ghost" href="https://www.linkedin.com/in/aaron-tagapan1" {...external}>
-              LinkedIn
-              <NewTab />
+      {/* Contact: the people layer */}
+      <footer id="contact" aria-labelledby="contact-heading" className="shell pb-10">
+        <SectionHeading id="contact-heading" layer="people" title="Hiring for IT operations or systems support?" />
+        <div className="mt-10 grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-9 md:col-start-4">
+            <p className="max-w-[36rem] text-[1.1rem] text-ink-2">{profile.availability.text}</p>
+            <a
+              href={`mailto:${profile.email}`}
+              className="group mt-10 inline-block font-display text-[clamp(1.35rem,4.2vw,3rem)] font-semibold tracking-[-0.03em] text-ink"
+            >
+              <span className="bg-[linear-gradient(var(--color-spark),var(--color-spark))] bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-1 transition-[background-size] duration-500 ease-[var(--ease-out-expo)] group-hover:bg-[length:100%_2px] group-focus-visible:bg-[length:100%_2px]">
+                {profile.email}
+              </span>
             </a>
-            <a className="btn btn-ghost" href="https://github.com/Aaron840588" {...external}>
-              GitHub
-              <NewTab />
-            </a>
-            <Link className="btn btn-ghost" href="/resume">
-              Résumé
-            </Link>
-          </nav>
-          <div className="mt-24 flex flex-wrap justify-between gap-4 border-t border-line pt-6 text-[0.9rem] text-mute">
-            <p>Aaron Tagapan, {profile.location}</p>
-            <p>Built with Next.js, React Three Fiber and Tailwind CSS</p>
+            <nav aria-label="Contact references" className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-[1rem]">
+              <a className="link" href="https://www.linkedin.com/in/aaron-tagapan1" {...external}>
+                LinkedIn
+                <NewTab />
+              </a>
+              <a className="link" href="https://github.com/Aaron840588" {...external}>
+                GitHub
+                <NewTab />
+              </a>
+              <Link className="link" href="/resume">
+                Résumé
+              </Link>
+            </nav>
           </div>
+        </div>
+        <div className="mt-28 flex flex-wrap justify-between gap-4 border-t border-line pt-6 text-[0.88rem] text-mute">
+          <p>Aaron Tagapan, {profile.location}</p>
+          <p>Designed and built in 2026</p>
         </div>
       </footer>
     </main>

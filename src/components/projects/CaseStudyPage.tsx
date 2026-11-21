@@ -79,10 +79,6 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
     <>
       <main id="main-content">
         <section aria-labelledby="case-title" className="relative isolate overflow-hidden pt-28 sm:pt-36">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-[radial-gradient(55%_60%_at_80%_0%,rgba(61,107,255,0.18),transparent_70%)]"
-          />
           <div className="shell">
             <Link className="link text-[0.95rem] text-ink-2" href="/#work">
               Back to selected work
@@ -111,7 +107,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
                     {newTab}
                   </a>
                 </div>
-                <p className="flex gap-3 rounded-2xl border border-line bg-panel/60 p-4 text-[0.93rem] text-ink-2">
+                <p className="flex gap-3 border-l border-spark/60 py-1 pl-4 text-[0.93rem] text-ink-2">
                   <span className="live-dot mt-2 shrink-0" aria-hidden="true" />
                   <span>
                     <strong className="text-ink">{project.demoStatus.label}.</strong> {project.demoStatus.detail}
@@ -156,7 +152,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
             {project.media.map((media, index) => (
               <li key={media.src} className="grid gap-6 lg:grid-cols-12 lg:gap-10">
                 <div className="lg:col-span-3">
-                  <p className="text-[0.9rem] text-signal">Screen {index + 1} of {project.media.length}</p>
+                  <p className="text-[0.9rem] tabular-nums text-mute">Fig. {index + 1}</p>
                   <h3 className="mt-1 text-[1.5rem] font-semibold">{projectTourTitles[index]}</h3>
                 </div>
                 <div className="lg:col-span-9">
@@ -179,7 +175,7 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
                 <p>{project.caseStudy.operationalContext.text}</p>
               </div>
             </div>
-            <div className="rounded-3xl border border-line bg-panel/60 p-7 lg:col-span-5">
+            <div className="border-t border-line-2 pt-6 lg:col-span-5">
               <h3 className="text-[1.4rem] font-semibold">My role</h3>
               <div className="mt-5">
                 <ClaimList claims={project.caseStudy.responsibilities} />
@@ -196,9 +192,9 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
               </h2>
               <p className="mt-3 text-ink-2">{section.intro}</p>
             </div>
-            <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-2">
+            <div className="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-2">
               {section.rows.map(([title, claims]) => (
-                <article key={title} className="bg-night p-7 sm:p-9">
+                <article key={title} className="border-t border-line-2 pt-6">
                   <h3 className="text-[1.3rem] font-semibold">{title}</h3>
                   <div className="mt-5">
                     <ClaimList claims={claims} />
@@ -207,13 +203,10 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
               ))}
             </div>
             {section.id === "implementation" ? (
-              <ul className="mt-8 flex flex-wrap gap-2" aria-label="Key technologies">
-                {project.technologies.map((t) => (
-                  <li key={t.name} className="rounded-full border border-line px-3 py-1 text-[0.85rem] text-ink-2">
-                    {t.name}
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-10 max-w-[48rem] text-[0.95rem] text-mute">
+                Key technologies:{" "}
+                <span className="text-ink-2">{project.technologies.map((t) => t.name).join(", ")}</span>
+              </p>
             ) : null}
             {section.id === "reflection"
               ? project.caseStudy.contentWarnings.map((warning) => (

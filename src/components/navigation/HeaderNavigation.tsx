@@ -46,29 +46,23 @@ export function HeaderNavigation() {
   const current = pathname === "/resume" ? "resume" : pathname === "/" ? active : null;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
-      <div
-        className={`mx-auto flex h-14 max-w-[78rem] items-center justify-between gap-3 rounded-full border px-2 pl-5 transition-[background-color,border-color,backdrop-filter] duration-500 ${
-          scrolled
-            ? "border-line bg-night/70 backdrop-blur-xl backdrop-saturate-150"
-            : "border-transparent bg-transparent"
-        }`}
-      >
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 font-display text-[1.05rem] font-semibold tracking-tight text-ink"
-        >
-          <span
-            aria-hidden="true"
-            className="grid size-7 place-items-center rounded-lg border border-line-2 bg-panel text-[0.7rem] font-bold text-signal"
-          >
-            AT
-          </span>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter] duration-500 ${
+        scrolled ? "border-line bg-night/80 backdrop-blur-lg" : "border-transparent bg-transparent"
+      }`}
+    >
+      <div className="shell flex h-16 items-center justify-between gap-4">
+        <Link href="/" className="flex items-center gap-2.5 font-display text-[1.02rem] font-semibold tracking-tight text-ink">
+          <svg aria-hidden="true" viewBox="0 0 16 16" className="size-4 text-spark">
+            <path d="M8 1.5 13.6 4.7 8 7.9 2.4 4.7Z" fill="currentColor" />
+            <path d="M2.4 4.7 8 7.9v6.6L2.4 11.3Z" fill="currentColor" opacity=".55" />
+            <path d="M13.6 4.7 8 7.9v6.6l5.6-3.2Z" fill="currentColor" opacity=".8" />
+          </svg>
           <span className="hidden min-[400px]:inline">Aaron Tagapan</span>
           <span className="sr-only">, home</span>
         </Link>
 
-        <nav aria-label="Main navigation" className="flex items-center gap-0.5 sm:gap-1">
+        <nav aria-label="Main navigation" className="flex items-center gap-1 sm:gap-2">
           {links.map((link) => {
             const isActive = current === link.id;
             return (
@@ -76,17 +70,23 @@ export function HeaderNavigation() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? (link.id === "resume" ? "page" : "location") : undefined}
-                className={`rounded-full px-2.5 py-2 text-[0.9rem] font-medium transition-colors sm:px-3.5 ${
+                className={`relative px-2 py-2 text-[0.92rem] transition-colors sm:px-3 ${
                   link.id === "experience" || link.id === "skills" ? "hidden md:inline-flex" : "inline-flex"
-                } ${isActive ? "bg-panel text-ink" : "text-mute hover:text-ink"}`}
+                } ${isActive ? "text-ink" : "text-mute hover:text-ink"}`}
               >
                 {link.label}
+                <span
+                  aria-hidden="true"
+                  className={`absolute inset-x-2 -bottom-px h-px bg-spark transition-transform duration-300 sm:inset-x-3 ${
+                    isActive ? "scale-x-100" : "scale-x-0"
+                  }`}
+                />
               </Link>
             );
           })}
           <a
             href="mailto:aarontagapan@gmail.com"
-            className="ml-1 inline-flex h-10 items-center rounded-full bg-ink px-4 text-[0.9rem] font-semibold text-night transition-colors hover:bg-white"
+            className="ml-2 inline-flex h-9 items-center rounded-md border border-line-2 px-3.5 text-[0.9rem] font-medium text-ink transition-colors hover:border-ink-2"
           >
             Email Aaron
           </a>
