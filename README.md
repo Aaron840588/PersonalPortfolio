@@ -1,14 +1,27 @@
-> Current design/stack review: [27 October research](DESIGN_RESEARCH_2026-10-27.md). It supersedes earlier palette and hero notes.
-
 # Aaron Tagapan Portfolio
 
-An editorial portfolio for Aaron Tagapan, a BS Information Systems graduate
+A dark, 3D portfolio for Aaron Tagapan, a BS Information Systems graduate
 focused on IT operations, systems, application support, QA/UAT, and business
 technology.
 
-The interface uses an ivory canvas, deep green typography and actions, a
-contrasting interactive project workbench, real project screenshots, and
-editorial layouts. Brief hero and scroll motion respect reduced-motion preferences.
+The hero is a live WebGL "systems map": three layers (people, process,
+systems) linked by flowing packets of work. It tilts toward the pointer, and on
+desktop the hero pins while the layers move apart as you scroll. Project
+screenshots flatten from a 3D tilt as they scroll into view.
+
+## Stack
+
+- Next.js 16 (App Router, static output), React 19, TypeScript
+- Tailwind CSS v4 (`@theme` tokens in `src/app/globals.css`)
+- three.js with React Three Fiber, drei and postprocessing (bloom), in
+  `src/components/hero/`
+- Motion for scroll-linked transforms, Lenis for smooth wheel scrolling
+- CSS scroll-driven animations (`animation-timeline`) for the hero exit
+- Playwright and axe-core for end-to-end and accessibility checks
+
+The 3D scene loads after first paint, pauses when off-screen, renders a
+single static frame for reduced-motion users, and is skipped when WebGL is
+unavailable. Lenis is disabled for touch devices and reduced motion.
 
 ## Local development and checks
 

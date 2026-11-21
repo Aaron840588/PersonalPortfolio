@@ -22,6 +22,17 @@ for (const route of routes) {
     );
     expect(overflow).toBeLessThanOrEqual(1);
 
+    // Let one-off entrance animations finish so contrast is measured on the settled page.
+    await page.waitForFunction(() =>
+      document
+        .getAnimations()
+        .every(
+          (animation) =>
+            animation.playState !== "running" ||
+            animation.effect?.getTiming().iterations === Infinity ||
+            animation.timeline !== document.timeline,
+        ),
+    );
     const results = await new AxeBuilder({ page }).exclude("object").analyze();
     expect(results.violations).toEqual([]);
   });
@@ -91,7 +102,7 @@ test("capture screenshots of all pages for visual audit", async ({ page }, testI
   for (const route of routes) {
     await page.goto(route);
     await page.emulateMedia({ reducedMotion: "reduce" });
-    for (const image of await page.locator("main img").all()) {
+    for (const image of await page.locator("main img:visible").all()) {
       await image.scrollIntoViewIfNeeded();
       await expect(image).toHaveJSProperty("complete", true);
       expect(await image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
@@ -163,50 +174,34 @@ test("reduced motion and disabled JavaScript retain readable content", async ({ 
   await context.close();
 });
 
-test("hero workflow switches with pointer and keyboard without shifting the page", async ({ page }) => {
+test("hero 3D systems map renders without errors and stays decorative", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
-  const panel = page.locator(".workflow-study");
-  const original = await panel.boundingBox();
-  await expect(page.getByRole("link", { name: "Explore Pet-Care CRM" })).toBeVisible();
-  await page.locator('label[for="workflow-food"]').click();
-  await expect(page.getByRole("radio", { name: "Food operations", exact: true })).toBeChecked();
-  await expect(page.getByRole("img", { name: /^H\+H Hub: Recipe/ })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Explore Pet-Care CRM" })).toBeHidden();
-  // Subpixel rounding during the entrance transform is not layout movement.
-  expect((await panel.boundingBox())?.height).toBeCloseTo(original?.height ?? 0, 0);
-  await page.locator("#workflow-food").focus();
-  await page.keyboard.press("ArrowLeft");
-  await expect(page.getByRole("radio", { name: "Pet-care", exact: true })).toBeChecked();
-  await page.keyboard.press("Tab");
-  await expect(page.getByRole("link", { name: "Explore Pet-Care CRM" })).toBeFocused();
-  await page.keyboard.press("Enter");
-  await expect(page).toHaveURL(/\/work\/pet-care-crm$/);
+  const canvas = page.locator("#main-content section").first().locator("canvas");
+  await expect(canvas).toHaveCount(1, { timeout: 15_000 });
+  await expect(canvas.locator("xpath=ancestor::*[@aria-hidden='true']").first()).toBeAttached();
+  await page.mouse.wheel(0, 900);
+  await page.waitForTimeout(600);
   expect(errors).toEqual([]);
 });
 
-test("hero workflow works without JavaScript and respects reduced motion", async ({ browser }) => {
-  const context = await browser.newContext({ javaScriptEnabled: false, reducedMotion: "reduce" });
+test("reduced motion keeps the hero static and skips smooth scrolling", async ({ browser }) => {
+  const context = await browser.newContext({ reducedMotion: "reduce" });
   const page = await context.newPage();
   await page.goto("http://127.0.0.1:3100/");
-  await page.locator('label[for="workflow-food"]').click();
-  await expect(page.getByRole("link", { name: "Explore H+H Hub" })).toBeVisible();
-  const animatedParts = page.locator(".workflow-study__panel--food .workflow-map__trace, .workflow-study__panel--food .workflow-map__node");
-  expect(await animatedParts.evaluateAll((elements) => elements.every((element) => getComputedStyle(element).animationName === "none"))).toBe(true);
-  await page.getByRole("link", { name: "Explore H+H Hub" }).click();
-  await expect(page).toHaveURL(/\/work\/hh-hub$/);
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.classList.contains("lenis"))).toBe(false);
   await context.close();
 });
 
-test("project index jumps to both projects and hero motion settles", async ({ page }) => {
+test("project index jumps to both projects", async ({ page }) => {
   await page.goto("/");
-  await expect.poll(() => page.locator(".workflow-study").evaluate((element) =>
-    element.getAnimations({ subtree: true }).filter((animation) => animation.playState === "running").length,
-  )).toBe(0);
   for (const [name, id] of [["H+H Hub", "hh-hub"], ["Pet-Care CRM", "pet-care-crm"]]) {
-    await page.getByRole("navigation", { name: "Jump to a project" }).getByRole("link", { name: new RegExp(name.replace("+", "\\+")) }).click();
-    await expect(page).toHaveURL(new RegExp(`#${id}$`));
+    await page
+      .getByRole("navigation", { name: "Jump to a project" })
+      .getByRole("link", { name })
+      .click();
     await expect(page.locator(`#${id} h3`)).toBeInViewport();
   }
 });

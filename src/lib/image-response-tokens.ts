@@ -1,20 +1,21 @@
 /**
  * Standalone image responses do not inherit the site's CSS custom properties.
- * Keep their semantic palette and font fallbacks centralized here instead of
- * improvising values inside each metadata-image component.
+ * Keep their palette and font fallbacks centralized here, mirroring the
+ * @theme tokens in src/app/globals.css.
  */
 export const imageResponseTokens = {
   color: {
-    paper: "#f7ece2",
-    paperAlt: "#ecdfd2",
-    ink: "#201513",
-    inkSoft: "#3c2f2c",
-    muted: "#5d4f4b",
-    rule: "#c0b1a4",
-    accent: "#782222",
+    paper: "#070a12",
+    paperAlt: "#111828",
+    ink: "#e9edf6",
+    inkSoft: "#b9c1d4",
+    muted: "#8792ab",
+    rule: "#1e2740",
+    accent: "#8ab4ff",
+    spark: "#ffb35c",
   },
   font: {
     body: "Arial, sans-serif",
-    display: "Georgia, serif",
+    display: "Arial, sans-serif",
   },
 } as const;

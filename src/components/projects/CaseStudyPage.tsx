@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { FeaturedProject, SourcedClaim } from "@/types/portfolio";
+import { SiteFooter } from "@/components/ui/SiteFooter";
 import { ProjectMedia } from "./ProjectMedia";
 
 type CaseStudyPageProps = {
@@ -9,7 +10,7 @@ type CaseStudyPageProps = {
 
 function ClaimList({ claims }: { claims: readonly SourcedClaim[] }) {
   return (
-    <ul className="case-list">
+    <ul className="claim-list">
       {claims.map((claim) => (
         <li key={claim.text}>{claim.text}</li>
       ))}
@@ -41,233 +42,217 @@ export function CaseStudyPage({ project, nextProject }: CaseStudyPageProps) {
 
   const projectTourTitles = tourTitles[project.id as keyof typeof tourTitles];
 
+  const ext = { target: "_blank", rel: "noreferrer" } as const;
+  const newTab = <span className="sr-only"> (opens in a new tab)</span>;
+
+  const sections = [
+    {
+      id: "workflow",
+      title: "How the system is used",
+      intro: "Operational roles and the workflows they move through.",
+      rows: [
+        ["Users and roles", project.caseStudy.usersAndRoles],
+        ["Key workflows", project.caseStudy.keyWorkflows],
+      ],
+    },
+    {
+      id: "implementation",
+      title: "Implementation and checks",
+      intro: "The tools, technical choices and verification behind the demo.",
+      rows: [
+        ["Technical setup", project.caseStudy.technicalImplementation],
+        ["Checks and known behavior", project.caseStudy.testingAndReliability],
+      ],
+    },
+    {
+      id: "reflection",
+      title: "Limits and lessons",
+      intro: "What was traded off, and what I would carry into the next system.",
+      rows: [
+        ["Challenges and tradeoffs", project.caseStudy.challengesAndTradeoffs],
+        ["Lessons learned", project.caseStudy.lessonsLearned],
+      ],
+    },
+  ] as const;
+
   return (
-    <main id="main-content" className="case-study">
-      <section className="case-masthead shell" aria-labelledby="case-title">
-        <Link className="back-link" href="/#work">
-          <span aria-hidden="true">←</span> Selected work
-        </Link>
-
-        <div className="case-masthead__grid">
-          <div className="case-masthead__title">
-            <p className="case-provenance">
-              {project.type} · {project.period.label}
-            </p>
-            <h1 id="case-title">{project.name}</h1>
-            <p className="case-masthead__statement">{project.statement.text}</p>
-          </div>
-
-          <div className="case-masthead__brief">
-            <p>{project.summary.text}</p>
-            <div className="case-masthead__actions">
-              {project.liveDemo ? (
-                <a
-                  className="action action--primary"
-                  href={project.liveDemo.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {project.id === "hh-hub" ? project.liveDemo.label : "Open public demo"} <span aria-hidden="true">↗</span>
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              ) : (
-                <a
-                  className="action action--primary"
-                  href={project.repository.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View repository <span aria-hidden="true">↗</span>
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              )}
-              {project.liveDemo ? (
-                <a
-                  className="text-action"
-                  href={project.repository.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View repository <span aria-hidden="true">↗</span>
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              ) : null}
-            </div>
-            <p className={`project-status project-status--${project.demoStatus.availability}`}>
-              <span className="project-status__mark" aria-hidden="true" />
-              <span>
-                <strong>{project.demoStatus.label}.</strong> {project.demoStatus.detail}
-              </span>
-            </p>
-          </div>
-        </div>
-
-        <dl className="case-facts">
-          <div>
-            <dt>{project.period.label}</dt>
-            <dd>project period</dd>
-          </div>
-          <div>
-            <dt>Public repository</dt>
-            <dd>{project.repository.licenseLabel}</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section className="case-tour shell" aria-labelledby="tour-heading">
-        <header className="case-section-heading">
-          <h2 id="tour-heading">A short project tour</h2>
-          <p>
-            {project.id === "hh-hub"
-              ? (project.demoStatus.availability === "maintenance"
-                ? "Three sanitized local-demo screens; the hosted backend is under maintenance."
-                : "Three sanitized screens from H+H. Explore the original interface through its isolated fictional demo.")
-              : "Three screens from the synthetic public demo."}
-          </p>
-        </header>
-
-        <ol className="workbench-tour">
-          {project.media.map((media, index) => (
-            <li className="workbench-step" key={media.src}>
-              <div className="workbench-step__annotation">
-                <p>Frame {String(index + 1).padStart(2, "0")}</p>
-                <h3>{projectTourTitles[index]}</h3>
+    <>
+      <main id="main-content">
+        <section aria-labelledby="case-title" className="relative isolate overflow-hidden pt-28 sm:pt-36">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-[radial-gradient(55%_60%_at_80%_0%,rgba(61,107,255,0.18),transparent_70%)]"
+          />
+          <div className="shell">
+            <Link className="link text-[0.95rem] text-ink-2" href="/#work">
+              Back to selected work
+            </Link>
+            <div className="mt-10 grid gap-10 lg:grid-cols-12">
+              <div className="lg:col-span-7">
+                <p className="text-mute">
+                  {project.type}, {project.period.label}
+                </p>
+                <h1 id="case-title" className="mt-3 text-[clamp(3rem,8vw,6rem)] font-semibold leading-[0.95] tracking-[-0.045em]">
+                  {project.name}
+                </h1>
+                <p className="mt-6 max-w-2xl text-[1.2rem] leading-relaxed text-ink-2">{project.statement.text}</p>
               </div>
-              <ProjectMedia
-                media={media}
-                priority={index === 0}
-                sizes="(max-width: 59.99rem) calc(100vw - 2rem), (max-width: 99.99rem) 70vw, 68rem"
-                className={media.height > media.width ? "project-media--portrait" : undefined}
-                linkToSource
-              />
-            </li>
-          ))}
-        </ol>
-      </section>
+              <div className="flex flex-col justify-end gap-6 lg:col-span-5">
+                <p className="text-ink-2">{project.summary.text}</p>
+                <div className="flex flex-wrap gap-3">
+                  {project.liveDemo ? (
+                    <a className="btn btn-primary" href={project.liveDemo.href} {...ext}>
+                      {project.id === "hh-hub" ? project.liveDemo.label : "Open public demo"}
+                      {newTab}
+                    </a>
+                  ) : null}
+                  <a className="btn btn-ghost" href={project.repository.href} {...ext}>
+                    View repository
+                    {newTab}
+                  </a>
+                </div>
+                <p className="flex gap-3 rounded-2xl border border-line bg-panel/60 p-4 text-[0.93rem] text-ink-2">
+                  <span className="live-dot mt-2 shrink-0" aria-hidden="true" />
+                  <span>
+                    <strong className="text-ink">{project.demoStatus.label}.</strong> {project.demoStatus.detail}
+                  </span>
+                </p>
+              </div>
+            </div>
 
-      <aside className="case-action-rail" aria-label={`${project.name} project action`}>
-        <div className="shell case-action-rail__inner">
-          <p>
-            {project.liveDemo
-              ? "The public demo is available without a login."
-              : "The hosted demo is under maintenance; the repository remains available."}
-          </p>
-          <a
-            href={project.liveDemo?.href ?? project.repository.href}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {project.liveDemo ? "Open demo" : "View repository"} {" "}
-            <span aria-hidden="true">↗</span>
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-        </div>
-      </aside>
-
-      <section className="case-content shell" aria-labelledby="brief-heading">
-        <header className="case-section-heading">
-          <h2 id="brief-heading">Project brief</h2>
-        </header>
-        <div className="case-brief">
-          <div className="case-brief__lead">
-            <p>{project.caseStudy.problem.text}</p>
-            <p>{project.caseStudy.systemResponse.text}</p>
-            <p>{project.caseStudy.operationalContext.text}</p>
+            <dl className="mt-14 grid gap-6 border-y border-line py-6 text-[0.95rem] sm:grid-cols-3">
+              <div>
+                <dt className="text-mute">Period</dt>
+                <dd className="text-ink">{project.period.label}</dd>
+              </div>
+              <div>
+                <dt className="text-mute">Repository</dt>
+                <dd className="text-ink">{project.repository.licenseLabel}</dd>
+              </div>
+              <div>
+                <dt className="text-mute">Stack</dt>
+                <dd className="text-ink">
+                  {project.technologies.slice(0, 4).map((t) => t.name).join(", ")}
+                </dd>
+              </div>
+            </dl>
           </div>
-          <div className="case-brief__role">
-            <h3>My role</h3>
-            <ClaimList claims={project.caseStudy.responsibilities} />
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="case-content shell" aria-labelledby="workflow-heading">
-        <header className="case-section-heading">
-          <h2 id="workflow-heading">How the system is used</h2>
-          <p>Operational roles and the workflows they move through.</p>
-        </header>
-        <div className="case-ledger">
-          <article className="case-ledger__row">
-            <h3>Users and roles</h3>
-            <ClaimList claims={project.caseStudy.usersAndRoles} />
-          </article>
-          <article className="case-ledger__row">
-            <h3>Key workflows</h3>
-            <ClaimList claims={project.caseStudy.keyWorkflows} />
-          </article>
-        </div>
-      </section>
-
-      <section className="case-content shell" aria-labelledby="implementation-heading">
-        <header className="case-section-heading">
-          <h2 id="implementation-heading">Implementation and checks</h2>
-          <p>The tools, technical choices, and verification behind the demo.</p>
-        </header>
-        <div className="case-ledger">
-          <article className="case-ledger__row">
-            <h3>Technical setup</h3>
-            <ClaimList claims={project.caseStudy.technicalImplementation} />
-          </article>
-          <article className="case-ledger__row">
-            <h3>Checks and known behavior</h3>
-            <ClaimList claims={project.caseStudy.testingAndReliability} />
-          </article>
-          <article className="case-ledger__row case-ledger__row--compact">
-            <h3>Key technologies</h3>
-            <p>
-              {project.technologies.map((technology) => technology.name).join(" · ")}
+        <section aria-labelledby="tour-heading" className="shell py-20 sm:py-28">
+          <div className="max-w-2xl">
+            <h2 id="tour-heading" className="text-[clamp(2rem,4.5vw,3.25rem)] font-semibold">
+              A short project tour
+            </h2>
+            <p className="mt-3 text-ink-2">
+              {project.id === "hh-hub"
+                ? project.demoStatus.availability === "maintenance"
+                  ? "Three sanitized local-demo screens; the hosted backend is under maintenance."
+                  : "Three sanitized screens from H+H. Explore the original interface through its isolated fictional demo."
+                : "Three screens from the synthetic public demo."}
             </p>
-          </article>
-        </div>
-      </section>
+          </div>
+          <ol className="mt-14 grid gap-20">
+            {project.media.map((media, index) => (
+              <li key={media.src} className="grid gap-6 lg:grid-cols-12 lg:gap-10">
+                <div className="lg:col-span-3">
+                  <p className="text-[0.9rem] text-signal">Screen {index + 1} of {project.media.length}</p>
+                  <h3 className="mt-1 text-[1.5rem] font-semibold">{projectTourTitles[index]}</h3>
+                </div>
+                <div className="lg:col-span-9">
+                  <ProjectMedia media={media} priority={index === 0} linkToSource />
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-      <section className="case-content case-content--last shell" aria-labelledby="reflection-heading">
-        <header className="case-section-heading">
-          <h2 id="reflection-heading">Limits and lessons</h2>
-        </header>
-        <div className="case-ledger">
-          <article className="case-ledger__row">
-            <h3>Challenges and tradeoffs</h3>
-            <ClaimList claims={project.caseStudy.challengesAndTradeoffs} />
-          </article>
-          <article className="case-ledger__row">
-            <h3>Lessons learned</h3>
-            <ClaimList claims={project.caseStudy.lessonsLearned} />
-          </article>
-        </div>
-        {project.caseStudy.contentWarnings.map((warning) => (
-          <p className="evidence-note" key={warning.text}>
-            <strong>Note.</strong> {warning.text}
-          </p>
+        <section aria-labelledby="brief-heading" className="border-y border-line bg-night-2 py-20 sm:py-28">
+          <div className="shell grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <h2 id="brief-heading" className="text-[clamp(2rem,4.5vw,3.25rem)] font-semibold">
+                Project brief
+              </h2>
+              <div className="mt-6 grid gap-5 text-[1.08rem] leading-relaxed text-ink-2">
+                <p className="text-ink">{project.caseStudy.problem.text}</p>
+                <p>{project.caseStudy.systemResponse.text}</p>
+                <p>{project.caseStudy.operationalContext.text}</p>
+              </div>
+            </div>
+            <div className="rounded-3xl border border-line bg-panel/60 p-7 lg:col-span-5">
+              <h3 className="text-[1.4rem] font-semibold">My role</h3>
+              <div className="mt-5">
+                <ClaimList claims={project.caseStudy.responsibilities} />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {sections.map((section) => (
+          <section key={section.id} aria-labelledby={`${section.id}-heading`} className="shell py-20 sm:py-24">
+            <div className="max-w-2xl">
+              <h2 id={`${section.id}-heading`} className="text-[clamp(2rem,4.5vw,3.25rem)] font-semibold">
+                {section.title}
+              </h2>
+              <p className="mt-3 text-ink-2">{section.intro}</p>
+            </div>
+            <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-2">
+              {section.rows.map(([title, claims]) => (
+                <article key={title} className="bg-night p-7 sm:p-9">
+                  <h3 className="text-[1.3rem] font-semibold">{title}</h3>
+                  <div className="mt-5">
+                    <ClaimList claims={claims} />
+                  </div>
+                </article>
+              ))}
+            </div>
+            {section.id === "implementation" ? (
+              <ul className="mt-8 flex flex-wrap gap-2" aria-label="Key technologies">
+                {project.technologies.map((t) => (
+                  <li key={t.name} className="rounded-full border border-line px-3 py-1 text-[0.85rem] text-ink-2">
+                    {t.name}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {section.id === "reflection"
+              ? project.caseStudy.contentWarnings.map((warning) => (
+                  <p key={warning.text} className="mt-8 max-w-3xl text-[0.92rem] text-mute">
+                    <strong className="text-ink-2">Note.</strong> {warning.text}
+                  </p>
+                ))
+              : null}
+          </section>
         ))}
-      </section>
 
-      <section className="case-next" aria-labelledby="next-project-heading">
-        <div className="shell case-next__inner">
-          <p>Continue with</p>
-          <h2 id="next-project-heading">
-            <Link href={nextProject.caseStudyHref}>{nextProject.name}</Link>
-          </h2>
-          <Link className="text-action" href={nextProject.caseStudyHref}>
-            Next case study <span aria-hidden="true">→</span>
+        <section aria-labelledby="next-project-heading" className="border-t border-line">
+          <Link
+            href={nextProject.caseStudyHref}
+            className="shell group flex flex-wrap items-end justify-between gap-6 py-20 sm:py-28"
+          >
+            <span>
+              <span className="block text-mute">Next case study</span>
+              <span
+                id="next-project-heading"
+                role="heading"
+                aria-level={2}
+                className="mt-2 block font-display text-[clamp(2.6rem,7vw,5.5rem)] font-semibold leading-none tracking-[-0.04em] transition-colors group-hover:text-signal"
+              >
+                {nextProject.name}
+              </span>
+            </span>
+            <span className="btn btn-ghost">Read case study</span>
           </Link>
-        </div>
-      </section>
+        </section>
 
-      <footer className="route-footer shell">
-        <p>Aaron Tagapan</p>
-        <p className="route-footer__name">IT operations and systems</p>
-        <p>
-          <a href="mailto:aarontagapan@gmail.com">aarontagapan@gmail.com</a>
-        </p>
-      </footer>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(softwareJsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
-    </main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(softwareJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+      </main>
+      <SiteFooter />
+    </>
   );
 }

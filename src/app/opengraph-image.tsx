@@ -36,7 +36,7 @@ export default function OpenGraphImage() {
         >
           <span style={{ fontWeight: 700, letterSpacing: -0.4 }}>Aaron Tagapan</span>
           <span style={{ color: color.muted, fontSize: 16, letterSpacing: 1.4 }}>
-            PORTFOLIO / 2026
+            Portfolio 2026
           </span>
         </div>
 
@@ -58,18 +58,18 @@ export default function OpenGraphImage() {
                 letterSpacing: 1.6,
               }}
             >
-              IT OPERATIONS · SYSTEMS · SUPPORT
+              IT operations, systems and support
             </span>
             <span
               style={{
                 fontFamily: font.display,
                 fontSize: 70,
-                fontWeight: 400,
+                fontWeight: 700,
                 lineHeight: 0.98,
                 letterSpacing: -2.2,
               }}
             >
-              Information Systems graduate focused on operations and support.
+              People, process and the systems between them.
             </span>
           </div>
 
@@ -86,7 +86,7 @@ export default function OpenGraphImage() {
             }}
           >
             <span style={{ marginBottom: 24, fontSize: 13, letterSpacing: 1.2 }}>
-              PRACTICE
+              Practice
             </span>
             <span style={{ fontSize: 18, lineHeight: 1.35 }}>
               Operations

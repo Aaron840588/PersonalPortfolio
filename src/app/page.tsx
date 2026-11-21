@@ -1,296 +1,286 @@
 import Link from "next/link";
+import { HeroScene } from "@/components/hero/HeroScene";
 import { ProjectFeature } from "@/components/projects/ProjectFeature";
-import { education } from "@/data/credentials";
+import { credentials, education } from "@/data/credentials";
 import { primaryExperience } from "@/data/experience";
 import { profile } from "@/data/profile";
 import { featuredProjects } from "@/data/projects";
-import { PageMotion } from "@/components/ui/PageMotion";
-import { WorkflowStudy } from "@/components/ui/WorkflowStudy";
 
 const capabilityGroups = [
   {
     title: "IT operations",
-    items: [
-      "Windows 10/11",
-      "Hardware diagnostics",
-      "Driver management",
-      "VirtualBox",
-      "Linux fundamentals",
-      "PC assembly",
-    ],
+    note: "Keeping machines and users running.",
+    items: ["Windows 10/11", "Hardware diagnostics", "Driver management", "VirtualBox", "Linux fundamentals", "PC assembly"],
   },
   {
     title: "Systems and cloud",
-    items: [
-      "Supabase",
-      "Firebase",
-      "Vercel",
-      "PostgreSQL",
-      "REST APIs",
-      "GitHub",
-    ],
+    note: "Where the data lives and ships.",
+    items: ["Supabase", "Firebase", "Vercel", "PostgreSQL", "REST APIs", "GitHub"],
   },
   {
     title: "Business systems",
-    items: [
-      "Requirements",
-      "Process flows",
-      "Functional specifications",
-      "UAT",
-      "QA",
-      "Data modeling",
-    ],
+    note: "Turning how work happens into specs.",
+    items: ["Requirements", "Process flows", "Functional specifications", "UAT", "QA", "Data modeling"],
   },
   {
     title: "AI-assisted prototyping",
-    items: [
-      "AI-assisted coding",
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Python",
-      "Workflow automation",
-    ],
+    note: "Building working tools to test ideas.",
+    items: ["AI-assisted coding", "Next.js", "React", "TypeScript", "Python", "Workflow automation"],
   },
 ] as const;
 
+const external = { target: "_blank", rel: "noreferrer" } as const;
+
+function NewTab() {
+  return <span className="sr-only"> (opens in a new tab)</span>;
+}
+
 export default function Home() {
   return (
-    <main id="main-content" className="home-page">
-      <PageMotion />
-      <section className="home-hero shell" aria-labelledby="hero-title">
-        <div className="home-hero__body">
-          <p className="hero-eyebrow">
-            <span className="hero-edition">AT / 2026</span> Information Systems
-            graduate
-          </p>
-          <h1 id="hero-title">
-            Clear thinking.
-            <br />
-            <span>
-              Connected
-              <br className="hero-desktop-break" /> systems.
-            </span>
-          </h1>
-          <p className="home-hero__summary">
-            I’m Aaron Tagapan. I connect requirements, people and technology
-            through process analysis, documentation, testing and working
-            prototypes.
-          </p>
-          <p className="home-hero__availability">
-            <span aria-hidden="true" />
-            Open to entry-level IT and systems support roles.
-          </p>
-          <div className="home-hero__actions" aria-label="Portfolio actions">
-            <a className="action action--primary" href="#work">
-              View selected work
-            </a>
-            <Link className="text-action" href={profile.resume.pageHref}>
-              Read résumé <span aria-hidden="true">→</span>
-            </Link>
+    <main id="main-content">
+      {/* Hero */}
+      <section
+        aria-labelledby="hero-title"
+        className="relative isolate lg:h-[160svh]"
+      >
+        <div className="relative flex min-h-[100svh] flex-col overflow-hidden lg:sticky lg:top-0 lg:h-svh">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-20 bg-[radial-gradient(60%_55%_at_72%_42%,rgba(61,107,255,0.16),transparent_70%)]"
+        />
+        <div className="relative h-[44svh] w-full lg:absolute lg:inset-0 lg:h-auto">
+          <HeroScene />
+        </div>
+
+        <div className="hero-exit shell relative flex flex-1 flex-col justify-end pb-10 lg:justify-center lg:pb-0 lg:pt-24">
+          <div className="max-w-[44rem]">
+            <p className="hero-fade flex items-center gap-2.5 text-[0.95rem] text-ink-2">
+              <span className="live-dot" aria-hidden="true" />
+              Open to entry-level IT and systems support roles
+            </p>
+            <h1
+              id="hero-title"
+              className="mt-6 text-[clamp(2.75rem,6.6vw,5.4rem)] font-semibold leading-[0.95] tracking-[-0.045em]"
+            >
+              <span className="hero-line">People, process</span>
+              <span className="hero-line">and the systems</span>
+              <span className="hero-line">between them.</span>
+            </h1>
+            <p className="hero-fade mt-7 max-w-[34rem] text-[1.15rem] leading-relaxed text-ink-2">
+              I’m Aaron Tagapan, an Information Systems graduate. I turn requirements into
+              working tools through process analysis, documentation, testing and prototypes.
+            </p>
+            <div className="hero-fade mt-9 flex flex-wrap items-center gap-3">
+              <a className="btn btn-primary" href="#work">
+                View selected work
+              </a>
+              <Link className="btn btn-ghost" href={profile.resume.pageHref}>
+                Read résumé
+              </Link>
+            </div>
           </div>
-          <nav
-            className="home-hero__references"
-            aria-label="Professional profiles"
-          >
-            <a
-              href="https://github.com/Aaron840588"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub <span aria-hidden="true">↗</span>
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/aaron-tagapan1"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn <span aria-hidden="true">↗</span>
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
-          </nav>
-          <dl className="hero-evidence" aria-label="Experience at a glance">
+
+          <dl className="hero-fade mt-14 grid max-w-[40rem] grid-cols-1 gap-4 border-t border-line pt-6 text-[0.92rem] sm:grid-cols-3 lg:mt-20">
             <div>
-              <dt>486 hours</dt>
-              <dd>MIS internship at Gardenia</dd>
+              <dt className="font-semibold text-ink">486-hour internship</dt>
+              <dd className="text-mute">MIS, Gardenia Philippines</dd>
             </div>
             <div>
-              <dt>02 projects</dt>
-              <dd>Explore the live demos</dd>
+              <dt className="font-semibold text-ink">2 live demos</dt>
+              <dd className="text-mute">No login required</dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-ink">Dean’s Lister</dt>
+              <dd className="text-mute">BS Information Systems, 2026</dd>
             </div>
           </dl>
         </div>
-        <WorkflowStudy />
-        <div className="hero-footnote">
-          <p>
-            Los Baños, Laguna <span aria-hidden="true">·</span> BS Information
-            Systems, 2026
-          </p>
-          <a href="#work">
-            Explore the work <span aria-hidden="true">↓</span>
-          </a>
         </div>
       </section>
 
-      <section
-        id="work"
-        className="home-work shell"
-        aria-labelledby="work-heading"
-      >
-        <header className="chapter-heading">
-          <h2 id="work-heading">Selected work</h2>
-          <p>Personal projects · Built with AI assistance · 2026</p>
-        </header>
-        <nav className="project-index" aria-label="Jump to a project">
+      {/* Work */}
+      <section id="work" aria-labelledby="work-heading" className="shell scroll-mt-24 pb-24 pt-16 sm:pb-32 lg:pt-4">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <h2 id="work-heading" className="text-[clamp(2.4rem,5.5vw,4.25rem)] font-semibold">
+              Selected work
+            </h2>
+            <p className="mt-4 text-[1.1rem] text-ink-2">
+              Two personal prototypes for real operating problems, built with AI-assisted coding
+              and reviewed, tested and documented by me.
+            </p>
+          </div>
+          <nav aria-label="Jump to a project" className="flex flex-wrap gap-2">
+            {featuredProjects.map((project) => (
+              <a
+                key={project.id}
+                href={`#${project.id}`}
+                className="rounded-full border border-line px-4 py-2 text-[0.92rem] text-ink-2 transition-colors hover:border-signal hover:text-ink"
+              >
+                {project.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <div className="mt-16 grid gap-28 sm:gap-36">
           {featuredProjects.map((project, index) => (
-            <a key={project.id} href={`#${project.id}`}>
-              <span className="project-index__number">0{index + 1}</span>
-              <span>{project.name}</span>
-              <span className="project-index__kind">{project.type}</span>
-              <span className="project-index__arrow" aria-hidden="true">
-                ↓
-              </span>
-            </a>
-          ))}
-        </nav>
-        <div className="project-list">
-          {featuredProjects.map((project, index) => (
-            <ProjectFeature
-              key={project.id}
-              project={project}
-              index={index + 1}
-            />
+            <ProjectFeature key={project.id} project={project} index={index + 1} />
           ))}
         </div>
       </section>
 
+      {/* Experience */}
       <section
         id="experience"
-        className="experience-section shell"
         aria-labelledby="experience-heading"
+        className="scroll-mt-24 border-y border-line bg-night-2 py-24 sm:py-32"
       >
-        <header className="experience-section__heading">
-          <h2 id="experience-heading">MIS internship</h2>
-          <p>
-            Functional specifications, process analysis, QA testing, and UAT.
-          </p>
-        </header>
-
-        <article className="experience-record">
-          <div className="experience-record__meta">
-            <p>{primaryExperience.period.label}</p>
-            <p>{primaryExperience.location}</p>
-            <p>{primaryExperience.hours} hours</p>
+        <div className="shell grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <h2 id="experience-heading" className="text-[clamp(2.2rem,4.5vw,3.5rem)] font-semibold">
+              MIS internship
+            </h2>
+            <p className="mt-4 text-ink-2">
+              Functional specifications, process analysis, QA testing and UAT inside an
+              enterprise MIS team.
+            </p>
           </div>
-          <div className="experience-record__body">
-            <p className="experience-record__organization">
-              {primaryExperience.organization}
-            </p>
-            <h3>{primaryExperience.role}</h3>
-            <p className="experience-record__department">
-              {primaryExperience.department}
-            </p>
-            <p className="experience-record__summary">
-              {primaryExperience.summary.text}
-            </p>
-            <ul className="experience-points">
+
+          <article className="relative rounded-3xl border border-line bg-panel/60 p-7 sm:p-10 lg:col-span-8">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <p className="text-ink-2">{primaryExperience.organization}</p>
+                <h3 className="mt-1 text-[1.9rem] font-semibold">{primaryExperience.role}</h3>
+                <p className="mt-1 text-mute">
+                  {primaryExperience.department}, {primaryExperience.location}
+                </p>
+              </div>
+              <div className="text-right text-[0.92rem]">
+                <p className="text-ink">{primaryExperience.period.label}</p>
+                <p className="text-spark">{primaryExperience.hours} hours</p>
+              </div>
+            </div>
+            <p className="mt-8 text-[1.08rem] text-ink">{primaryExperience.summary.text}</p>
+            <ul className="claim-list mt-6">
               {primaryExperience.highlights.map((highlight) => (
                 <li key={highlight.text}>{highlight.text}</li>
               ))}
             </ul>
-          </div>
-        </article>
+            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Focus areas">
+              {primaryExperience.focusAreas.map((area) => (
+                <li key={area} className="rounded-full bg-line/70 px-3 py-1 text-[0.82rem] text-ink-2">
+                  {area}
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
       </section>
 
-      <section
-        id="skills"
-        className="background-section"
-        aria-labelledby="skills-heading"
-      >
-        <div className="shell background-section__inner">
-          <header className="background-section__heading">
-            <h2 id="skills-heading">Skills and tools</h2>
-            <p>
-              Tools I have used for support, documentation, testing, systems
-              work, and personal prototypes.
-            </p>
-          </header>
-
-          <div className="background-section__grid">
-            <div className="capability-index" aria-label="Capabilities">
-              {capabilityGroups.map((group) => (
-                <article className="capability-row" key={group.title}>
-                  <h3>{group.title}</h3>
-                  <p>{group.items.join(" · ")}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="education-block">
-              <h3>Education</h3>
-              <div className="education-list">
-                {education.map((item) => (
-                  <article className="education-row" key={item.id}>
-                    <p>{item.period.label}</p>
-                    <div>
-                      <h4>{item.qualification}</h4>
-                      <p>{item.institution}</p>
-                      {item.recognition ? (
-                        <small>{item.recognition}</small>
-                      ) : null}
-                    </div>
-                  </article>
+      {/* Skills */}
+      <section id="skills" aria-labelledby="skills-heading" className="shell scroll-mt-24 py-24 sm:py-32">
+        <div className="max-w-2xl">
+          <h2 id="skills-heading" className="text-[clamp(2.2rem,4.5vw,3.5rem)] font-semibold">
+            Skills and tools
+          </h2>
+          <p className="mt-4 text-ink-2">
+            What I have used for support, documentation, testing, systems work and personal
+            prototypes.
+          </p>
+        </div>
+        <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2">
+          {capabilityGroups.map((group) => (
+            <article key={group.title} className="bg-night p-7 sm:p-9">
+              <h3 className="text-[1.45rem] font-semibold">{group.title}</h3>
+              <p className="mt-1 text-[0.95rem] text-mute">{group.note}</p>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-lg border border-line-2 px-3 py-1.5 text-[0.9rem] text-ink-2"
+                  >
+                    {item}
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-20 grid gap-14 lg:grid-cols-2">
+          <div>
+            <h3 className="text-[1.6rem] font-semibold">Education</h3>
+            <ol className="mt-6 grid gap-6 border-l border-line-2 pl-6">
+              {education.map((item) => (
+                <li key={item.id} className="relative">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -left-[1.86rem] top-2 size-2.5 rotate-45 border border-signal bg-night"
+                  />
+                  <p className="text-[0.9rem] text-mute">{item.period.label}</p>
+                  <p className="mt-1 font-display text-[1.2rem] font-semibold">{item.qualification}</p>
+                  <p className="text-ink-2">{item.institution}</p>
+                  {item.recognition ? <p className="mt-1 text-[0.92rem] text-spark">{item.recognition}</p> : null}
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div>
+            <h3 className="text-[1.6rem] font-semibold">Training</h3>
+            <ul className="mt-6 divide-y divide-line border-y border-line">
+              {credentials.map((item) => (
+                <li key={item.id} className="flex items-baseline justify-between gap-4 py-3">
+                  <span>
+                    <span className="text-ink">{item.title}</span>
+                    <span className="block text-[0.88rem] text-mute">{item.provider}</span>
+                  </span>
+                  <span className="text-[0.88rem] text-mute tabular-nums">{item.year}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      <footer
-        id="contact"
-        className="letter-close shell"
-        aria-labelledby="contact-heading"
-      >
-        <div className="letter-close__body">
-          <p className="letter-close__salutation">Availability</p>
-          <h2 id="contact-heading">
-            Open to entry-level IT operations and systems support roles.
-          </h2>
-          <p>{profile.availability.text}</p>
-          <a className="letter-close__email" href={`mailto:${profile.email}`}>
-            {profile.email} <span aria-hidden="true">↗</span>
-          </a>
-          <nav
-            className="letter-close__references"
-            aria-label="Contact references"
+      {/* Contact */}
+      <footer id="contact" aria-labelledby="contact-heading" className="relative overflow-hidden border-t border-line">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 -z-10 h-[70%] bg-[radial-gradient(50%_70%_at_50%_100%,rgba(61,107,255,0.18),transparent_70%)]"
+        />
+        <div className="shell py-24 sm:py-36">
+          <h2
+            id="contact-heading"
+            className="max-w-4xl text-[clamp(2.4rem,6vw,4.75rem)] font-semibold leading-[1]"
           >
-            <a
-              href="https://www.linkedin.com/in/aaron-tagapan1"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn <span aria-hidden="true">↗</span>
-              <span className="sr-only"> (opens in a new tab)</span>
+            Hiring for IT operations or systems support?
+          </h2>
+          <p className="mt-6 max-w-xl text-[1.1rem] text-ink-2">{profile.availability.text}</p>
+          <a
+            href={`mailto:${profile.email}`}
+            className="group mt-10 inline-flex items-center gap-3 font-display text-[clamp(1.3rem,3.6vw,2.4rem)] font-semibold text-signal"
+          >
+            <span className="border-b border-signal/40 pb-1 transition-colors group-hover:border-signal">
+              {profile.email}
+            </span>
+          </a>
+          <nav aria-label="Contact references" className="mt-12 flex flex-wrap gap-3">
+            <a className="btn btn-ghost" href="https://www.linkedin.com/in/aaron-tagapan1" {...external}>
+              LinkedIn
+              <NewTab />
             </a>
-            <a
-              href="https://github.com/Aaron840588"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub <span aria-hidden="true">↗</span>
-              <span className="sr-only"> (opens in a new tab)</span>
+            <a className="btn btn-ghost" href="https://github.com/Aaron840588" {...external}>
+              GitHub
+              <NewTab />
             </a>
-            <Link href="/resume">
-              Résumé <span aria-hidden="true">→</span>
+            <Link className="btn btn-ghost" href="/resume">
+              Résumé
             </Link>
           </nav>
-        </div>
-        <div className="letter-close__signoff">
-          <p>Contact</p>
-          <p className="letter-close__name">Aaron Tagapan</p>
-          <p>Los Baños, Laguna · 2026</p>
+          <div className="mt-24 flex flex-wrap justify-between gap-4 border-t border-line pt-6 text-[0.9rem] text-mute">
+            <p>Aaron Tagapan, {profile.location}</p>
+            <p>Built with Next.js, React Three Fiber and Tailwind CSS</p>
+          </div>
         </div>
       </footer>
     </main>
