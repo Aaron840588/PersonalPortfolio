@@ -29,13 +29,12 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 26, mass: 0.4 });
   const flip = index % 2 === 0 ? -1 : 1;
 
-  const rotateX = useTransform(progress, [0, 1], [32, 0]);
-  const rotateY = useTransform(progress, [0, 1], [flip * -14, 0]);
-  const scale = useTransform(progress, [0, 1], [0.86, 1]);
-  const y = useTransform(progress, [0, 1], [80, 0]);
+  const rotateX = useTransform(progress, [0, 1], [14, 0]);
+  const rotateY = useTransform(progress, [0, 1], [flip * -6, 0]);
+  const scale = useTransform(progress, [0, 1], [0.94, 1]);
+  const y = useTransform(progress, [0, 1], [48, 0]);
   const backY = useTransform(progress, [0, 1], [40, -28]);
   const backRotate = useTransform(progress, [0, 1], [flip * -2, flip * -7]);
-  const glow = useTransform(progress, [0, 1], [0, 0.55]);
 
   const [hero, ...rest] = project.media;
   const back = rest.find((m) => m.width >= m.height);
@@ -88,11 +87,6 @@ export function ProjectFeature({ project, index }: ProjectFeatureProps) {
             style={reduce ? undefined : { rotateX, rotateY, scale, y, transformStyle: "preserve-3d" }}
             className="relative mx-auto w-full max-w-[64rem] origin-bottom"
           >
-            <motion.div
-              aria-hidden="true"
-              style={reduce ? { opacity: 0.5 } : { opacity: glow }}
-              className="absolute -inset-x-[8%] -bottom-[14%] top-[30%] -z-10 rounded-[50%] bg-signal-deep/50 blur-[90px]"
-            />
             <div className="overflow-hidden rounded-2xl border border-line-2 bg-panel shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)]">
               <div className="flex h-9 items-center gap-1.5 border-b border-line px-4" aria-hidden="true">
                 <span className="size-2.5 rounded-full bg-line-2" />

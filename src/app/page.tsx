@@ -44,11 +44,7 @@ export default function Home() {
         className="relative isolate lg:h-[160svh]"
       >
         <div className="relative flex min-h-[100svh] flex-col overflow-hidden lg:sticky lg:top-0 lg:h-svh">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-20 bg-[radial-gradient(60%_55%_at_72%_42%,rgba(61,107,255,0.16),transparent_70%)]"
-        />
-        <div className="relative h-[44svh] w-full lg:absolute lg:inset-0 lg:h-auto">
+        <div className="relative mt-16 h-[40svh] w-full lg:absolute lg:inset-0 lg:mt-0 lg:h-auto">
           <HeroScene />
         </div>
 
@@ -62,9 +58,9 @@ export default function Home() {
               id="hero-title"
               className="mt-6 text-[clamp(2.75rem,6.6vw,5.4rem)] font-semibold leading-[0.95] tracking-[-0.045em]"
             >
-              <span className="hero-line">People, process</span>
-              <span className="hero-line">and the systems</span>
-              <span className="hero-line">between them.</span>
+              <span className="hero-line"><span>People, process</span></span>
+              <span className="hero-line"><span>and the systems</span></span>
+              <span className="hero-line"><span>between them.</span></span>
             </h1>
             <p className="hero-fade mt-7 max-w-[34rem] text-[1.15rem] leading-relaxed text-ink-2">
               I’m Aaron Tagapan, an Information Systems graduate. I turn requirements into

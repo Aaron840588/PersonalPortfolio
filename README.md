@@ -4,16 +4,18 @@ A dark, 3D portfolio for Aaron Tagapan, a BS Information Systems graduate
 focused on IT operations, systems, application support, QA/UAT, and business
 technology.
 
-The hero is a live WebGL "systems map": three layers (people, process,
-systems) linked by flowing packets of work. It tilts toward the pointer, and on
-desktop the hero pins while the layers move apart as you scroll. Project
-screenshots flatten from a 3D tilt as they scroll into view.
+The hero is a live WebGL technical drawing: an exploded isometric view of three
+drafting planes (people, process, systems). It inks itself in once, then one
+request at a time traces a route from a person, through a process, into a
+system and back. On desktop the hero pins while the layers pull apart as you
+scroll. Project screenshots flatten from a slight 3D tilt as they scroll into
+view.
 
 ## Stack
 
 - Next.js 16 (App Router, static output), React 19, TypeScript
 - Tailwind CSS v4 (`@theme` tokens in `src/app/globals.css`)
-- three.js with React Three Fiber, drei and postprocessing (bloom), in
+- three.js with React Three Fiber (orthographic, no post-processing), in
   `src/components/hero/`
 - Motion for scroll-linked transforms, Lenis for smooth wheel scrolling
 - CSS scroll-driven animations (`animation-timeline`) for the hero exit
