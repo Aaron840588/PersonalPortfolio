@@ -1,14 +1,29 @@
-> Current design/stack review: [27 October research](DESIGN_RESEARCH_2026-10-27.md). It supersedes earlier palette and hero notes.
-
 # Aaron Tagapan Portfolio
 
-An editorial portfolio for Aaron Tagapan, a BS Information Systems graduate
+A dark, 3D portfolio for Aaron Tagapan, a BS Information Systems graduate
 focused on IT operations, systems, application support, QA/UAT, and business
 technology.
 
-The interface uses an ivory canvas, deep green typography and actions, a
-contrasting interactive project workbench, real project screenshots, and
-editorial layouts. Brief hero and scroll motion respect reduced-motion preferences.
+The hero is a live WebGL technical drawing: an exploded isometric view of three
+drafting planes (people, process, systems). It inks itself in once, then one
+request at a time traces a route from a person, through a process, into a
+system and back. On desktop the hero pins while the layers pull apart as you
+scroll. Project screenshots flatten from a slight 3D tilt as they scroll into
+view.
+
+## Stack
+
+- Next.js 16 (App Router, static output), React 19, TypeScript
+- Tailwind CSS v4 (`@theme` tokens in `src/app/globals.css`)
+- three.js with React Three Fiber (orthographic, no post-processing), in
+  `src/components/hero/`
+- Motion for scroll-linked transforms, Lenis for smooth wheel scrolling
+- CSS scroll-driven animations (`animation-timeline`) for the hero exit
+- Playwright and axe-core for end-to-end and accessibility checks
+
+The 3D scene loads after first paint, pauses when off-screen, renders a
+single static frame for reduced-motion users, and is skipped when WebGL is
+unavailable. Lenis is disabled for touch devices and reduced motion.
 
 ## Local development and checks
 
@@ -39,32 +54,19 @@ The current production site is hosted on Vercel at
 | `/sitemap.xml` | Generated sitemap |
 | `/robots.txt` | Generated crawler policy |
 
-## Stack
-
-- Next.js 16.4.3 App Router
-- React and React DOM 19.3.1
-- Strict TypeScript 6.0.3 and ESLint 9.39.5
-- Newsreader, IBM Plex Sans, and IBM Plex Mono through `next/font`
-- Authored global CSS and project-level design tokens
-
-The portfolio has no database, CMS, analytics SDK, form backend, or runtime
-dependency on either featured project's backend. The production interface does
-not ship a general animation library or icon library.
-
 ## Design system
 
-- `DESIGN_RESEARCH.md` records the October 22 redesign and reference comparisons.
-- `DESIGN_RESEARCH_2026-10-27.md` records the current palette, hero, recent GitHub references and compatible stack review.
-- `design.md` records the original editorial design contract; the newer research and implementation take precedence for hero motion.
-- `tokens.css` is the canonical token source.
-- `DESIGN_SYSTEM.md` explains the implementation rules.
-- The content shell grows to 96rem on large displays, while prose remains
-  capped at 62ch for readability.
-- Body copy starts at 17px; metadata starts at 13px.
+- Tokens live in the `@theme` block of `src/app/globals.css`: navy-black
+  ground, off-white ink, and amber as the single accent for live states.
+- Bricolage Grotesque (display) and Hanken Grotesk (text) through `next/font`.
+- The visual language is a technical drawing set: hairline rules, registration
+  ticks, numbered figures, and three layer marks (people ring, process diamond,
+  systems block) that tie sections back to the hero drawing.
+- `DESIGN_SYSTEM.md`, `design.md` and the `DESIGN_RESEARCH*.md` files record
+  earlier iterations and are kept for history; this README and the code take
+  precedence.
 
-The layout is validated at 320, 375, 768, 1280, 2048, and 2560 CSS pixels. A
-true 2560×1440 viewport intentionally keeps an editorial margin around the
-1536px canvas rather than stretching text across the monitor.
+The layout is validated from 320 to 2560 CSS pixels.
 
 ## Source integrity
 
@@ -89,9 +91,12 @@ Supporting records:
 
 The site targets WCAG 2.2 AA with semantic landmarks, one H1 per route,
 sequential headings, a skip link, visible keyboard focus, descriptive links and
-image alternatives, 44px-or-larger control targets, and 320px reflow.
+image alternatives, 24px-or-larger tap targets, and 320px reflow.
 
-Content stays at full contrast. The homepage uses a short hero entrance and one-time scroll entrances, plus restrained image hover motion. Reduced-motion disables entrances and smooth scrolling; content is usable without JavaScript.
+Motion is limited to one orchestrated hero (the drawing inks in, a single
+request traces its route, the layers separate on scroll), scroll-linked project
+figures, and small hover states. Reduced-motion users get a still drawing and
+native scrolling; content is readable without JavaScript.
 
 ## Featured demo caveats
 
@@ -103,11 +108,18 @@ The public link opens the original H+H interface backed by isolated fictional da
 
 The demo uses fictional in-memory records. Records and service settings reset on refresh. Local production tests cover core CRUD workflows, booking calendars, invoice/report exports and backup downloads. No Firebase or Gemini calls occur during the tested demo flows. Browser/device permission flows are not exhaustively certified.
 
-## Release evidence — October 22, 2026
+## Release evidence — November 21, 2026
 
-Production build, lint, TypeScript and 34 desktop/mobile Chromium checks pass. The hero includes a native-radio project workflow selector, a brief SVG connection animation, reduced-motion handling, and JavaScript-disabled support. A project jump list leads directly to both case studies. No animation dependency or third-party runtime service was added.
+Lint, TypeScript, production build, `npm audit` and 34 desktop/mobile Chromium
+checks (including axe) pass. A separate audit covered every route at 320, 375,
+390, 414, 768, 1024 and 1440px for overflow, clipped text, tap-target size,
+console errors, failed requests and broken links or anchors, plus a tap-through
+of every navigation path on a phone and a desktop viewport.
 
-The public résumé omits the phone number and retains professional email and city. See `VALIDATION_REPORT.md` and `RELEASE_NOTES.md` for scope and deployment verification. Historical privacy findings in the demo repositories still require provider credential rotation and separate history remediation; publishing these fixes does not erase earlier commits.
+The résumé PDF is the owner-supplied November 2026 version and includes the
+owner's phone number by their choice. "Dean's Lister" appears only in the PDF,
+not in the site text. Historical privacy findings in the demo repositories still
+require provider credential rotation and separate history remediation.
 
 Never add production credentials, private customer records, or unreviewed
 historical screenshots to this portfolio.

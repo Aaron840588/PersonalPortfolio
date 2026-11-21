@@ -1,34 +1,26 @@
-import type { Metadata } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import { HeaderNavigation } from "@/components/navigation/HeaderNavigation";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { getSiteUrl, siteDescription, siteName } from "@/lib/metadata";
-import "../../tokens.css";
 import "./globals.css";
-import './modern.css';
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: "variable",
-  style: "normal",
   display: "swap",
 });
 
-const ibmPlexSans = IBM_Plex_Sans({
-  variable: "--font-ibm-plex-sans",
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
-  weight: "variable",
-  style: "normal",
   display: "swap",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  style: "normal",
-  display: "swap",
-});
+export const viewport: Viewport = {
+  themeColor: "#070a12",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
@@ -127,12 +119,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
+      className={`${bricolage.variable} ${hanken.variable}`}
     >
       <body>
-        <a className="skip-link" href="#main-content">
+        <a
+          className="fixed left-4 top-4 z-[70] -translate-y-24 rounded-full bg-ink px-4 py-2 font-semibold text-night focus:translate-y-0"
+          href="#main-content"
+        >
           Skip to main content
         </a>
+        <SmoothScroll />
         <HeaderNavigation />
         {children}
         <script
@@ -141,6 +137,7 @@ export default function RootLayout({
             __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
           }}
         />
+        <div className="grain" aria-hidden="true" />
       </body>
     </html>
   );

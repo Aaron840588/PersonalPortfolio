@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteFooter } from "@/components/ui/SiteFooter";
 import { profile } from "@/data/profile";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -12,69 +13,58 @@ export const metadata: Metadata = pageMetadata({
 
 export default function ResumePage() {
   return (
-    <main id="main-content" className="resume-page">
-      <div className="shell resume-page__shell">
-        <Link className="back-link" href="/">
-          <span aria-hidden="true">←</span> Portfolio index
+    <>
+      <main id="main-content" className="shell pb-24 pt-28 sm:pt-36">
+        <Link className="link inline-block py-2.5 text-[0.95rem] text-ink-2" href="/">
+          Back to portfolio
         </Link>
 
-        <div className="resume-layout">
-          <aside className="resume-rail" aria-label="Résumé actions">
-            <p className="resume-rail__edition">Résumé · 2026</p>
-            <p className="resume-rail__role">{profile.professionalLabel}</p>
-            <p>{profile.location}</p>
-            <div className="resume-rail__actions">
-              <a
-                className="action action--primary"
-                href={profile.resume.fileHref}
-                download
-              >
-                Download PDF
-              </a>
-              <a
-                className="text-action"
-                href={profile.resume.fileHref}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open PDF <span aria-hidden="true">↗</span>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
+        <div className="mt-10 grid gap-12 lg:grid-cols-12">
+          <aside aria-label="Résumé actions" className="lg:col-span-4">
+            <div className="lg:sticky lg:top-28">
+              <h1 className="text-[clamp(2.6rem,6vw,4rem)] font-semibold">Aaron Tagapan</h1>
+              <p className="mt-3 text-ink-2">{profile.professionalLabel.replaceAll(" · ", ", ")}</p>
+              <p className="text-mute">{profile.location}</p>
+              <p className="mt-6 text-ink-2">{profile.about.text}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a className="btn btn-primary" href={profile.resume.fileHref} download>
+                  Download PDF
+                </a>
+                <a className="btn btn-ghost" href={profile.resume.fileHref} target="_blank" rel="noreferrer">
+                  Open PDF
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </div>
+              <p className="mt-6">
+                <a className="link inline-block py-2.5" href={`mailto:${profile.email}`}>
+                  {profile.email}
+                </a>
+              </p>
             </div>
-            <p className="resume-rail__contact">
-              <a href={`mailto:${profile.email}`}>{profile.email}</a>
-            </p>
           </aside>
 
-          <article className="resume-document" aria-labelledby="resume-title">
-            <header className="resume-document__heading">
-              <h1 id="resume-title">Aaron Tagapan</h1>
-              <p>{profile.about.text}</p>
-            </header>
-
-            <div className="resume-frame">
+          <div className="lg:col-span-8">
+            <div className="overflow-hidden border border-line-2 bg-panel">
               <object
                 data={profile.resume.fileHref}
                 type="application/pdf"
                 aria-label="Aaron Tagapan résumé PDF"
+                className="block h-[80svh] min-h-[32rem] w-full"
               >
-                <div className="resume-frame__fallback">
-                  <p>Your browser cannot display the embedded PDF.</p>
-                  <a className="text-action" href={profile.resume.fileHref}>
-                    Open the résumé PDF <span aria-hidden="true">→</span>
-                  </a>
+                <div className="grid h-full place-items-center p-10 text-center">
+                  <div>
+                    <p className="text-ink-2">Your browser cannot display the embedded PDF.</p>
+                    <a className="btn btn-ghost mt-5" href={profile.resume.fileHref}>
+                      Open the résumé PDF
+                    </a>
+                  </div>
                 </div>
               </object>
             </div>
-          </article>
+          </div>
         </div>
-      </div>
-
-      <footer className="route-footer shell">
-        <p>Aaron Tagapan</p>
-        <p className="route-footer__name">IT operations and systems</p>
-        <p>Los Baños, Laguna · 2026</p>
-      </footer>
-    </main>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

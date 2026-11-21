@@ -248,7 +248,7 @@ The resume presents "Kapit-Bisig / OK! Calamba" as one combined label. Do not in
 ### Education
 
 - Bachelor of Science in Information Systems, National University – Laguna, 2022–2026
-- Dean's Lister (Multiple Semesters); no GPA or exact semester list is supplied
+- Dean's Lister (Multiple Semesters): on the résumé PDF only; owner asked to keep it off the website
 - TVL – ICT Strand (Senior High School), STI College Calamba, 2019–2021
 
 ### Certifications & Training
